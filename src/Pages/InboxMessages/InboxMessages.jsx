@@ -3,7 +3,7 @@
 const InboxMessages = () => {
     return (
         <div>
-            inboxMessages Text addded
+            inboxMessages Text addded more text added
         </div>
     );
 };
