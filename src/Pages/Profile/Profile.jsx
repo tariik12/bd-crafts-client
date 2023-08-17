@@ -1,11 +1,5 @@
-
-
 const Profile = () => {
-    return (
-        <div>
-            profile
-        </div>
-    );
+  return <div>profile will create mahadi</div>;
 };
 
 export default Profile;
