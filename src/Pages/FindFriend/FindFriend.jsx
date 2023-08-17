@@ -3,7 +3,7 @@
 const FindFriend = () => {
     return (
         <div>
-            Fiend Friend
+            Fiend Friend Hello Friend
         </div>
     );
 };
