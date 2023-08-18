@@ -2,23 +2,36 @@ import { BsCameraVideoFill } from "react-icons/bs";
 import { BiSolidPhotoAlbum } from "react-icons/bi";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import CreatePost from "../Navber/CreatePosts/CreatePost";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Post = () => {
+  const { user} = useContext(AuthContext)
+
   return (
     <div className="card shadow-xl mt-10">
       <div className=" card-body">
         <div className="flex gap-1">
-          <div className="avatar online">
+        {user ?  
+        <div className="avatar online">
             <div className="w-12 rounded-full">
-              <img src="https://scontent.fdac135-1.fna.fbcdn.net/v/t39.30808-6/327962592_590354229126514_2253518977091765012_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFliJJtZ62VESu7YTTRyVPCR9Gx6GChsSxH0bHoYKGxLMQssZPBoVdGdF8982g7eMwNXuhWdJCAFI1-bwpayJhN&_nc_ohc=mhAcqDQIPBMAX_q_7A5&_nc_ht=scontent.fdac135-1.fna&oh=00_AfBhZ2f_r86JO3o6U7tv0jxtUkPbMadZaU5undoicQwq6g&oe=64E3E20E" />
+              <img src={user?.photoURL} />
             </div>
+          </div>:
+          <div className="avatar online">
+          <div className="w-12 rounded-full">
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" />
           </div>
+        </div>
+          
+          }
 
           <button
             className="p-1 w-[700px] btn bg-slate-500 rounded-xl"
             onClick={() => window.my_modal_2.showModal()}
           >
-            Whats on your mind
+            Whats on your mind {user?.displayName
+}
           </button>
         </div>
       </div>
