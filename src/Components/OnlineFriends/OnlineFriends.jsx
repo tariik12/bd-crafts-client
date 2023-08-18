@@ -1,7 +1,7 @@
 
 
 const OnlineFriends = ({friend}) => {
-    console.log(friend);
+    
   
     return (
     <div>
