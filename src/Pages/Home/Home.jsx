@@ -1,18 +1,36 @@
+import { useEffect, useState } from "react";
+import DisplayPost from "../../Components/DisplayPost/DisplayPost";
+// import CreatePost from "../../Components/Navber/CreatePosts/CreatePost";
 import LeftSideBar from "./LeftSideBar/LeftSideBar";
 import RightSideBar from "./RightSideBar/RightSideBar";
+import CreateStory from "../../Components/CreateStory/CreateStory";
+import Post from "../../Components/Post/Post";
 
 
 const Home = () => {
+  const [posts,setPosts]=useState([]);
+  useEffect(()=>{
+    fetch(`${import.meta.env.VITE_URL}/allposts`)
+    .then((res)=>res.json())
+    .then((data)=>{
+      setPosts(data)
+    })
+  },[])
+  
     return (
         <div className="grid grid-flow-col">
-        <div className="grid-cols-1 bg-red-600">
+        <div className="grid-cols-1 w-[300px] ">
         <LeftSideBar/>
         </div>
-        <div className="grid-cols-10 bg-orange-500">
-          {/* <CreatePost></CreatePost>
-          <PostShow></PostShow> */}News Feed
+        <div className="grid-cols-1 w-[790px]">
+        <CreateStory/>
+          <Post></Post>
+          {
+            posts?.map((post)=><DisplayPost key={post?._id} post={post}/>)
+          }
+          
         </div>
-        <div className="grid-cols-1 bg-green-500">
+        <div className="grid-cols-1 w-[250px] bg-base-300 ">
         <RightSideBar/>
         </div>
       </div>
