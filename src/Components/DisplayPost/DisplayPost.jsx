@@ -21,7 +21,7 @@ const DisplayPost = ({ post }) => {
           <small>9 min ago</small>
         </div>
       </div>
-      <div className="px-20 text-white mb-3">
+      <div className="px-20 text-black mb-3">
         <p>{caption}</p>
       </div>
       {/* post image */}
