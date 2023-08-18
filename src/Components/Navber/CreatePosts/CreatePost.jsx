@@ -4,7 +4,8 @@ const CreatePost = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/post", {
+    // fetch("import.meta.env.VITE_URL/post", {
+      fetch(`${import.meta.env.VITE_URL}/post`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

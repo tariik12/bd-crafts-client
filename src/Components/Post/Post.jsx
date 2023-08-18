@@ -15,7 +15,7 @@ const Post = () => {
           </div>
 
           <button
-            className="p-5 w-[700px] btn bg-slate-500 rounded-xl"
+            className="p-1 w-[700px] btn bg-slate-500 rounded-xl"
             onClick={() => window.my_modal_2.showModal()}
           >
             Whats on your mind
