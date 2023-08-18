@@ -21,7 +21,7 @@ const SocialLogin = () => {
              console.log(loggedUser)
             if(loggedUser){
                 const saveUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL }
-            fetch('http://localhost:5000/users', {
+            fetch(`${import.meta.env.VITE_URL}/users`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

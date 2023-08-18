@@ -12,7 +12,7 @@ const ChatBox = () => {
       <div className="px-5">
         <ChatBoxText></ChatBoxText>
       </div>
-      <div className="">
+      <div className="bottom-0 fixed">
         <ChatBoxTyping></ChatBoxTyping>
       </div>
     </div>

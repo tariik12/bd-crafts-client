@@ -10,13 +10,13 @@ import Post from "../../Components/Post/Post";
 const Home = () => {
   const [posts,setPosts]=useState([]);
   useEffect(()=>{
-    fetch("http://localhost:5000/allposts")
+    fetch(`${import.meta.env.VITE_URL}/allposts`)
     .then((res)=>res.json())
     .then((data)=>{
       setPosts(data)
     })
   },[])
-  console.log(posts);
+  
     return (
         <div className="grid grid-flow-col">
         <div className="grid-cols-1 w-[300px] bg-red-600">
@@ -30,7 +30,7 @@ const Home = () => {
           }
           
         </div>
-        <div className="grid-cols-1 w-[250px] bg-green-500">
+        <div className="grid-cols-1 w-[250px] bg-base-300 ">
         <RightSideBar/>
         </div>
       </div>
