@@ -29,11 +29,12 @@ import FindFriend from "./Pages/FindFriend/FindFriend";
           path:'/profile',
           element:<Profile/>
         },
-        //Tarik vai
+        //Rabeya Akter
         {
           path:'/findFriend',
           element:<FindFriend/>
         },
+        
 
       ]
     },
