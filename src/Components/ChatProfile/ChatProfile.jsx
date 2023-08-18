@@ -79,15 +79,6 @@ const ChatProfile = () => {
              
              
             </div>
-            <div className="divider"></div>
-            <ul>
-              <li>Other List</li>
-              <li>Other List</li>
-              <li>Other List</li>
-              <li>Other List</li>
-              <li>Other List</li>
-              <li>Other List</li>
-            </ul>
           </div>
         </div>
       </div>
