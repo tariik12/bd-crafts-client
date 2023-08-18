@@ -19,7 +19,7 @@ const Home = () => {
   console.log(posts);
     return (
         <div className="grid grid-flow-col">
-        <div className="grid-cols-1 w-[300px] bg-red-600">
+        <div className="grid-cols-1 w-[300px] ">
         <LeftSideBar/>
         </div>
         <div className="grid-cols-1 w-[790px]">
