@@ -1,15 +1,20 @@
 import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
 // import Avatar from "./Avatar";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaUserLarge, FaEnvelopeOpenText, FaRegBell } from "react-icons/fa6";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const MenuDropdown = () => {
-  const user = false;
+  const { user,logOut } = useContext(AuthContext)
   // eslint-disable-next-line no-unused-vars
   const role = true;
   const [isOpen, setIsOpen] = useState(false);
-
+  const handleLogout = () =>{
+    logOut()
+    .then(() =>{})
+    .catch(error =>console.log(error.code))
+  }
   // const toggleOpen = useCallback(() => {
   //   setIsOpen((value) => !value);
   // }, []);
@@ -47,7 +52,7 @@ const MenuDropdown = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
+        <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm z-50">
           <div className="flex flex-col cursor-pointer">
             <Link
               to="/"
@@ -69,6 +74,7 @@ const MenuDropdown = () => {
                   //   setRole(null);
                     
                   // }}
+                  onClick={handleLogout} to='/'
                   className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer"
                 >
                   Logout
@@ -83,7 +89,7 @@ const MenuDropdown = () => {
                   Login
                 </Link>
                 <Link
-                  to="/signUp"
+                  to="/register"
                   className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
                 >
                   Sign Up
