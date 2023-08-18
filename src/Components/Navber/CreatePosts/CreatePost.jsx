@@ -18,12 +18,13 @@ const CreatePost = () => {
             icon: "success",
             confirmButtonText: "Cool",
           });
+          
         }
       });
   };
 
   return (
-    <div className=" w-full bg-base-300 shadow-2xl mt-10 p-5">
+    <div className=" w-full bg-slate-500 shadow-2xl mt-10 p-5">
       <div className="flex gap-3  w-full mb-3 p-3">
         <div className="flex     ">
           <div className="avatar online">
@@ -34,7 +35,6 @@ const CreatePost = () => {
         </div>
         <div>
           <p>Rayhan Shorker</p>
-          <p>15 min ago</p>
         </div>
       </div>
 
@@ -57,9 +57,9 @@ const CreatePost = () => {
             className="input input-bordered"
           />
         </div>
-      <div className="text-center mt-3">
-      <input className="btn btn-primary " type="submit" value="Post" />
-      </div>
+        <div className="text-center mt-3">
+          <input className="btn btn-primary " type="submit" value="Post" />
+        </div>
       </form>
     </div>
   );
