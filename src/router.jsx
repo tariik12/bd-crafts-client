@@ -8,6 +8,8 @@ import Home from "./Pages/Home/Home";
 import InboxMessages from "./Pages/InboxMessages/InboxMessages";
 import Profile from "./Pages/Profile/Profile";
 import FindFriend from "./Pages/FindFriend/FindFriend";
+import Login from "./Pages/Authentication/Login";
+import Register from "./Pages/Authentication/Register";
 
 
   const router = createBrowserRouter([
@@ -29,11 +31,20 @@ import FindFriend from "./Pages/FindFriend/FindFriend";
           path:'/profile',
           element:<Profile/>
         },
-        //Tarik vai
+        //Rabeya Akter
         {
           path:'/findFriend',
           element:<FindFriend/>
         },
+        {
+          path:'/login',
+          element:<Login/>
+        },
+        {
+          path:'/register',
+          element:<Register/>
+        }
+        
 
       ]
     },
