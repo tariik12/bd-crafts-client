@@ -3,13 +3,7 @@ import { BiSolidPhotoAlbum } from "react-icons/bi";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import CreatePost from "../Navber/CreatePosts/CreatePost";
 
-
 const Post = () => {
-
-    // const handleCreatePost = () => {
-    //  window.my_modal_3.showModal()
-    //   };
-    
   return (
     <div className="card shadow-xl mt-10">
       <div className=" card-body">
@@ -20,9 +14,9 @@ const Post = () => {
             </div>
           </div>
 
-          <button className="p-5 w-[700px] btn bg-slate-500 rounded-xl"
-           onClick={()=>window.my_modal_2.showModal()}
-          
+          <button
+            className="p-5 w-[700px] btn bg-slate-500 rounded-xl"
+            onClick={() => window.my_modal_2.showModal()}
           >
             Whats on your mind
           </button>
@@ -42,22 +36,19 @@ const Post = () => {
           <HiOutlineEmojiHappy size={30} />
           <p>Feeling/Activity</p>
         </div>
-
-
- 
       </div>
-  {/* Modal */}
+      {/* Modal */}
 
-<div className="w-full">
-<dialog id="my_modal_2" className="modal bg-base-200">
-  <div method="dialog" className="modal-box">
-   <CreatePost/>
-  </div>
-  <form method="dialog" className="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
-</div>
+      <div className="w-full">
+        <dialog id="my_modal_2" className="modal bg-base-200">
+          <div method="dialog" className="modal-box">
+            <CreatePost />
+          </div>
+          <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+import { toast } from "react-hot-toast";
 const CreatePost = () => {
   const { register, handleSubmit } = useForm();
 
@@ -12,13 +12,8 @@ const CreatePost = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          Swal.fire({
-            title: "success!",
-            text: "Post Successfull",
-            icon: "success",
-            confirmButtonText: "Cool",
-          });
-          
+        
+        toast.success("post done")  
         }
       });
   };
