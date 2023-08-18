@@ -1,23 +1,28 @@
 import { FaComment, FaShare } from "react-icons/fa6";
 import { BiLike } from "react-icons/bi";
-
+import { AuthContext } from "../../Provider/AuthProvider";
+import { useContext } from "react";
 const DisplayPost = ({ post }) => {
-  const user = true;
+  const {user} = useContext(AuthContext);
   const { caption, photoUrl } = post;
   return (
     <div className="mt-10 p-5 base-300 shadow-2xl rounded-2xl w-full">
       <div className="flex gap-3">
         <div className="flex justify-center items-center w-14 h-14 p-2  ">
           <div className="avatar online">
-            {user && (
+            {user ? 
               <div className="w-12 rounded-full">
-                <img src="https://scontent.fdac135-1.fna.fbcdn.net/v/t39.30808-6/327962592_590354229126514_2253518977091765012_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFliJJtZ62VESu7YTTRyVPCR9Gx6GChsSxH0bHoYKGxLMQssZPBoVdGdF8982g7eMwNXuhWdJCAFI1-bwpayJhN&_nc_ohc=mhAcqDQIPBMAX_q_7A5&_nc_ht=scontent.fdac135-1.fna&oh=00_AfBhZ2f_r86JO3o6U7tv0jxtUkPbMadZaU5undoicQwq6g&oe=64E3E20E" />
+                <img src={user?.photoURL} />
               </div>
-            )}
+              :
+              <div className="w-12 rounded-full">
+              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" />
+            </div> 
+            }
           </div>
         </div>
         <div className="flex flex-col">
-          <h1 className="font-bold text-xl">MD Rayhan</h1>
+          <h1 className="font-bold text-xl">{user?.displayName}</h1>
           <small>9 min ago</small>
         </div>
       </div>

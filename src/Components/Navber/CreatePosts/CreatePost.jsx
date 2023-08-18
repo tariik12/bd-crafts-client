@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 const CreatePost = () => {
+  const { user} = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -25,18 +28,18 @@ const CreatePost = () => {
         <div className="flex     ">
           <div className="avatar online">
             <div className="w-12 rounded-full">
-              <img src="https://scontent.fdac135-1.fna.fbcdn.net/v/t39.30808-6/327962592_590354229126514_2253518977091765012_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFliJJtZ62VESu7YTTRyVPCR9Gx6GChsSxH0bHoYKGxLMQssZPBoVdGdF8982g7eMwNXuhWdJCAFI1-bwpayJhN&_nc_ohc=mhAcqDQIPBMAX_q_7A5&_nc_ht=scontent.fdac135-1.fna&oh=00_AfBhZ2f_r86JO3o6U7tv0jxtUkPbMadZaU5undoicQwq6g&oe=64E3E20E" />
+              <img src={user?.photoURL}/>
             </div>
           </div>
         </div>
         <div>
-          <p>Rayhan Shorker</p>
+          <p>{user?.displayName}</p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <textarea
-          placeholder="Whats on your mind"
+          placeholder="Whats on your mind "
           {...register("caption", { required: true })}
           cols="65"
           className="w-full p-5"
