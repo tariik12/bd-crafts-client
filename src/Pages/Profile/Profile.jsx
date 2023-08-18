@@ -55,7 +55,7 @@ const Profile = () => {
     coverPhoto,
     userName,
     fullName,
-    birthDay,
+    birthDate,
     location,
     profilePicture,
     bio,
@@ -76,9 +76,9 @@ const Profile = () => {
             followersCount={followersCount}
           />
 
-          <div className="grid grid-flow-col">
+          <div className="grid grid-flow-col gap-2">
             <div className="grid-rows-1">
-              <AboutCard birthDay={birthDay} location={location} bio={bio} />
+              <AboutCard birthDate={birthDate} location={location} bio={bio} />
             </div>
             <div className="grid-rows-10 bg-red-600">
               <CreatePost />
