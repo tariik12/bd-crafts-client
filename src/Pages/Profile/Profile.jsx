@@ -1,4 +1,5 @@
 import AboutCard from "../../Components/AboutCard/AboutCard";
+import AllFriendList from "../../Components/AllFriendList/AllFriendList";
 import CreatePost from "../../Components/Navber/CreatePosts/CreatePost";
 import ProfileBanner from "../../Components/ProfileBanner/ProfileBanner";
 import Container from "../../Utilities/Container";
@@ -80,10 +81,12 @@ const Profile = () => {
             <div className="grid-rows-1">
               <AboutCard birthDate={birthDate} location={location} bio={bio} />
             </div>
-            <div className="grid-rows-10 bg-red-600">
+            <div className="grid-rows-10">
               <CreatePost />
             </div>
-            <div className="grid-rows-1 bg-blue-600 ">All friend list</div>
+            <div className="grid-rows-1">
+              <AllFriendList />
+            </div>
           </div>
         </Container>
       </div>
