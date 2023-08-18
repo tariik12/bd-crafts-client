@@ -13,7 +13,7 @@ const ChatBoxText = () => {
             Obi-Wan Kenobi
             <time className="text-xs opacity-50">12:45</time>
           </div>
-          <div className="chat-bubble">You were the Chosen One!</div>
+          <div className="chat-bubble">Hello crafter</div>
           <div className="chat-footer opacity-50">Delivered</div>
         </div>
         <div className="chat chat-end">
@@ -26,7 +26,7 @@ const ChatBoxText = () => {
             Anakin
             <time className="text-xs opacity-50">12:46</time>
           </div>
-          <div className="chat-bubble">I hate you!</div>
+          <div className="chat-bubble">What craft do you neeed?</div>
           <div className="chat-footer opacity-50">Seen at 12:46</div>
         </div>
         <div className="chat chat-start">
@@ -39,7 +39,7 @@ const ChatBoxText = () => {
             Obi-Wan Kenobi
             <time className="text-xs opacity-50">12:45</time>
           </div>
-          <div className="chat-bubble">You were the Chosen One!</div>
+          <div className="chat-bubble">I need a Bamboo cap.</div>
           <div className="chat-footer opacity-50">Delivered</div>
         </div>
         <div className="chat chat-end">
@@ -52,7 +52,7 @@ const ChatBoxText = () => {
             Anakin
             <time className="text-xs opacity-50">12:46</time>
           </div>
-          <div className="chat-bubble">I hate you!</div>
+          <div className="chat-bubble">Yes! Sure, How much do you need?</div>
           <div className="chat-footer opacity-50">Seen at 12:46</div>
         </div>
         <div className="chat chat-start">
@@ -65,7 +65,7 @@ const ChatBoxText = () => {
             Obi-Wan Kenobi
             <time className="text-xs opacity-50">12:45</time>
           </div>
-          <div className="chat-bubble">You were the Chosen One!</div>
+          <div className="chat-bubble">I need Three Bamboo cap.</div>
           <div className="chat-footer opacity-50">Delivered</div>
         </div>
         <div className="chat chat-end">
@@ -78,7 +78,7 @@ const ChatBoxText = () => {
             Anakin
             <time className="text-xs opacity-50">12:46</time>
           </div>
-          <div className="chat-bubble">I hate you!</div>
+          <div className="chat-bubble">No problem, Where is your address?</div>
           <div className="chat-footer opacity-50">Seen at 12:46</div>
         </div>
       </div>

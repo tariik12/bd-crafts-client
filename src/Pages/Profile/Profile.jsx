@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import AboutCard from "../../Components/AboutCard/AboutCard";
 import AllFriendList from "../../Components/AllFriendList/AllFriendList";
-import CreatePost from "../../Components/Navber/CreatePosts/CreatePost";
+import DisplayPost from "../../Components/DisplayPost/DisplayPost";
+import Post from "../../Components/Post/Post";
 import ProfileBanner from "../../Components/ProfileBanner/ProfileBanner";
 import Container from "../../Utilities/Container";
 
@@ -52,6 +54,7 @@ const Profile = () => {
       },
     ],
   };
+
   const {
     coverPhoto,
     userName,
@@ -63,6 +66,15 @@ const Profile = () => {
     friendsCount,
     followersCount,
   } = userProfile;
+
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_URL}/allposts`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data);
+      });
+  }, []);
 
   return (
     <>
@@ -81,10 +93,13 @@ const Profile = () => {
             <div className="grid-rows-1">
               <AboutCard birthDate={birthDate} location={location} bio={bio} />
             </div>
-            <div className="grid-rows-10">
-              <CreatePost />
+            <div className="grid-rows-10 ">
+              <Post />
+              {posts?.map((post) => (
+                <DisplayPost key={post?._id} post={post} />
+              ))}
             </div>
-            <div className="grid-rows-1">
+            <div className="grid-rows-1 ">
               <AllFriendList />
             </div>
           </div>

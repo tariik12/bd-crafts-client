@@ -21,7 +21,7 @@ const SocialLogin = () => {
              console.log(loggedUser)
             if(loggedUser){
                 const saveUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL }
-            fetch('http://localhost:5000/users', {
+            fetch(`${import.meta.env.VITE_URL}/users`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -42,9 +42,11 @@ const SocialLogin = () => {
     return (
         <div>
             <div className="divider"></div>
-            <div className="text-center my-4">
-            <button onClick={handleGoogleSingIn} className="btn btn-circle btn-success btn-outline">
-               <FaGoogle/>
+            <div className="  my-4">
+            <button onClick={handleGoogleSingIn} className="btn rounded-3xl  btn-sm px-4 ">
+            Login Google  
+            <FaGoogle/> 
+              
             </button>
             </div>
         </div>
