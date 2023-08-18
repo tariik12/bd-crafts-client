@@ -5,7 +5,7 @@ const DisplayPost = ({ post }) => {
   const user = true;
   const { caption, photoUrl } = post;
   return (
-    <div className="mt-10 p-5 base-300 shadow-2xl rounded-2xl">
+    <div className="mt-10 p-5 base-300 shadow-2xl rounded-2xl w-full">
       <div className="flex gap-3">
         <div className="flex justify-center items-center w-14 h-14 p-2  ">
           <div className="avatar online">
@@ -25,7 +25,7 @@ const DisplayPost = ({ post }) => {
         <p>{caption}</p>
       </div>
       {/* post image */}
-      <div className="px-20">
+      <div className="flex justify-center">
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
           <a href="#">
             <img

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import DisplayPost from "../../Components/DisplayPost/DisplayPost";
-import CreatePost from "../../Components/Navber/CreatePosts/CreatePost";
+// import CreatePost from "../../Components/Navber/CreatePosts/CreatePost";
 import LeftSideBar from "./LeftSideBar/LeftSideBar";
 import RightSideBar from "./RightSideBar/RightSideBar";
 import CreateStory from "../../Components/CreateStory/CreateStory";
+import Post from "../../Components/Post/Post";
 
 
 const Home = () => {
@@ -18,18 +19,18 @@ const Home = () => {
   console.log(posts);
     return (
         <div className="grid grid-flow-col">
-        <div className="grid-cols-1 bg-red-600">
+        <div className="grid-cols-1 w-[300px] bg-red-600">
         <LeftSideBar/>
         </div>
-        <div className="grid-cols-10 ">
+        <div className="grid-cols-1 w-[790px]">
         <CreateStory/>
-          <CreatePost/>
+          <Post></Post>
           {
             posts?.map((post)=><DisplayPost key={post?._id} post={post}/>)
           }
           
         </div>
-        <div className="grid-cols-1 bg-green-500">
+        <div className="grid-cols-1 w-[250px] bg-green-500">
         <RightSideBar/>
         </div>
       </div>
