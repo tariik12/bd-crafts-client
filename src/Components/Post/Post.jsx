@@ -1,5 +1,5 @@
-import { BsCameraVideoFill } from "react-icons/bs";
 import { BiSolidPhotoAlbum } from "react-icons/bi";
+import { BsCameraVideoFill } from "react-icons/bs";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import CreatePost from "../Navber/CreatePosts/CreatePost";
 

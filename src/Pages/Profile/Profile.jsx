@@ -1,6 +1,6 @@
 import AboutCard from "../../Components/AboutCard/AboutCard";
 import AllFriendList from "../../Components/AllFriendList/AllFriendList";
-import CreatePost from "../../Components/Navber/CreatePosts/CreatePost";
+import Post from "../../Components/Post/Post";
 import ProfileBanner from "../../Components/ProfileBanner/ProfileBanner";
 import Container from "../../Utilities/Container";
 
@@ -81,10 +81,10 @@ const Profile = () => {
             <div className="grid-rows-1">
               <AboutCard birthDate={birthDate} location={location} bio={bio} />
             </div>
-            <div className="grid-rows-10">
-              <CreatePost />
+            <div className="grid-rows-10 ">
+              <Post />
             </div>
-            <div className="grid-rows-1">
+            <div className="grid-rows-1 ">
               <AllFriendList />
             </div>
           </div>
