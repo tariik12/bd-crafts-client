@@ -1,3 +1,6 @@
+import CreateStory from "../../Components/CreateStory/CreateStory";
+import DisplayPost from "../../Components/DisplayPost/DisplayPost";
+import CreatePost from "../../Components/Navber/CreatePosts/CreatePost";
 import LeftSideBar from "./LeftSideBar/LeftSideBar";
 import RightSideBar from "./RightSideBar/RightSideBar";
 
@@ -9,8 +12,10 @@ const Home = () => {
         <LeftSideBar/>
         </div>
         <div className="grid-cols-10 bg-orange-500">
-          {/* <CreatePost></CreatePost>
-          <PostShow></PostShow> */}News Feed
+        
+          <CreateStory/>
+          <CreatePost/>
+          <DisplayPost/>
         </div>
         <div className="grid-cols-1 bg-green-500">
         <RightSideBar/>
