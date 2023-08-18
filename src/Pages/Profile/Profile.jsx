@@ -78,7 +78,7 @@ const Profile = () => {
 
           <div className="grid grid-flow-col">
             <div className="grid-rows-1">
-              <AboutCard />
+              <AboutCard birthDay={birthDay} location={location} bio={bio} />
             </div>
             <div className="grid-rows-10 bg-red-600">
               <CreatePost />
