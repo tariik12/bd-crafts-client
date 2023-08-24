@@ -12,7 +12,7 @@ const DisplayPost = ({ post }) => {
           <div className="avatar online">
             {user ? 
               <div className="w-12 rounded-full">
-                <img src={user?.photoURL} />
+                <img src={post?.img} />
               </div>
               :
               <div className="w-12 rounded-full">
@@ -22,7 +22,7 @@ const DisplayPost = ({ post }) => {
           </div>
         </div>
         <div className="flex flex-col">
-          <h1 className="font-bold text-xl">{user?.displayName}</h1>
+          <h1 className="font-bold text-xl">{post?.name}</h1>
           <small>9 min ago</small>
         </div>
       </div>

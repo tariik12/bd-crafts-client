@@ -7,11 +7,14 @@ const CreatePost = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    // fetch("import.meta.env.VITE_URL/post", {
+   const name=user?.displayName;
+   const img = user?.photoURL;
+    const info = {...data,name,img}
+
       fetch(`${import.meta.env.VITE_URL}/post`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(info),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -23,7 +26,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div className=" w-full bg-slate-500 shadow-2xl mt-10 p-5">
+    <div className=" w-full bg-[#7eb9df] rounded-3xl shadow-2xl mt-10 p-5">
       <div className="flex gap-3  w-full mb-3 p-3">
         <div className="flex     ">
           <div className="avatar online">
