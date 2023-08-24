@@ -5,11 +5,12 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const CreatePost = () => {
   const { user} = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
-
+console.log(user);
   const onSubmit = (data) => {
    const name=user?.displayName;
    const img = user?.photoURL;
-    const info = {...data,name,img}
+   const email = user?.email;
+    const info = {...data,name,img,email}
 
       fetch(`${import.meta.env.VITE_URL}/post`, {
       method: "POST",
@@ -50,13 +51,13 @@ const CreatePost = () => {
         ></textarea>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Photo URL</span>
+            <span className="label-text text-black">Photo URL</span>
           </label>
           <input
             type="url"
             placeholder="Photo URL"
             {...register("photoUrl", { required: true })}
-            className="input input-bordered"
+            className="input input-bordered bg-slate-200"
           />
         </div>
         <div className="text-center mt-3">
