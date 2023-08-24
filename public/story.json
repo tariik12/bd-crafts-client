@@ -1,0 +1,157 @@
+[
+    {
+        "id": "1",
+        "name": "John Doe",
+        "time": "2 hours ago",
+        "content": "Just finished creating this beautiful handcrafted dreamcatcher!",
+        "images": "image_url_1.jpg",
+        "reactions": {
+            "like": 150,
+            "love": 30,
+            "wow": 10,
+            "haha": 5
+        },
+        "comments": [
+            {
+                "user": {
+                    "id": "67890",
+                    "name": "Jane Smith"
+                },
+                "comment": "Wow, those views are breathtaking!",
+                "timestamp": "2023-08-24T15:30:00"
+            },
+            {
+                "user": {
+                    "id": "54321",
+                    "name": "Michael Johnson"
+                },
+                "comment": "I need to go hiking there sometime!",
+                "timestamp": "2023-08-24T16:00:00"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Emily Brown",
+        "time": "4 hours ago",
+        "content": "Exploring the charming streets of the old town. #TravelAdventures",
+        "images": "image_url_2.jpg",
+        "reactions": {
+            "like": 120,
+            "love": 50,
+            "wow": 8,
+            "haha": 3
+        },
+        "comments": [
+            {
+                "user": {
+                    "id": "98765",
+                    "name": "David Clark"
+                },
+                "comment": "What a lovely place! Enjoy your trip!",
+                "timestamp": "2023-08-24T10:45:00"
+            },
+            {
+                "user": {
+                    "id": "23456",
+                    "name": "Sophia Lee"
+                },
+                "comment": "I miss this place so much!",
+                "timestamp": "2023-08-24T11:30:00"
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "name": "Alex Turner",
+        "time": "6 hours ago",
+        "content": "Just adopted this adorable puppy, meet Max!",
+        "images": "image_url_3.jpg",
+        "reactions": {
+            "like": 250,
+            "love": 80,
+            "wow": 15,
+            "haha": 2
+        },
+        "comments": [
+            {
+                "user": {
+                    "id": "34567",
+                    "name": "Olivia Smith"
+                },
+                "comment": "Max is the cutest! 🐶❤️",
+                "timestamp": "2023-08-24T08:15:00"
+            },
+            {
+                "user": {
+                    "id": "87654",
+                    "name": "Ethan Johnson"
+                },
+                "comment": "Congratulations! Max is so lucky to have you!",
+                "timestamp": "2023-08-24T08:45:00"
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "name": "John Doe",
+        "time": "2 hours ago",
+        "content": "Just finished creating this beautiful handcrafted dreamcatcher!",
+        "images": "image_url_1.jpg",
+        "reactions": {
+            "like": 150,
+            "love": 30,
+            "wow": 10,
+            "haha": 5
+        },
+        "comments": [
+            {
+                "user": {
+                    "id": "67890",
+                    "name": "Jane Smith"
+                },
+                "comment": "Wow, those views are breathtaking!",
+                "timestamp": "2023-08-24T15:30:00"
+            },
+            {
+                "user": {
+                    "id": "54321",
+                    "name": "Michael Johnson"
+                },
+                "comment": "I need to go hiking there sometime!",
+                "timestamp": "2023-08-24T16:00:00"
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "name": "John Doe",
+        "time": "2 hours ago",
+        "content": "Just finished creating this beautiful handcrafted dreamcatcher!",
+        "images": "image_url_1.jpg",
+        "reactions": {
+            "like": 150,
+            "love": 30,
+            "wow": 10,
+            "haha": 5
+        },
+        "comments": [
+            {
+                "user": {
+                    "id": "67890",
+                    "name": "Jane Smith"
+                },
+                "comment": "Wow, those views are breathtaking!",
+                "timestamp": "2023-08-24T15:30:00"
+            },
+            {
+                "user": {
+                    "id": "54321",
+                    "name": "Michael Johnson"
+                },
+                "comment": "I need to go hiking there sometime!",
+                "timestamp": "2023-08-24T16:00:00"
+            }
+        ]
+    }
+]

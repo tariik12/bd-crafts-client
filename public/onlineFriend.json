@@ -1,0 +1,63 @@
+[
+    {
+      "_id": "1",
+      "name": "Alex Johnson",
+      "status": "active",
+      "last_activity": "2023-08-24T10:30:00"
+    },
+    {
+      "_id": "2",
+      "name": "Emily Smith",
+      "status": "active",
+      "last_activity": "2023-08-24T09:45:00"
+    },
+    {
+      "_id": "3",
+      "name": "Daniel Brown",
+      "status": "active",
+      "last_activity": "2023-08-24T11:15:00"
+    },
+    {
+      "_id": "4",
+      "name": "Sophia Martinez",
+      "status": "active",
+      "last_activity": "2023-08-24T12:00:00"
+    },
+    {
+      "_id": "5",
+      "name": "Liam Davis",
+      "status": "active",
+      "last_activity": "2023-08-24T14:20:00"
+    },
+    {
+      "_id": "6",
+      "name": "Olivia Taylor",
+      "status": "active",
+      "last_activity": "2023-08-24T13:10:00"
+    },
+    {
+      "_id": "7",
+      "name": "Noah Wilson",
+      "status": "active",
+      "last_activity": "2023-08-24T15:30:00"
+    },
+    {
+      "_id": "8",
+      "name": "Ava Miller",
+      "status": "active",
+      "last_activity": "2023-08-24T14:50:00"
+    },
+    {
+      "_id": "9",
+      "name": "Ethan Anderson",
+      "status": "active",
+      "last_activity": "2023-08-24T16:20:00"
+    },
+    {
+      "_id": "10",
+      "name": "Isabella White",
+      "status": "active",
+      "last_activity": "2023-08-24T17:05:00"
+    }
+  ]
+
