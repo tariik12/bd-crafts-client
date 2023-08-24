@@ -1,13 +1,22 @@
+import { useEffect, useState } from "react";
 import {
-  BsArrowRight,
   BsCalendarCheckFill,
   BsFillBookmarkFill,
+  BsFillForwardFill,
 } from "react-icons/bs";
-import { FaComment } from "react-icons/fa";
+import { FaComment, FaExternalLinkAlt } from "react-icons/fa";
 import { FaGear, FaUserGroup } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const LeftSideBar = () => {
+  const [shop, setShop] = useState([]);
+
+  useEffect(() => {
+    fetch("shopData.json")
+      .then((res) => res.json())
+      .then((data) => setShop(data));
+  }, []);
+
   return (
     <div>
       <div className=" flex flex-col gap-12 ">
@@ -22,7 +31,7 @@ const LeftSideBar = () => {
             </div>
             {/* Connection Requests */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <BsArrowRight className="text-[#7BB4FF] w-10 h-10" />
+              <BsFillForwardFill className="text-[#7BB4FF] w-10 h-10" />
               <Link className="text-center hover:underline">
                 Connection Requests
               </Link>
@@ -55,7 +64,27 @@ const LeftSideBar = () => {
           </div>
         </div>
         {/* left side bar bottom  */}
-        <div className="bg-red-700 bg-opacity-10"></div>
+        <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md ">
+          <h1 className="text-[#7BB4FF] text-2xl font-semibold">Shops</h1>
+          {/* shop list */}
+
+          {shop.map((singleShop) => (
+            <div
+              key={singleShop._id}
+              className="flex justify-between items-center my-1"
+            >
+              <img
+                src={singleShop?.Profile_image}
+                alt=""
+                className="w-10 h-10 rounded-full"
+              />
+              <p className="text-[#082B59]">{singleShop?.Name}</p>
+              <Link>
+                <FaExternalLinkAlt />
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
