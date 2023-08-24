@@ -9,7 +9,7 @@ const Post = () => {
   const { user} = useContext(AuthContext)
 
   return (
-    <div className="card shadow-xl mt-10 bg-[#186DBE0F] ">
+    <div className="card shadow-xl mt-10 mb-10 bg-[#186DBE0F] ">
       <div className=" card-body">
         <div className="flex ml-0">
     <div className="relative left-11 top-2 ">

@@ -5,7 +5,6 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const CreatePost = () => {
   const { user} = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
-console.log(user);
   const onSubmit = (data) => {
    const name=user?.displayName;
    const img = user?.photoURL;
@@ -56,7 +55,7 @@ console.log(user);
           <input
             type="url"
             placeholder="Photo URL"
-            {...register("photoUrl", { required: true })}
+            {...register("photoUrl")}
             className="input input-bordered bg-slate-200"
           />
         </div>
