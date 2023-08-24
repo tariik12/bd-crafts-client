@@ -29,7 +29,7 @@ const Home = () => {
          <div>
          <Post></Post>
          </div>
-         <div className="bg-[#186DBE0F] grid grid-cols-1 gap-3 ">
+         <div className=" grid grid-cols-1 gap-3 ">
          {
             posts?.map((post)=><DisplayPost key={post?._id} post={post}/>)
           }
