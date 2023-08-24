@@ -66,6 +66,8 @@ const Post = () => {
           </form>
         </dialog>
       </div>
+  
+
     </div>
   );
 };

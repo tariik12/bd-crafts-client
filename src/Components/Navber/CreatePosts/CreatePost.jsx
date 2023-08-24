@@ -26,7 +26,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div className=" w-full bg-[#7eb9df] rounded-3xl shadow-2xl mt-10 p-5">
+    <div className=" w-full bg-[#cfe0ec] rounded-3xl shadow-2xl mt-10 p-5">
       <div className="flex gap-3  w-full mb-3 p-3">
         <div className="flex     ">
           <div className="avatar online">
