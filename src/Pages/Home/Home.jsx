@@ -22,12 +22,18 @@ const Home = () => {
         <div className="grid-cols-1 w-[300px] ">
         <LeftSideBar/>
         </div>
-        <div className="grid-cols-1 w-[790px]">
+        <div className="grid-cols-1 w-[790px] ">
+        <div>
         <CreateStory/>
-          <Post></Post>
-          {
+        </div>
+         <div>
+         <Post></Post>
+         </div>
+         <div className="bg-[#186DBE0F] grid grid-cols-1 gap-3 ">
+         {
             posts?.map((post)=><DisplayPost key={post?._id} post={post}/>)
           }
+         </div>
           
         </div>
         <div className="grid-cols-1 w-[250px] bg-base-300 ">
