@@ -33,60 +33,6 @@
     "_id": 9,
     "Profile_image": "https://images.unsplash.com/photo-1593671186131-d58817e7dee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
     "Name": "James Martinez"
-  },
-  {
-    "_id": 10,
-    "Profile_image": "https://example.com/user10_profile.jpg",
-    "Name": "Ava Anderson"
-  },
-  {
-    "_id": 11,
-    "Profile_image": "https://example.com/user11_profile.jpg",
-    "Name": "Liam Thomas"
-  },
-  {
-    "_id": 12,
-    "Profile_image": "https://example.com/user12_profile.jpg",
-    "Name": "Isabella White"
-  },
-  {
-    "_id": 13,
-    "Profile_image": "https://example.com/user13_profile.jpg",
-    "Name": "Benjamin Lee"
-  },
-  {
-    "_id": 14,
-    "Profile_image": "https://example.com/user14_profile.jpg",
-    "Name": "Mia Harris"
-  },
-  {
-    "_id": 15,
-    "Profile_image": "https://example.com/user15_profile.jpg",
-    "Name": "Ethan Miller"
-  },
-  {
-    "_id": 16,
-    "Profile_image": "https://example.com/user16_profile.jpg",
-    "Name": "Charlotte Taylor"
-  },
-  {
-    "_id": 17,
-    "Profile_image": "https://example.com/user17_profile.jpg",
-    "Name": "Alexander Clark"
-  },
-  {
-    "_id": 18,
-    "Profile_image": "https://example.com/user18_profile.jpg",
-    "Name": "Grace Lewis"
-  },
-  {
-    "_id": 19,
-    "Profile_image": "https://example.com/user19_profile.jpg",
-    "Name": "Henry Hall"
-  },
-  {
-    "_id": 20,
-    "Profile_image": "https://example.com/user20_profile.jpg",
-    "Name": "Scarlett Allen"
   }
+  
 ]
