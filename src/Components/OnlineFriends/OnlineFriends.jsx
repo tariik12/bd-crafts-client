@@ -1,27 +1,16 @@
 
-
 const OnlineFriends = ({friend}) => {
     
   
     return (
-    <div>
+      <div className="py-3">
         
-            <div className="p-5 ">
-        <div className="flex items-center space-x-3">
-        <div className="avatar online">
-            
-              <div className="w-12 rounded-full">
-                <img src={friend?.photo} />
-              </div>
-           
+             <div className="flex gap-3" >
+
+            <img  className="h-[50px] w-[50px] rounded-full" src={friend?.Profile_image} />
+            <p>{friend?.Name}</p>
           </div>
-       <div>
-         <div className="font-bold">{friend?.name}</div>
-         <div className="text-sm opacity-50">Mutual friends 11</div>
-       </div>
-     </div>
-     
-   </div>
+    
     </div>
     );
 };

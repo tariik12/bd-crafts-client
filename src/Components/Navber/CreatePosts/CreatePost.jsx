@@ -5,13 +5,16 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const CreatePost = () => {
   const { user} = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
-
   const onSubmit = (data) => {
-    // fetch("import.meta.env.VITE_URL/post", {
+   const name=user?.displayName;
+   const img = user?.photoURL;
+   const email = user?.email;
+    const info = {...data,name,img,email}
+
       fetch(`${import.meta.env.VITE_URL}/post`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(info),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -23,7 +26,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div className=" w-full bg-slate-500 shadow-2xl mt-10 p-5">
+    <div className=" w-full bg-[#cfe0ec] rounded-3xl shadow-2xl mt-10 p-5">
       <div className="flex gap-3  w-full mb-3 p-3">
         <div className="flex     ">
           <div className="avatar online">
@@ -47,13 +50,13 @@ const CreatePost = () => {
         ></textarea>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Photo URL</span>
+            <span className="label-text text-black">Photo URL</span>
           </label>
           <input
             type="url"
             placeholder="Photo URL"
-            {...register("photoUrl", { required: true })}
-            className="input input-bordered"
+            {...register("photoUrl")}
+            className="input input-bordered bg-slate-200"
           />
         </div>
         <div className="text-center mt-3">

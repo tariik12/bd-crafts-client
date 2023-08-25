@@ -7,6 +7,7 @@ import CreateStory from "../../Components/CreateStory/CreateStory";
 import Post from "../../Components/Post/Post";
 
 
+
 const Home = () => {
   const [posts,setPosts]=useState([]);
   useEffect(()=>{
@@ -22,12 +23,18 @@ const Home = () => {
         <div className="grid-cols-1 w-[300px] ">
         <LeftSideBar/>
         </div>
-        <div className="grid-cols-1 w-[790px]">
+        <div className="grid-cols-1 w-[790px] ">
+        <div>
         <CreateStory/>
-          <Post></Post>
-          {
+        </div>
+         <div>
+         <Post></Post>
+         </div>
+         <div className=" grid grid-cols-1 gap-3 ">
+         {
             posts?.map((post)=><DisplayPost key={post?._id} post={post}/>)
           }
+         </div>
           
         </div>
         <div className="grid-cols-1 w-[250px] bg-base-300 ">
