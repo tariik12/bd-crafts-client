@@ -128,6 +128,7 @@ const MenuDropdown = () => {
               <Link to="/" className="text-[22px] text-white">
                 Home
               </Link>
+
             </div>
             <div className="ml-12 flex gap-4">
               <div className="relative">
@@ -188,6 +189,9 @@ const MenuDropdown = () => {
       {isOpen && (
         <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm z-50">
           <div className="flex flex-col cursor-pointer">
+          <Link to="/profile" className="text-[22px] text-white">
+                Profile
+              </Link>
             <Link
               to="/"
               className="block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold"
@@ -196,13 +200,8 @@ const MenuDropdown = () => {
             </Link>
             {user ? (
               <>
-                <Link
-                  to="/dashboard"
-                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                >
-                  Dashboard
-                </Link>
-
+           
+       
                 <div
                   onClick={() => {
                     setRole(null);
@@ -227,6 +226,7 @@ const MenuDropdown = () => {
                 >
                   Sign Up
                 </Link>
+              
               </>
             )}
           </div>
