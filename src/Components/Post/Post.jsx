@@ -9,30 +9,34 @@ const Post = () => {
   const { user} = useContext(AuthContext)
 
   return (
-    <div className="card shadow-xl mt-10">
+    <div className="card shadow-xl mt-10 mb-10 bg-[#186DBE0F] ">
       <div className=" card-body">
-        <div className="flex gap-1">
-        {user ?  
-        <div className="avatar online">
-            <div className="w-12 rounded-full">
+        <div className="flex ml-0">
+    <div className="relative left-11 top-2 ">
+    {user ?  
+        <div className="avatar online ">
+            <div className="w-9 rounded-full ">
               <img src={user?.photoURL} />
             </div>
           </div>:
-          <div className="avatar online">
-          <div className="w-12 rounded-full">
+          <div className="avatar online ">
+          <div className="w-9 rounded-full ">
             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" />
           </div>
         </div>
           
           }
-
-          <button
-            className="p-1 w-[700px] btn bg-slate-500 rounded-xl"
+    </div>
+<div className="">
+<button
+            className="p-5 w-[700px] btn bg-base-200  hover:bg-[#7eb9df] rounded-3xl"
             onClick={() => window.my_modal_2.showModal()}
           >
-            Whats on your mind {user?.displayName
-}
+          <p className="text-left ml-9">  Share your ideas... {user?.displayName}</p>
+
           </button>
+</div>
+         
         </div>
       </div>
       <p className="  border-b-2  w-full  border-black  mt-1 mb-3 "></p>
@@ -52,8 +56,8 @@ const Post = () => {
       </div>
       {/* Modal */}
 
-      <div className="w-full">
-        <dialog id="my_modal_2" className="modal bg-base-200">
+      <div className="w-full ">
+        <dialog id="my_modal_2" className="modal ">
           <div method="dialog" className="modal-box">
             <CreatePost />
           </div>
@@ -62,6 +66,8 @@ const Post = () => {
           </form>
         </dialog>
       </div>
+  
+
     </div>
   );
 };
