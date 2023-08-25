@@ -1,7 +1,7 @@
-import { AiOutlineMenu } from "react-icons/ai";
+
 import { Link } from "react-router-dom";
 // import Avatar from "./Avatar";
-import { useContext, useState } from "react";
+
 import {
   FaUserLarge,
   FaEnvelopeOpenText,
