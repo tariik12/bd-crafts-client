@@ -51,7 +51,7 @@ const CreateStory = () => {
                   alt="slider"
                 />
               </div>
-              <div className="text-black flex items-center justify-center">
+              <div className="text-black flex items-center justify-center cursor-pointer">
                 <span className="bg-[#7BB4FF] flex items-center justify-center border-2 border-gray-400 text-white h-10 w-10 rounded-full shadow-2xl">
                   <FaPlus className="h-5 w-5" />
                 </span>
