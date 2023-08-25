@@ -1,7 +1,7 @@
 import React from "react";
-import ChatboxTop from "../ChatProfile/ChatboxTop/ChatboxTop";
-import ChatBoxText from "../ChatBoxText/ChatBoxText";
+import Chat from "../Chat/Chat";
 import ChatBoxTyping from "../ChatBoxTyping/ChatBoxTyping";
+import ChatboxTop from "../ChatProfile/ChatboxTop/ChatboxTop";
 
 const ChatBox = () => {
   return (
@@ -10,7 +10,7 @@ const ChatBox = () => {
         <ChatboxTop></ChatboxTop>
       </div>
       <div className="px-5">
-        <ChatBoxText></ChatBoxText>
+        <Chat></Chat>
       </div>
       <div className="bottom-0 fixed">
         <ChatBoxTyping></ChatBoxTyping>
