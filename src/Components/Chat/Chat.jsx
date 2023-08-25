@@ -28,7 +28,7 @@ const Chat = () => {
   return (
     <>
       <div>
-        <main className=" rounded shadow-2xl p-5 ">
+        <main className="grid grid-cols-1 rounded shadow-2xl p-5 ">
           {massages &&
             massages.map((massage) => (
               <ChatBoxText key={massage?.id} massage={massage}></ChatBoxText>
