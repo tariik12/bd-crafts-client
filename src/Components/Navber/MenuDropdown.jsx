@@ -8,8 +8,10 @@ import {
   FaRegBell,
   FaHouse,
 } from "react-icons/fa6";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const MenuDropdown = () => {
+const {user} = useContext(AuthContext)
 
   return (
     <div className="relative">

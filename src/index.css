@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.placeholder-white::placeholder {
+    color: white;
+}
+.border-primary {
+    border-color: #1589FF;
+}

@@ -35,7 +35,12 @@ import Register from "./Pages/Authentication/Register";
         {
           path:'/findFriend',
           element:<FindFriend/>
-        },
+        }
+        
+
+      ]
+    },
+    
         {
           path:'/login',
           element:<Login/>
@@ -44,10 +49,6 @@ import Register from "./Pages/Authentication/Register";
           path:'/register',
           element:<Register/>
         }
-        
-
-      ]
-    },
   ]);
 
   export default router;
