@@ -1,18 +1,18 @@
-import React from "react";
-import ChatboxTop from "../ChatProfile/ChatboxTop/ChatboxTop";
-import ChatBoxText from "../ChatBoxText/ChatBoxText";
+
+import Chat from "../Chat/Chat";
 import ChatBoxTyping from "../ChatBoxTyping/ChatBoxTyping";
+import ChatboxTop from "../ChatProfile/ChatboxTop/ChatboxTop";
 
 const ChatBox = () => {
   return (
-    <div className="bg-green-200 ">
+    <div className=" w-full">
       <div >
         <ChatboxTop></ChatboxTop>
       </div>
       <div className="px-5">
-        <ChatBoxText></ChatBoxText>
+        <Chat></Chat>
       </div>
-      <div className="bottom-0 fixed">
+      <div className="bottom-0 fixed w-3/4 bg-[#8196b1]">
         <ChatBoxTyping></ChatBoxTyping>
       </div>
     </div>

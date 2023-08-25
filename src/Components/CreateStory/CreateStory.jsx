@@ -1,53 +1,150 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { useContext } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
-import { AuthContext } from '../../Provider/AuthProvider';
+import "swiper/css";
+import './CreateStory.css'
+import "swiper/css/pagination";
+
+// import required modules
+import { Pagination } from "swiper/modules";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { FaPlus } from "react-icons/fa";
 
 const CreateStory = () => {
-    const {user }= useContext(AuthContext);
-    return (
-        <div className='flex flex-row gap-5 p-5 w-full'>
-{/* card  */}
-<div className="card card-compact h-[300px] w-[250px] bg-base-300 rounded-lg  shadow-xl">
-{user ? <figure><img className=' w-[300px] h-[450px] rounded-lg' src={user?.photoURL}  /></figure>:
-<figure><img className=' w-[300px] h-[450px] rounded-lg' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"  /></figure>
-}
-  <div className="card-body">
-    <div className="card-actions justify-center mb-2 ">
-      <button className="btn btn-primary">Create Story</button>
-    </div>
-  </div>
-</div>
-<div className='w-[400px]'>
+  const { user } = useContext(AuthContext);
 
-                <Swiper
-        slidesPerView={4}
+  return (
+    <>
+      <Swiper
+        slidesPerView={1}
         spaceBetween={20}
+        navigation={true}
         pagination={{
           clickable: true,
         }}
+        breakpoints={{
+          640: {
+            slidesPerView: 3,
+            spaceBetween:20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 22,
+          },
+          1024: {
+            slidesPerView: 4.5,
+            spaceBetween: 23,
+          },
+        }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper mt-4"
       >
-   
-        <SwiperSlide>     <img className='h-[300px] rounded-lg' src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" /></SwiperSlide>
-   
-        <SwiperSlide>     <img className='h-[300px] rounded-lg' src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" /></SwiperSlide>
-   
-        <SwiperSlide>     <img className='h-[300px] rounded-lg' src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide>     <img className='h-[300px] rounded-lg' src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide>     <img className='h-[300px] rounded-lg' src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide>     <img className='h-[300px] rounded-lg' src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide>     <img className='h-[300px] rounded-lg' src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide>     <img className='h-[300px] rounded-lg' src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" /></SwiperSlide>
-        
-      </Swiper> 
-</div>
-        </div>
-    );
+        <SwiperSlide>
+          <div className="w-[140px] lg:w-full h-[251px] bg-contain bg-no-repeat bg-center  rounded-xl border">
+            <div className="">
+              <div className="">
+                <img
+                  className="w-full h-[180px] rounded-2xl object-cover"
+                  src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
+                  alt="slider"
+                />
+              </div>
+              <div className="text-black flex items-center justify-center cursor-pointer">
+                <span className="bg-[#7BB4FF] flex items-center justify-center border-2 border-gray-400 text-white h-10 w-10 rounded-full shadow-2xl">
+                  <FaPlus className="h-5 w-5" />
+                </span>
+              </div>
+              <span className="flex items-center justify-center text-[12px] text-[#000000]">
+                Create Story
+              </span>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[140px] lg:w-full h-[251px]  bg-contain bg-no-repeat bg-center bg-black rounded-2xl relative">
+            <img
+              className="w-full h-full rounded-xl object-cover "
+              src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
+              alt="slider"
+            />
+            <div className="absolute top-2 left-2  z-50">
+              <img
+                className="w-12 h-12 rounded-full border-2 border-[#7BB4FF] shadow-2xl"
+                src="https://i.ibb.co/B21QWks/P3-OLGJ1-copy-1.png"
+                alt="user img"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[140px] lg:w-full h-[251px]  bg-contain bg-no-repeat bg-center bg-black rounded-2xl relative">
+            <img
+              className="w-full h-full rounded-xl object-cover"
+              src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
+              alt="slider"
+            />
+            <div className="absolute top-2 left-2  z-50">
+              <img
+                className="w-12 h-12 rounded-full border-2 border-[#7BB4FF]"
+                src="https://i.ibb.co/B21QWks/P3-OLGJ1-copy-1.png"
+                alt="user img"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[140px] lg:w-full h-[251px]  bg-contain bg-no-repeat bg-center bg-black rounded-2xl relative">
+            <img
+              className="w-full h-full rounded-xl object-cover"
+              src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
+              alt="slider"
+            />
+            <div className="absolute top-2 left-2  z-50">
+              <img
+                className="w-12 h-12 rounded-full border-2 border-[#7BB4FF]"
+                src="https://i.ibb.co/B21QWks/P3-OLGJ1-copy-1.png"
+                alt="user img"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[140px] lg:w-full h-[251px]  bg-contain bg-no-repeat bg-center bg-black rounded-2xl relative">
+            <img
+              className="w-full h-full rounded-xl object-cover"
+              src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
+              alt="slider"
+            />
+            <div className="absolute top-2 left-2  z-50">
+              <img
+                className="w-12 h-12 rounded-full border-2 border-[#7BB4FF]"
+                src="https://i.ibb.co/B21QWks/P3-OLGJ1-copy-1.png"
+                alt="user img"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[140px] lg:w-full h-[251px]  bg-contain bg-no-repeat bg-center bg-black rounded-2xl relative">
+            <img
+              className="w-full h-full rounded-xl object-cover"
+              src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
+              alt="slider"
+            />
+            <div className="absolute top-2 left-2  z-50">
+              <img
+                className="w-12 h-12 rounded-full border-2 border-[#7BB4FF]"
+                src="https://i.ibb.co/B21QWks/P3-OLGJ1-copy-1.png"
+                alt="user img"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </>
+  );
 };
 
 export default CreateStory;

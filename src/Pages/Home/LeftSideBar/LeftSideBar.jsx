@@ -1,298 +1,89 @@
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import {
-  FaAngleDown,
-  FaBucket,
-  FaCheese,
-  FaCoins,
-  FaCube,
-  FaRegNewspaper,
-  FaUserGroup,
-  FaUsers,
-  FaVideo,
-} from "react-icons/fa6";
+  BsCalendarCheckFill,
+  BsFillBookmarkFill,
+  BsFillForwardFill,
+} from "react-icons/bs";
+import { FaComment, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGear, FaUserGroup } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../Provider/AuthProvider";
 
 const LeftSideBar = () => {
-  const { user } = useContext(AuthContext);
+  const [shop, setShop] = useState([]);
+
+  useEffect(() => {
+    fetch("shopData.json")
+      .then((res) => res.json())
+      .then((data) => setShop(data));
+  }, []);
 
   return (
     <div>
       <div className=" flex flex-col gap-12 ">
-        <div className="bg-[#9CCBDD] bg-opacity-20">
-          <ul className="mt-12 space-y-[32px]">
-            <li>
-              <Link
-                to="#"
-                className={`
-                  flex  hover:bg-[#FFF] rounded-lg items-center gap-x-4  ml-3 `}
-              >
-                <div className="hidden md:block">
-                  <img
-                    className="rounded-full"
-                    src={
-                      user?.photoURL
-                        ? user.photoURL
-                        : "https://i.ibb.co/GVLGYts/images.png"
-                    }
-                    alt="profile"
-                    height="35"
-                    width="35"
-                  />
-                </div>
-
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  <span className="text-[12px">{user?.displayName}</span>
-                </div>
+        <div className="">
+          <div className="grid grid-cols-2 gap-2 p-2">
+            {/* bookmark card */}
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg flex flex-col justify-center items-center p-2 gap-2">
+              <BsFillBookmarkFill className="text-[#7BB4FF] w-10 h-10" />
+              <Link className="text-center hover:underline">
+                Bookmarked Posts
               </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className={`flex  hover:bg-[#FFF] rounded-lg items-center gap-x-4  ml-3 `}
-              >
-                <div
-                  className={`text-[35px] text-blue-500 cursor-pointer duration-500 text-center `}
-                >
-                  <FaUserGroup />
-                </div>
-
-                <div
-                  className={` font-normal  text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Friends
-                </div>
+            </div>
+            {/* Connection Requests */}
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              <BsFillForwardFill className="text-[#7BB4FF] w-10 h-10" />
+              <Link className="text-center hover:underline">
+                Connection Requests
               </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className="flex  hover:bg-[#FFF] rounded-lg items-center gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] text-blue-500 cursor-pointer duration-500 text-center `}
-                >
-                  <FaRegNewspaper />
-                </div>
-
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Feeds
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className="flex  hover:bg-[#FFF] rounded-lg items-center gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] text-blue-500 cursor-pointer duration-500 text-center `}
-                >
-                  <FaUsers />
-                </div>
-
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Groups
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className="flex  hover:bg-[#FFF] rounded-lg items-center gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] text-blue-500 cursor-pointer duration-500 text-center `}
-                >
-                  <FaBucket />
-                </div>
-
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Marketplace
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className="flex  hover:bg-[#FFF] rounded-lg items-center gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] text-blue-500 cursor-pointer duration-500 text-center `}
-                >
-                  <FaVideo />
-                </div>
-
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Video
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className="flex hover:bg-[#FFF] rounded-lg items-center mb-4 gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] bg-[#FFF] rounded-full cursor-pointer duration-500 text-center `}
-                >
-                  <FaAngleDown  />
-                </div>
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Show More
-                </div>
-              </Link>
-            </li>
-          </ul>
+            </div>
+            {/* Events */}
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              <BsCalendarCheckFill className="text-[#7BB4FF] w-10 h-10" />
+              <Link className="text-center hover:underline">Events</Link>
+            </div>
+            {/* Activity Log */}
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              <BsFillBookmarkFill className="text-[#7BB4FF] w-10 h-10" />
+              <Link className="text-center hover:underline">Activity Log</Link>
+            </div>
+            {/* All Comments */}
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              <FaComment className="text-[#7BB4FF] w-10 h-10" />
+              <Link className="text-center hover:underline">All Comments</Link>
+            </div>
+            {/* Settings */}
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              <FaGear className="text-[#7BB4FF] w-10 h-10" />
+              <Link className="text-center hover:underline">Settings</Link>
+            </div>
+            {/* Groups */}
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              <FaUserGroup className="text-[#7BB4FF] w-10 h-10" />
+              <Link className="text-center hover:underline">My Groups</Link>
+            </div>
+          </div>
         </div>
-        <div className="bg-red-700 bg-opacity-10">
-          <ul className="mt-12 space-y-[32px]">
-            <li>
-              <Link
-                to="/dashboard"
-                className={`flex items-center gap-x-4  ml-3 `}
-              >
-                <div
-                  className={`text-[35px] cursor-pointer duration-500 text-center `}
-                >
-                  <FaUserGroup />
-                </div>
+        {/* left side bar bottom  */}
+        <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md ">
+          <h1 className="text-[#7BB4FF] text-2xl font-semibold">Shops</h1>
+          {/* shop list */}
 
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Explore
-                </div>
+          {shop.map((singleShop) => (
+            <div
+              key={singleShop._id}
+              className="flex justify-between items-center my-1"
+            >
+              <img
+                src={singleShop?.Profile_image}
+                alt=""
+                className="w-10 h-10 rounded-full"
+              />
+              <p className="text-[#082B59]">{singleShop?.Name}</p>
+              <Link>
+                <FaExternalLinkAlt />
               </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/analaytics"
-                className="flex items-center gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] cursor-pointer duration-500 text-center `}
-                >
-                  <FaRegNewspaper />
-                </div>
-
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Discover
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/analaytics"
-                className="flex items-center gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] cursor-pointer duration-500 text-center `}
-                >
-                  <FaCheese />
-                </div>
-
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Trending
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/analaytics"
-                className="flex items-center gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] cursor-pointer duration-500 text-center `}
-                >
-                  <FaCoins />
-                </div>
-
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Buzz
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/analaytics"
-                className="flex items-center gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] cursor-pointer duration-500 text-center `}
-                >
-                  <FaCube />
-                </div>
-
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                 Featured
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className="flex hover:bg-[#FFF] rounded-lg items-center mb-4 gap-x-4 ml-3"
-              >
-                <div
-                  className={`text-[35px] bg-[#FFF] rounded-full cursor-pointer duration-500 text-center `}
-                >
-                  <FaAngleDown  />
-                </div>
-                <div
-                  className={` font-normal text-[20px] duration-300 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Show More
-                </div>
-              </Link>
-            </li>
-          </ul>
+            </div>
+          ))}
         </div>
       </div>
     </div>

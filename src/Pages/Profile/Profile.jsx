@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import AboutCard from "../../Components/AboutCard/AboutCard";
-import AllFriendList from "../../Components/AllFriendList/AllFriendList";
 import DisplayPost from "../../Components/DisplayPost/DisplayPost";
+import PhotoGallery from "../../Components/PhotoGallery/PhotoGallery";
 import Post from "../../Components/Post/Post";
 import ProfileBanner from "../../Components/ProfileBanner/ProfileBanner";
+import ProfileBio from "../../Components/ProfileBio/ProfileBio";
+import ProfileFunction from "../../Components/ProfileFunction/ProfileFunction";
+import UserProfileName from "../../Components/UserProfileName/UserProfileName";
 import Container from "../../Utilities/Container";
 
 const Profile = () => {
@@ -89,18 +92,19 @@ const Profile = () => {
             followersCount={followersCount}
           />
 
-          <div className="grid grid-flow-col gap-2">
-            <div className="grid-rows-1">
+          <div className="grid grid-cols-12 gap-16">
+            <div className="col-span-4 ">
+              <UserProfileName></UserProfileName>
+              <ProfileFunction></ProfileFunction>
+              <ProfileBio></ProfileBio>
               <AboutCard birthDate={birthDate} location={location} bio={bio} />
+              <PhotoGallery></PhotoGallery>
             </div>
-            <div className="grid-rows-10 ">
+            <div className="col-span-8 ">
               <Post />
               {posts?.map((post) => (
                 <DisplayPost key={post?._id} post={post} />
               ))}
-            </div>
-            <div className="grid-rows-1 ">
-              <AllFriendList />
             </div>
           </div>
         </Container>

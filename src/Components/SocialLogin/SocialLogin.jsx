@@ -1,7 +1,8 @@
 
 
 import { useContext } from "react";
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { BiLogoFacebookCircle } from "react-icons/bi";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
@@ -40,15 +41,23 @@ const SocialLogin = () => {
         .catch(error =>console.log(error.message))
     }
     return (
-        <div>
-            <div className="divider"></div>
-            <div className="  my-4">
-            <button onClick={handleGoogleSingIn} className="btn rounded-3xl  btn-sm px-4 ">
-            Login Google  
-            <FaGoogle/> 
+        <div className="mt-5">
+            <div className="flex gap-3">
+            <button onClick={handleGoogleSingIn} className="border border-primary text-xs font-thin w-[160px] rounded-3xl flex btn-sm items-center">
+           <div className="mx-auto flex items-center">
+           <FcGoogle className="text-lg font-serif"/> 
+           <p className="ms-1"> Login up with Google  </p>
+           </div>
               
             </button>
+            <button onClick={handleGoogleSingIn} className="hover:bg-transparent border border-primary text-xs font-thin w-[160px] rounded-3xl flex btn-sm items-center ">
+            <div className="mx-auto flex items-center">
+           <BiLogoFacebookCircle className="text-lg text-[#1589FF]"/> 
+           <p className="ms-1"> Sing up with facebook  </p>
+           </div>
+            </button>
             </div>
+            <p className="text-center mt-3 text-2xl font-serif">-OR-</p>
         </div>
     );
 };
