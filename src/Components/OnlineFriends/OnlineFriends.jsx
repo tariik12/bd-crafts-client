@@ -1,15 +1,16 @@
 
-const OnlineFriends = ({f}) => {
+const OnlineFriends = ({friend}) => {
     
   
     return (
       <div className="py-3">
-         <label className=" ">
-             <div className="tooltip tooltip-bottom" data-tip={f?.name}>
-            <img  className="h-[50px] w-[50px] rounded-full" src={f?.photo} />
-          </div>
         
-        </label>
+             <div className="flex gap-3" >
+
+            <img  className="h-[50px] w-[50px] rounded-full" src={friend?.Profile_image} />
+            <p>{friend?.Name}</p>
+          </div>
+    
     </div>
     );
 };
