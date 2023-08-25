@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AboutCard from "../../Components/AboutCard/AboutCard";
 import DisplayPost from "../../Components/DisplayPost/DisplayPost";
+import PhotoGallery from "../../Components/PhotoGallery/PhotoGallery";
 import Post from "../../Components/Post/Post";
 import ProfileBanner from "../../Components/ProfileBanner/ProfileBanner";
 import ProfileBio from "../../Components/ProfileBio/ProfileBio";
@@ -92,11 +93,12 @@ const Profile = () => {
           />
 
           <div className="grid grid-cols-12 gap-16">
-            <div className="col-span-4">
+            <div className="col-span-4 ">
               <UserProfileName></UserProfileName>
               <ProfileFunction></ProfileFunction>
               <ProfileBio></ProfileBio>
               <AboutCard birthDate={birthDate} location={location} bio={bio} />
+              <PhotoGallery></PhotoGallery>
             </div>
             <div className="col-span-8 ">
               <Post />
