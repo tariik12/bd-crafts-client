@@ -1,17 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect,  useState } from "react";
 import ChatBoxText from "../ChatBoxText/ChatBoxText";
 import {
   collection,
   onSnapshot,
   orderBy,
   query,
-  QuerySnapshot,
-  doc,
+  
 } from "firebase/firestore";
 import { db } from "../../../firebase.config";
-import ChatBoxTyping from "../ChatBoxTyping/ChatBoxTyping";
-import ChatboxTop from "../ChatProfile/ChatboxTop/ChatboxTop";
-import ChatBox from "../ChatBox/ChatBox";
+
 
 const Chat = () => {
   const [massages, setMassages] = useState([]);
@@ -31,7 +28,7 @@ const Chat = () => {
   return (
     <>
       <div>
-        <main className="container mx-auto rounded shadow-2xl p-5 ">
+        <main className=" rounded shadow-2xl p-5 ">
           {massages &&
             massages.map((massage) => (
               <ChatBoxText key={massage?.id} massage={massage}></ChatBoxText>
