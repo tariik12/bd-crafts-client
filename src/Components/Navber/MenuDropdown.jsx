@@ -1,7 +1,7 @@
-import { AiOutlineMenu } from "react-icons/ai";
+
 import { Link } from "react-router-dom";
 // import Avatar from "./Avatar";
-import { useContext, useState } from "react";
+
 import {
   FaUserLarge,
   FaEnvelopeOpenText,
@@ -48,7 +48,8 @@ const MenuDropdown = () => {
                   99+
                 </span>
                 <div className="">
-                  <FaEnvelopeOpenText size={25} className="text-white"/>
+                  <Link to="/messages">
+                  <FaEnvelopeOpenText size={25} className="text-white"/></Link>
                 </div>
               </div>
             </div>
