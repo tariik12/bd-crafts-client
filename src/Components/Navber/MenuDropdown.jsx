@@ -29,7 +29,8 @@ const MenuDropdown = () => {
                   99+
                 </span>
                 <div className="">
-                  <FaUserLarge size={25} className="text-white"/>
+                <Link to="/findFriend"><FaUserLarge size={25} className="text-white"/></Link>
+                  
                 </div>
               </div>
               <div className="relative">
@@ -37,7 +38,9 @@ const MenuDropdown = () => {
                   99+
                 </span>
                 <div className="">
+                  
                   <FaRegBell size={25} className="text-white"/>
+                  
                 </div>
               </div>
               <div className="relative">

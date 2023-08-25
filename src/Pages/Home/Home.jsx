@@ -7,6 +7,7 @@ import CreateStory from "../../Components/CreateStory/CreateStory";
 import Post from "../../Components/Post/Post";
 
 
+
 const Home = () => {
   const [posts,setPosts]=useState([]);
   useEffect(()=>{
