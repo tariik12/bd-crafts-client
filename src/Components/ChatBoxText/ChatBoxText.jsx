@@ -1,88 +1,38 @@
-import React from 'react';
+import { getAuth } from "firebase/auth";
+import React, { useContext } from "react";
+import app from "../../../firebase.config";
+import { AuthContext } from "../../Provider/AuthProvider";
 
-const ChatBoxText = () => {
-    return (
+const style = {
+  massagestyle: `flex items-center shadow-xl m-4 py-2 px-3 rounded-tl-full rounded-tr-full  `,
+
+  sent: `bg-[#395dff] text-white flex-row-reverse text-end float-right rounded-bl-full`,
+  received: `bg-[#e5e5ea] text-black float-left rounded-br-full `,
+};
+
+const ChatBoxText = ({ massage }) => {
+  // console.log(massage);
+  const {user} = useContext(AuthContext)
+  const massageClass = massage?.uid === user?.uid 
+  ? `${style.sent}` : `${style.received}`
+
+  return (
+    <div>
+      <div className={`${style.massagestyle} ${massageClass}`}>
         <div>
-        <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://i.ibb.co/308FGcq/Ahaduzzaman-profile1.png" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Obi-Wan Kenobi
-            <time className="text-xs opacity-50">12:45</time>
-          </div>
-          <div className="chat-bubble">Hello crafter</div>
-          <div className="chat-footer opacity-50">Delivered</div>
+          <img
+            className="rounded-full w-12 h-12  "
+            src={massage?.photoURL}
+            alt=""
+          />
         </div>
-        <div className="chat chat-end">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://i.ibb.co/ZcBr1QR/Stevan.jpg" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Anakin
-            <time className="text-xs opacity-50">12:46</time>
-          </div>
-          <div className="chat-bubble">What craft do you neeed?</div>
-          <div className="chat-footer opacity-50">Seen at 12:46</div>
-        </div>
-        <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://i.ibb.co/308FGcq/Ahaduzzaman-profile1.png" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Obi-Wan Kenobi
-            <time className="text-xs opacity-50">12:45</time>
-          </div>
-          <div className="chat-bubble">I need a Bamboo cap.</div>
-          <div className="chat-footer opacity-50">Delivered</div>
-        </div>
-        <div className="chat chat-end">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://i.ibb.co/ZcBr1QR/Stevan.jpg" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Anakin
-            <time className="text-xs opacity-50">12:46</time>
-          </div>
-          <div className="chat-bubble">Yes! Sure, How much do you need?</div>
-          <div className="chat-footer opacity-50">Seen at 12:46</div>
-        </div>
-        <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://i.ibb.co/308FGcq/Ahaduzzaman-profile1.png" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Obi-Wan Kenobi
-            <time className="text-xs opacity-50">12:45</time>
-          </div>
-          <div className="chat-bubble">I need Three Bamboo cap.</div>
-          <div className="chat-footer opacity-50">Delivered</div>
-        </div>
-        <div className="chat chat-end">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://i.ibb.co/ZcBr1QR/Stevan.jpg" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Anakin
-            <time className="text-xs opacity-50">12:46</time>
-          </div>
-          <div className="chat-bubble">No problem, Where is your address?</div>
-          <div className="chat-footer opacity-50">Seen at 12:46</div>
+        <div>
+          <p className="text-gray-400 mb-1">{massage?.name}</p>
+          <p className="text-xl ">{massage?.text}</p>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default ChatBoxText;
