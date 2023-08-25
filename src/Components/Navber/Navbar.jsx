@@ -24,6 +24,7 @@ const Navbar = () => {
                   />
                 </div>
                 <div className="absolute -mt-[28px] ml-3 ">
+                  
                   <FaSistrix size={22} />
                 </div>
               </div>

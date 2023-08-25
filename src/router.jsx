@@ -19,11 +19,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      //ahaduzzaman ahad vai
-      // {
-      //   path: "/inboxMessages",
-      //   element: <InboxMessages />,
-      // },
+    
       //Mahdi vai
       {
         path: "/profile",
@@ -36,6 +32,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  // Rayhan 
   {
     path: "messages",
     element: <MessageLayout />,
