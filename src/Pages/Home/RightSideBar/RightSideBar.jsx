@@ -59,7 +59,7 @@ const RightSideBar = () => {
       </Slider>
         <p className="  border-b-2  w-full  border-black  mt-1 mb-3 "></p>
       </div>
-      <div className="grid grid-cols-1 h-[300px] rounded-md shadow-2xl overflow-y-scroll">
+      <div className="grid grid-cols-1 h-[300px] rounded-md shadow-2xl">
         <h1 className="text-xl font-bold">Online Friends</h1>
 
         {onlineFriends?.map((friend) => (
