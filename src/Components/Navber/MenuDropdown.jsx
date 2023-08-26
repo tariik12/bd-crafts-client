@@ -261,7 +261,7 @@ const MenuDropdown = () => {
               </div>
               <div className="text-center mt-12">
                 <span className="text-blue-600 text-4xl mt-12">
-                  coming soon
+                  coming soon.....
                 </span>
               </div>
             </div>
