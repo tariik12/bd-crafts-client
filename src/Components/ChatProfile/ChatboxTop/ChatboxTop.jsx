@@ -1,9 +1,9 @@
-import React from 'react';
+
 import { FaInfo, FaPhone, FaVideo } from "react-icons/fa";
 
 const ChatboxTop = () => {
     return (
-        <div className="flex justify-between p-2 bg-slate-300">
+        <div className="flex justify-between p-2 bg-[#98c5ff]">
         <div className="flex items-center space-x-4">
           <img
             className="w-10 h-10 rounded-full"

@@ -15,7 +15,7 @@ const AddFriend = () => {
 
 
     return (
-        <div>
+        <div className="bg-slate-400">
             <SectionTitle
                 subHeading={" "}
                 heading={"People You May Know"}
@@ -25,7 +25,7 @@ const AddFriend = () => {
                 {
                     addFriends.map(data => <div key={data._id} className="card w-96 bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
-                            <img src={data.Profile_image} alt="User Profile" className="rounded-xl" />
+                            <img src={data.Profile_image} alt="User Profile" className="rounded-xl h-52 w-60" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">{data.Name}</h2>
