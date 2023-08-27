@@ -9,6 +9,10 @@ import Profile from "./Pages/Profile/Profile";
 import "./index.css";
 import MessageLayout from "./Layout/MessageLayout";
 import ChatBox from "./Components/ChatBox/ChatBox";
+import FriendRequest from "./Pages/FindFriend/FriendRequest";
+import AddFriend from "./Pages/FindFriend/AddFriend";
+import AllFriend from "./Pages/FindFriend/AllFriend";
+import CreateGroup from "./Pages/FindFriend/CreateGroup";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +38,22 @@ const router = createBrowserRouter([
         path: "/findFriend",
         element: <FindFriend />,
       },
+      {
+        path: "/friendRequest",
+        element: <FriendRequest></FriendRequest>
+      },
+      {
+        path: "/addFriend",
+        element: <AddFriend></AddFriend>
+      },
+      {
+        path: "/allFriend",
+        element: <AllFriend></AllFriend>
+      },
+      {
+        path: "/createGroup",
+        element: <CreateGroup></CreateGroup>
+      }
     ],
   },
   {
@@ -42,9 +62,9 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/messages",
-        element: <ChatBox/>,
+        element: <ChatBox />,
       },
-      
+
     ],
   },
   {
