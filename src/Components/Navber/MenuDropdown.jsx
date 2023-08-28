@@ -116,6 +116,9 @@ const MenuDropdown = () => {
               <Link to="/" className="text-[22px] text-white">
                 Home
               </Link>
+              <Link className="/payment">payment</Link>
+              <Link className="/dashboard">Dashboard</Link>
+              <Link className="/shop">Shop</Link>
             </div>
             <div className="ml-12 flex gap-4">
               <div className="relative">
