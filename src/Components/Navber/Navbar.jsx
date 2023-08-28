@@ -15,7 +15,7 @@ const Navbar = () => {
                   bdcrafts
                 </span>
               </Link>
-              <div className="lg:w-[596px] mx-auto w-full py-2 rounded-full  transition cursor-pointer relative">
+              <div className="lg:w-[350px] mx-auto w-full py-2 rounded-full  transition cursor-pointer relative">
                 <div className="form-control ">
                   <input
                     type="text"

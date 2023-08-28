@@ -13,6 +13,9 @@ import FriendRequest from "./Pages/FindFriend/FriendRequest";
 import AddFriend from "./Pages/FindFriend/AddFriend";
 import AllFriend from "./Pages/FindFriend/AllFriend";
 import CreateGroup from "./Pages/FindFriend/CreateGroup";
+import Payment from "./Pages/Payment/Payment";
+import Shop from "./Pages/Shop/Shop";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +52,19 @@ const router = createBrowserRouter([
       {
         path: "/createGroup",
         element: <CreateGroup></CreateGroup>
-      }
+      },
+      {
+        path:"/payment",
+        element:<Payment/>
+      },
+      {
+        path:"/shop",
+        element:<Shop/>
+      },
+      {
+        path:"/dashboard",
+        element:<Dashboard/>
+      },
     ],
   },
   // Rayhan 
