@@ -16,6 +16,9 @@ import CreateGroup from "./Pages/FindFriend/CreateGroup";
 import Payment from "./Pages/Payment/Payment";
 import Shop from "./Pages/Shop/Shop";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import SettingPage from "./Components/Navber/SettingPage/settingpage";
+import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
+import Alert from "./Components/Navber/SettingPage/Alert/Alert";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +29,38 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-    
+      //mostafizur
+      {
+        path: "/setting",
+        element: <SettingPage />,
+        children: [
+          {
+            path: "/setting/genarel",
+            element: <Genarel />,
+          },
+          {
+            path: "/setting/security",
+            element: 'security',
+          },
+          {
+            path: "/setting/privacy",
+            element: 'privacy',
+          },
+          {
+            path: "/setting/activities",
+            element: 'activities',
+          },
+          {
+            path: "/setting/support",
+            element: <Alert />,
+          },
+          {
+            path: "/setting/alert",
+            element: <Alert />,
+          },
+        ],
+      },
+
       //Mahdi vai
       {
         path: "/profile",
@@ -39,35 +73,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/friendRequest",
-        element: <FriendRequest></FriendRequest>
+        element: <FriendRequest></FriendRequest>,
       },
       {
         path: "/addFriend",
-        element: <AddFriend></AddFriend>
+        element: <AddFriend></AddFriend>,
       },
       {
         path: "/allFriend",
-        element: <AllFriend></AllFriend>
+        element: <AllFriend></AllFriend>,
       },
       {
         path: "/createGroup",
-        element: <CreateGroup></CreateGroup>
+        element: <CreateGroup></CreateGroup>,
       },
       {
-        path:"/payment",
-        element:<Payment/>
+        path: "/payment",
+        element: <Payment />,
       },
       {
-        path:"/shop",
-        element:<Shop/>
+        path: "/shop",
+        element: <Shop />,
       },
       {
-        path:"/dashboard",
-        element:<Dashboard/>
+        path: "/dashboard",
+        element: <Dashboard />,
       },
     ],
   },
-  // Rayhan 
+  // Rayhan
   {
     path: "messages",
     element: <MessageLayout />,
@@ -76,7 +110,6 @@ const router = createBrowserRouter([
         path: "/messages",
         element: <ChatBox />,
       },
-
     ],
   },
   {
