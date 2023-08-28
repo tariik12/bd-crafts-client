@@ -14,9 +14,9 @@ const LeftSide = () => {
         .then(data=>setFriends(data))
     },[])
     const onlineFriend = friends?.filter(friend=>friend?.status === "online");
-    console.log(onlineFriend);
+    // console.log(onlineFriend);
     return (
-        <div  className="flex">
+        <div  className="flex ">
          <div className="w-16 border-r-2 border-black">
         
          <label>
