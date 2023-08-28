@@ -52,7 +52,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/setting/support",
-            element: <Alert />,
+            element: 'support',
           },
           {
             path: "/setting/alert",

@@ -34,7 +34,7 @@ const SettingPage = () => {
               <Link to="/setting/privacy">Privacy</Link>
             </li>
             <li className="lg:w-[438px] items-start bg-[#7BB4FF] rounded-full px-4 py-1 text-[#FFF] text-[20px] ">
-              <Link to="/setting/activities">See all activites</Link>
+              <Link to="/setting/activities">See all activites </Link>
             </li>
             <li className="lg:w-[438px] items-start bg-[#7BB4FF] rounded-full px-4 py-1 text-[#FFF] text-[20px] ">
               <Link to="/setting/support">support and help</Link>
