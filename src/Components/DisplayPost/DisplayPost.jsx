@@ -53,7 +53,7 @@ const DisplayPost = ({ post }) => {
       {post?.photoUrl ? (
         <>
           <div className="flex justify-center ">
-            <div className="w-full    ">
+            <div className="w-full">
               <div>
                 <a href="#">
                   <img
