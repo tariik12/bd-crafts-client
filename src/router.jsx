@@ -52,7 +52,19 @@ const router = createBrowserRouter([
       {
         path: "/createGroup",
         element: <CreateGroup></CreateGroup>
-      }
+      },
+      {
+        path:"/payment",
+        element:<Payment/>
+      },
+      {
+        path:"/shop",
+        element:<Shop/>
+      },
+      {
+        path:"/dashboard",
+        element:<Dashboard/>
+      },
     ],
   },
   // Rayhan 
@@ -66,18 +78,6 @@ const router = createBrowserRouter([
       },
 
     ],
-  },
-  {
-    path:"/payment",
-    element:<Payment/>
-  },
-  {
-    path:"/shop",
-    element:<Shop/>
-  },
-  {
-    path:"/dashboard",
-    element:<Dashboard/>
   },
   {
     path: "/login",
