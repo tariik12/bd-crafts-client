@@ -15,10 +15,19 @@ import AllFriend from "./Pages/FindFriend/AllFriend";
 import CreateGroup from "./Pages/FindFriend/CreateGroup";
 import Payment from "./Pages/Payment/Payment";
 import Shop from "./Pages/Shop/Shop";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+
 import SettingPage from "./Components/Navber/SettingPage/settingpage";
 import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
 import Alert from "./Components/Navber/SettingPage/Alert/Alert";
+import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
+import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
+import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
+import MyCart from "./Components/Dashboard/GeneralUser/MyCart";
+import PaymentHistory from "./Components/Dashboard/GeneralUser/PaymentHistory";
+import ManageShop from "./Components/Dashboard/Admin/ManageShop";
+import ManageUsers from "./Components/Dashboard/Admin/ManageUsers";
+import AddProducts from "./Components/Dashboard/Seller/AddProducts";
+import MyShop from "./Components/Dashboard/Seller/MyShop";
 
 const router = createBrowserRouter([
   {
@@ -95,10 +104,7 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <Shop />,
       },
-      {
-        path: "/dashboard",
-        element: <Dashboard />,
-      },
+     
     ],
   },
   // Rayhan
@@ -110,6 +116,69 @@ const router = createBrowserRouter([
         path: "/messages",
         element: <ChatBox />,
       },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      
+        <DashboardLayout></DashboardLayout>
+      
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "payed",
+        element: (
+          
+         <PayedProducts/>
+         
+        ),
+      },
+      {
+        path: "myCart",
+        element: (
+         <MyCart/>
+        ),
+      },
+      {
+        path: "paymentHistory",
+        element: (
+          <PaymentHistory/>
+        ),
+      },
+    
+      {
+        path: "manageShop",
+        element: (
+          <ManageShop/>
+        ),
+      },
+     
+      {
+        path: "manageUsers",
+        element: (
+          
+            <ManageUsers></ManageUsers>
+         
+        ),
+      },
+      {
+        path: "addProducts",
+        element: (
+         <AddProducts/>
+        ),
+      },
+      {
+        path: "myShop",
+        element: (
+        <MyShop/>
+        ),
+      },
+    
     ],
   },
   {
