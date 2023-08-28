@@ -37,7 +37,7 @@ const RightSideBar = () => {
   };
   return (
     <div className="mt-3">
-      <div className="grid grid-cols-1">
+      <div className="grid grid-cols-1 mx-6">
         <h1 className="text-xl font-bold">All Friends</h1>
        
         
