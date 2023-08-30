@@ -19,7 +19,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
 import Alert from "./Components/Navber/SettingPage/Alert/Alert";
 import SettingPage from "./Components/Navber/SettingPage/SettingPage";
-
+import Security from "./Components/Navber/SettingPage/Security/Security";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,15 +32,15 @@ const router = createBrowserRouter([
       //mostafizur
       {
         path: "/setting",
-        element: <SettingPage />,
+        element: <SettingPage/>,
         children: [
           {
             path: "/setting/genarel",
-            element: <Genarel />,
+            element: <Genarel/>,
           },
           {
             path: "/setting/security",
-            element: 'security',
+            element: <Security/>,
           },
           {
             path: "/setting/privacy",
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/setting/alert",
-            element: <Alert />,
+            element: <Alert/>,
           },
         ],
       },
