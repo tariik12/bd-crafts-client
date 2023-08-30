@@ -5,7 +5,7 @@ import { FaSistrix } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
-    <div className=" w-full mx-auto bg-[#7BB4FF] z-10 shadow-sm">
+    <div className="lg:w-full mx-auto bg-[#7BB4FF] z-10 shadow-sm">
       <div className="py-1 border-b[1px]">
         <Container>
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
@@ -15,12 +15,12 @@ const Navbar = () => {
                   bdcrafts
                 </span>
               </Link>
-              <div className="lg:w-[596px] mx-auto w-full py-2 rounded-full  transition cursor-pointer relative">
-                <div className="form-control ">
+              <div className="lg:w-[350px] mx-auto w-full py-2 rounded-full  transition cursor-pointer relative">
+                <div className="form-control lg:w-[350px] mx-auto w-full ">
                   <input
                     type="text"
                     placeholder="Search for friend, post or video"
-                    className="input border h-[39px] border-white rounded-full bg-[#FFF] text-black px-10"
+                    className="input border h-[39px] border-white rounded-full bg-[#FFF] text-black px-10 w-full"
                   />
                 </div>
                 <div className="absolute -mt-[28px] ml-3 ">
