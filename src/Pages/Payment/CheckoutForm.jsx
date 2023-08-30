@@ -48,7 +48,7 @@ else{
             },
           }}
         />
-        <button type="submit" className='btn hover:bg-[#3879ba] btn-sm mt-4 bg-[#1589FF]' disabled={!stripe}>
+        <button  type="submit" className='btn hover:bg-[#3879ba] btn-sm mt-4 bg-[#1589FF]' disabled={!stripe}>
           Pay
         </button>
       </form>
