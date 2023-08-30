@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './Provider/AuthProvider';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider>
-     <div >
+     <div className="">
      <Toaster />
   <RouterProvider router={router} />
   <ToastContainer 
