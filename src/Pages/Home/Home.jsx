@@ -23,7 +23,7 @@ const Home = () => {
         <div className="grid-cols-1 w-[300px] ">
         <LeftSideBar/>
         </div>
-        <div className="grid-cols-1 w-[790px] ">
+        <div className="grid-cols-1 w-[680px] ">
         <div>
         <CreateStory/>
         </div>
@@ -37,7 +37,7 @@ const Home = () => {
          </div>
           
         </div>
-        <div className="grid-cols-1 w-[250px] bg-base-300 ">
+        <div className="grid-cols-1 w-[300px] bg-base-300 ">
         <RightSideBar/>
         </div>
       </div>

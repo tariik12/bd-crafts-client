@@ -10,8 +10,8 @@ const MessageLayout = () => {
      <Navbar />
      </div>
      
-      <div className="flex">
-      <div className="w-1/4 h-[690px] bg-[#a7c6ef] ">
+      <div className="flex ">
+      <div className="w-1/4 h-[690px]  bg-[#a7c6ef] ">
         <LeftSide></LeftSide>
       </div>
         <Outlet />
