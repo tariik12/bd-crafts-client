@@ -16,7 +16,7 @@ import CreateGroup from "./Pages/FindFriend/CreateGroup";
 import Payment from "./Pages/Payment/Payment";
 import Shop from "./Pages/Shop/Shop";
 
-import SettingPage from "./Components/Navber/SettingPage/settingpage";
+import SettingPage from "./Components/Navber/SettingPage/Settingpage";
 import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
 import Alert from "./Components/Navber/SettingPage/Alert/Alert";
 import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
@@ -25,9 +25,11 @@ import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
 import MyCart from "./Components/Dashboard/GeneralUser/MyCart";
 import PaymentHistory from "./Components/Dashboard/GeneralUser/PaymentHistory";
 import ManageShop from "./Components/Dashboard/Admin/ManageShop";
-import ManageUsers from "./Components/Dashboard/Admin/ManageUsers";
+
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
+import SellerForm from "./Components/SellerForm/SellerForm";
+import PendingSeller from "./Components/Dashboard/Admin/pendingSeller";
 
 const router = createBrowserRouter([
   {
@@ -49,15 +51,15 @@ const router = createBrowserRouter([
           },
           {
             path: "/setting/security",
-            element: 'security',
+            element: "security",
           },
           {
             path: "/setting/privacy",
-            element: 'privacy',
+            element: "privacy",
           },
           {
             path: "/setting/activities",
-            element: 'activities',
+            element: "activities",
           },
           {
             path: "/setting/support",
@@ -104,7 +106,11 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <Shop />,
       },
-     
+
+      {
+        path: "/selerForm",
+        element: <SellerForm />,
+      },
     ],
   },
   // Rayhan
@@ -120,11 +126,7 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: (
-      
-        <DashboardLayout></DashboardLayout>
-      
-    ),
+    element: <DashboardLayout></DashboardLayout>,
     children: [
       {
         path: "/dashboard",
@@ -132,53 +134,34 @@ const router = createBrowserRouter([
       },
       {
         path: "payed",
-        element: (
-          
-         <PayedProducts/>
-         
-        ),
+        element: <PayedProducts />,
       },
       {
         path: "myCart",
-        element: (
-         <MyCart/>
-        ),
+        element: <MyCart />,
       },
       {
         path: "paymentHistory",
-        element: (
-          <PaymentHistory/>
-        ),
+        element: <PaymentHistory />,
       },
-    
+
       {
         path: "manageShop",
-        element: (
-          <ManageShop/>
-        ),
+        element: <ManageShop />,
       },
-     
+
       {
         path: "manageUsers",
-        element: (
-          
-            <ManageUsers></ManageUsers>
-         
-        ),
+        element: <PendingSeller></PendingSeller>,
       },
       {
         path: "addProducts",
-        element: (
-         <AddProducts/>
-        ),
+        element: <AddProducts />,
       },
       {
         path: "myShop",
-        element: (
-        <MyShop/>
-        ),
+        element: <MyShop />,
       },
-    
     ],
   },
   {
