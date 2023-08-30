@@ -21,10 +21,8 @@ const PendingSeller = () => {
             )
               .then((res) => res.json())
               .then((data) => {
-                // console.log(data);
-                if (data.modifiedCount) {
-                  
-                   
+                console.log(data);
+                if (data?.result?.modifiedCount) {
                   toast.success(`${seller?.sellerName} is an Seller Now!`)
                   refetch();
                 }
