@@ -8,7 +8,7 @@ const SingleFriend = ({ friend }) => {
       <Link
         to="/"
         className="text-xl font-semibold hover:underline hover:text-blue-500"
-      >
+      >   
         {fullName}
       </Link>
     </div>
