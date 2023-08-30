@@ -5,16 +5,16 @@ import SellerTable from "./SellerTable";
 
 
 const PendingSeller = () => {
-
+  
     const { data: sellers = [], refetch } = useQuery(["sellers"], async () => {
     
-        const res = await fetch("http://localhost:5000/pendingSeller");
+        const res = await fetch(`${import.meta.env.VITE_URL}/pendingSeller`);
         return res.json();
       });
         //   make seller
         const handleMakeSeller = (seller) => {
             fetch(
-              `http://localhost:5000/seller/${seller?.sellerEmail}`,
+              `${import.meta.env.VITE_URL}/seller/${seller?.sellerEmail}`,
               {
                 method: "PATCH",
               }
@@ -30,7 +30,7 @@ const PendingSeller = () => {
           };
         const handleDelete = (seller) => {
             fetch(
-              `http://localhost:5000/deleteSeller/${seller?._id}`,
+              `${import.meta.env.VITE_URL}/deleteSeller/${seller?._id}`,
               {
                 method: "DELETE",
               }
