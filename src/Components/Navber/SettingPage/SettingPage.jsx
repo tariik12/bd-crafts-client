@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+
+import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { Link, Outlet } from "react-router-dom";
 
