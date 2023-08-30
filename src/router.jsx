@@ -16,7 +16,7 @@ import CreateGroup from "./Pages/FindFriend/CreateGroup";
 import Payment from "./Pages/Payment/Payment";
 import Shop from "./Pages/Shop/Shop";
 
-import SettingPage from "./Components/Navber/SettingPage/Settingpage";
+import SettingPage from "./Components/Navber/SettingPage/SettingPage";
 import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
 import Alert from "./Components/Navber/SettingPage/Alert/Alert";
 import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
