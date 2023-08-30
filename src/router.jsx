@@ -151,7 +151,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "manageUsers",
+        path: "pendingSeller",
         element: <PendingSeller></PendingSeller>,
       },
       {

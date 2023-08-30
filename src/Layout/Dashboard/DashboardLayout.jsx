@@ -37,7 +37,7 @@ const isSeller =false;
                 <NavLink to="manageShop"><FcShop></FcShop> Manage Shop</NavLink>
               </li>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
-                <NavLink to="manageUsers"><AiOutlineUsergroupAdd></AiOutlineUsergroupAdd> Manage Users</NavLink>
+                <NavLink to="pendingSeller"><AiOutlineUsergroupAdd></AiOutlineUsergroupAdd>Pending Sellers</NavLink>
               </li>
             </>
           )}

@@ -20,6 +20,7 @@ const handicraftCategories = [
 const SellerForm = () => {
     const location = useLocation()
     const {user}=useContext(AuthContext)
+    console.log(user);
   const { register,
     handleSubmit,control,reset,
      } = useForm();
