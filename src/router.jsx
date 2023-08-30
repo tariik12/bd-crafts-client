@@ -29,7 +29,7 @@ import ManageShop from "./Components/Dashboard/Admin/ManageShop";
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
 import SellerForm from "./Components/SellerForm/SellerForm";
-import PendingSeller from "./Components/Dashboard/Admin/pendingSeller";
+import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
 
 const router = createBrowserRouter([
   {
