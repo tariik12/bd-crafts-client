@@ -28,11 +28,13 @@ const RightSideBar = () => {
     vertical: true,
     verticalSwiping: true,
     swipeToSlide: true,
+    // eslint-disable-next-line no-unused-vars
     beforeChange: function(currentSlide, nextSlide) {
-      console.log("before change", currentSlide, nextSlide);
+      // console.log("before change", currentSlide, nextSlide);
     },
+    // eslint-disable-next-line no-unused-vars
     afterChange: function(currentSlide) {
-      console.log("after change", currentSlide);
+      // console.log("after change", currentSlide);
     }
   };
   return (
@@ -43,7 +45,7 @@ const RightSideBar = () => {
         
           
         <Slider  {...settings}>
-        {onlineFriends?.map((friend) =>  <div key={friend.id} className="card w-full mx-5 my-4 bg-base-100 shadow-xl">
+        {onlineFriends?.map((friend,i) =>  <div key={i} className="card w-full mx-5 my-4 bg-base-100 shadow-xl">
           <div className="avatar">
 <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
 <img src={friend?.Profile_image} />

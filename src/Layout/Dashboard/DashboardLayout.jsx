@@ -7,14 +7,24 @@ import { SiInstructure} from "react-icons/si";
 import {FcShop } from "react-icons/fc";
 
 import { NavLink, Outlet } from "react-router-dom";
+import useSeller from "../../hooks/useSeller";
+import useAdmin from "../../hooks/useAdmin";
 
 
 
 
 const DashboardLayout = () => {
-const isAdmin =true;
-const isSeller =false;
+// const isAdmin =false;
+// const isSeller =false;
 
+const [isSeller,isSellerLoading] = useSeller();
+const [isAdmin,isLoading] = useAdmin();
+
+if(isLoading || isSellerLoading){
+  return <div className="flex md:mt-64 items-center justify-center ">
+    <div className="radial-progress animate-spin" style={{"--value":70}}>70%</div>
+  </div>
+}
 
     return (
         <div className="drawer lg:drawer-open">
