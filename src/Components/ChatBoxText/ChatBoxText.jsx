@@ -11,7 +11,7 @@ const style = {
 };
 
 const ChatBoxText = ({ massage }) => {
-  console.log(massage);
+  // console.log(massage);
   const {user} = useContext(AuthContext)
   const massageClass = massage?.uid === user?.uid 
   ? `${style.sent}` : `${style.received}`

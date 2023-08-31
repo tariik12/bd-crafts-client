@@ -45,7 +45,7 @@ const isSeller =false;
             <>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
                 <NavLink to="myShop">
-                  My Shop</NavLink>
+                <FcShop></FcShop> My Shop</NavLink>
               </li>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
                 <NavLink to="addProducts"><FaShopify></FaShopify> Add Products</NavLink>

@@ -1,6 +1,6 @@
 
 
-const ManageUsers = () => {
+const PendingSeller = () => {
     return (
         <div>
             <h1>Manage User</h1>
@@ -8,4 +8,4 @@ const ManageUsers = () => {
     );
 };
 
-export default ManageUsers;
+export default PendingSeller;
