@@ -21,14 +21,14 @@ const Home = () => {
   return (
     <div className="flex justify-between">
       {/* <div className="grid-cols-1 w-[300px] "> */}
-      <div className="w-3/12">
+      <div className="w-4/12">
         <LeftSideBar />
         {/* <h5>hgfyufy</h5> */}
       </div>
       {/* Create post & Post Div (Rabeya) */}
 
       {/* <div className=" w-[680px] ms-12 "> */}
-      <div className=" w-6/12">
+      <div className=" w-5/12">
         <div >
           <CreateStory />
         </div>
