@@ -5,7 +5,7 @@ import {
   BsFillForwardFill,
 } from "react-icons/bs";
 import { FaComment, FaExternalLinkAlt } from "react-icons/fa";
-import { FaGear, FaUserGroup } from "react-icons/fa6";
+import { FaGear, FaShopLock, FaShopware, FaUserGroup } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const LeftSideBar = () => {
@@ -60,6 +60,10 @@ const LeftSideBar = () => {
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
               <FaUserGroup className="text-[#7BB4FF] w-10 h-10" />
               <Link className="text-center hover:underline">My Groups</Link>
+            </div>
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              <FaShopware className="text-[#7BB4FF] w-10 h-10" />
+              <Link to="selerForm" className="text-center hover:underline">Seller Form</Link>
             </div>
           </div>
         </div>

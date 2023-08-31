@@ -117,7 +117,7 @@ const MenuDropdown = () => {
                 Home
               </Link>
               <Link to="/payment">payment</Link>
-              <Link to="/dashboard">Dashboard</Link>
+             
               <Link to="/shop">Shop</Link>
             </div>
             <div className="ml-12 flex gap-4">
@@ -185,7 +185,7 @@ const MenuDropdown = () => {
               Profile
             </Link>
 
-            {user ? (
+           
               <>
                 <Link
                   to="/"
@@ -200,10 +200,16 @@ const MenuDropdown = () => {
                   to="/profile"
                   className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
                 >
+                  Profile
+                </Link>
+                <Link
+                  to="/dashboard"
+                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                >
                   Dashboard
                 </Link>
                 <Link
-                  to="#"
+                  to="/setting"
                   className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
                 >
                   Settings & Privacy
@@ -220,7 +226,7 @@ const MenuDropdown = () => {
                   Logout
                 </div>
               </>
-            ) : (
+           
               <>
                 <Link
                   to="/login"
@@ -234,8 +240,9 @@ const MenuDropdown = () => {
                 >
                   Sign Up
                 </Link>
+              
               </>
-            )}
+            
           </div>
         </div>
       )}
