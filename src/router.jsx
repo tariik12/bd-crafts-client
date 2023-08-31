@@ -20,6 +20,12 @@ import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
 import Alert from "./Components/Navber/SettingPage/Alert/Alert";
 import SettingPage from "./Components/Navber/SettingPage/SettingPage";
 import Security from "./Components/Navber/SettingPage/Security/Security";
+import Account from "./Components/Navber/SettingPage/Security/Account/Account";
+import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
+import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/PasswordAndSecurity/PasswordAndSecurity";
+import AddPreference from "./Components/Navber/SettingPage/Security/AddPreference/AddPreference";
+import Privacy from "./Components/Navber/SettingPage/Privacy/Privacy";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,31 +38,49 @@ const router = createBrowserRouter([
       //mostafizur
       {
         path: "/setting",
-        element: <SettingPage/>,
+        element: <SettingPage />,
         children: [
           {
             path: "/setting/genarel",
-            element: <Genarel/>,
+            element: <Genarel />,
           },
           {
             path: "/setting/security",
-            element: <Security/>,
+            element: <Security />,
+            children: [
+              {
+                path: "/setting/security/account",
+                element: <Account />,
+              },
+              {
+                path: "/setting/security/personalDetails",
+                element: <PersonalDetails />,
+              },
+              {
+                path: "/setting/security/passwordAndSecurity",
+                element: <PasswordAndSecurity />,
+              },
+              {
+                path: "/setting/security/addPreference",
+                element: <AddPreference/>,
+              },
+            ],
           },
           {
             path: "/setting/privacy",
-            element: 'privacy',
+            element: <Privacy/>,
           },
           {
             path: "/setting/activities",
-            element: 'activities',
+            element: "activities",
           },
           {
             path: "/setting/support",
-            element: 'support',
+            element: "support",
           },
           {
             path: "/setting/alert",
-            element: <Alert/>,
+            element: <Alert />,
           },
         ],
       },
