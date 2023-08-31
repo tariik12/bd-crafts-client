@@ -13,8 +13,8 @@ const LeftSide = () => {
             .then(res => res.json())
             .then(data => setFriends(data))
     }, [])
-    const onlineFriend = friends?.filter(friend => friend?.status === "online");
-    // console.log(onlineFriend);
+    const onlineFriends = friends?.filter(friend => friend?.status === "online");
+    
     return (
         <div className="flex">
             <div className="w-16 border-r-2 border-black">
@@ -42,7 +42,7 @@ const LeftSide = () => {
                 <div className="">
                     <p className="font-mono font-bold px-1">Online</p>
                     {
-                        onlineFriend?.map(f => <OnlineFriends key={f?._id} f={f}></OnlineFriends>)
+                        onlineFriends?.map(f => <OnlineFriends key={f?._id} f={f}></OnlineFriends>)
                     }
 
                 </div>
