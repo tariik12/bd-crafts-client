@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import Container from "../../Utilities/Container";
 import MenuDropdown from "./MenuDropdown";
 import { FaSistrix } from "react-icons/fa6";
+import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <div className="lg:w-full mx-auto bg-[#7BB4FF] z-10 shadow-sm">
+    <div className="navbar fixed lg:w-full bg-[#327ee0] z-50 text-white ">
+    {/* <div className="lg:w-full mx-auto bg-[#327ee0]  z-10 shadow-sm nav"> */}
       <div className="py-1 border-b[1px]">
         <Container>
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
@@ -23,8 +25,8 @@ const Navbar = () => {
                     className="input border h-[39px] border-white rounded-full bg-[#FFF] text-black px-10 w-full"
                   />
                 </div>
-                <div className="absolute -mt-[28px] ml-3 ">
-                  
+                <div className="absolute -mt-[28px] ml-3 text-black">
+
                   <FaSistrix size={22} />
                 </div>
               </div>
