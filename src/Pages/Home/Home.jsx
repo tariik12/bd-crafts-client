@@ -37,7 +37,7 @@ const Home = () => {
          </div>
           
         </div>
-        <div className="grid-cols-1 w-[300px] bg-base-300 ">
+        <div className="grid-cols-1 w-[300px] bg-green-900 ">
         <RightSideBar/>
         </div>
       </div>
