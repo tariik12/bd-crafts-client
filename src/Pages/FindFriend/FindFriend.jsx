@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 // import AddFriend from "./AddFriend";
 // import SectionTitle from "../Share/SectionTitle";
 import { Link } from "react-router-dom";
-import './FindFriend.CSS';
+import './FindFriend.css';
 
 
 const FindFriend = () => {
@@ -41,7 +41,7 @@ const FindFriend = () => {
                         <h3 className="text-4xl font-serif cursor-pointer my-2">Create Group</h3>
                     </Link>
                 </div>
-                <div className="grid-cols-9 cart">
+                <div className="grid-cols-9  cart">
                     <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-75">
 
                         {

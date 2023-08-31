@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Container from "../../Utilities/Container";
 import MenuDropdown from "./MenuDropdown";
 import { FaSistrix } from "react-icons/fa6";
-import './Navbar.css';
+import './Navbar.css' ; 
 
 const Navbar = () => {
   return (
