@@ -16,7 +16,7 @@ import CreateGroup from "./Pages/FindFriend/CreateGroup";
 import Payment from "./Pages/Payment/Payment";
 import Shop from "./Pages/Shop/Shop";
 
-import SettingPage from "./Components/Navber/SettingPage/Settingpage";
+import SettingPage from "./Components/Navber/SettingPage/SettingPage";
 import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
 import Alert from "./Components/Navber/SettingPage/Alert/Alert";
 import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
@@ -29,7 +29,7 @@ import ManageShop from "./Components/Dashboard/Admin/ManageShop";
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
 import SellerForm from "./Components/SellerForm/SellerForm";
-import PendingSeller from "./Components/Dashboard/Admin/pendingSeller";
+import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
 
 const router = createBrowserRouter([
   {
