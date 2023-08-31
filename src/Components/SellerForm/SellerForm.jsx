@@ -20,13 +20,14 @@ const handicraftCategories = [
 const SellerForm = () => {
     const location = useLocation()
     const {user}=useContext(AuthContext)
+    console.log(user);
   const { register,
     handleSubmit,control,reset,
      } = useForm();
 
   const onSubmit = (data) => {
     
-    fetch('http://localhost:5000/sellerForm',{
+    fetch(`${import.meta.env.VITE_URL}/sellerForm`,{
     method : "POST",
     headers :{"Content-Type":"application/json"},
     body : JSON.stringify(data)
@@ -75,8 +76,8 @@ return <div className="hero min-h-screen bg-base-100 shadow-2xl pt-20 pb-14" sty
             render={({ field }) => (
               <select {...field} className="input rounded-xl ">
                 <option value="" className=' ' disabled>Select a category</option>
-                {handicraftCategories.map((category) => (
-                  <option key={category} value={category}>
+                {handicraftCategories.map((category,i) => (
+                  <option key={i} value={category}>
                     {category}
                   </option>
                 ))}
