@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 // import AddFriend from "./AddFriend";
 // import SectionTitle from "../Share/SectionTitle";
 import { Link } from "react-router-dom";
-import './FindFriend.CSS';
+import './FindFriend.css';
 
 
 const FindFriend = () => {
