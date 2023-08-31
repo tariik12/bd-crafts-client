@@ -16,7 +16,7 @@ const LeftSide = () => {
     const onlineFriends = friends?.filter(friend => friend?.status === "online");
     
     return (
-        <div className="flex">
+        <div className="flex fixed bg-[#a7c6ef] ">
             <div className="w-16 border-r-2 border-black">
 
                 <label>
