@@ -15,16 +15,21 @@ import AllFriend from "./Pages/FindFriend/AllFriend";
 import CreateGroup from "./Pages/FindFriend/CreateGroup";
 import Payment from "./Pages/Payment/Payment";
 import Shop from "./Pages/Shop/Shop";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+
+import SettingPage from "./Components/Navber/SettingPage/SettingPage";
 import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
 import Alert from "./Components/Navber/SettingPage/Alert/Alert";
-import SettingPage from "./Components/Navber/SettingPage/SettingPage";
-import Security from "./Components/Navber/SettingPage/Security/Security";
-import Account from "./Components/Navber/SettingPage/Security/Account/Account";
-import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
-import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/PasswordAndSecurity/PasswordAndSecurity";
-import AddPreference from "./Components/Navber/SettingPage/Security/AddPreference/AddPreference";
-import Privacy from "./Components/Navber/SettingPage/Privacy/Privacy";
+import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
+import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
+import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
+import MyCart from "./Components/Dashboard/GeneralUser/MyCart";
+import PaymentHistory from "./Components/Dashboard/GeneralUser/PaymentHistory";
+import ManageShop from "./Components/Dashboard/Admin/ManageShop";
+
+import AddProducts from "./Components/Dashboard/Seller/AddProducts";
+import MyShop from "./Components/Dashboard/Seller/MyShop";
+import SellerForm from "./Components/SellerForm/SellerForm";
+import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
 
 const router = createBrowserRouter([
   {
@@ -46,29 +51,11 @@ const router = createBrowserRouter([
           },
           {
             path: "/setting/security",
-            element: <Security />,
-            children: [
-              {
-                path: "/setting/security/account",
-                element: <Account />,
-              },
-              {
-                path: "/setting/security/personalDetails",
-                element: <PersonalDetails />,
-              },
-              {
-                path: "/setting/security/passwordAndSecurity",
-                element: <PasswordAndSecurity />,
-              },
-              {
-                path: "/setting/security/addPreference",
-                element: <AddPreference/>,
-              },
-            ],
+            element: "security",
           },
           {
             path: "/setting/privacy",
-            element: <Privacy/>,
+            element: "privacy",
           },
           {
             path: "/setting/activities",
@@ -119,9 +106,10 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <Shop />,
       },
+
       {
-        path: "/dashboard",
-        element: <Dashboard />,
+        path: "/selerForm",
+        element: <SellerForm />,
       },
     ],
   },
@@ -133,6 +121,46 @@ const router = createBrowserRouter([
       {
         path: "/messages",
         element: <ChatBox />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "payed",
+        element: <PayedProducts />,
+      },
+      {
+        path: "myCart",
+        element: <MyCart />,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory />,
+      },
+
+      {
+        path: "manageShop",
+        element: <ManageShop />,
+      },
+
+      {
+        path: "pendingSeller",
+        element: <PendingSeller></PendingSeller>,
+      },
+      {
+        path: "addProducts",
+        element: <AddProducts />,
+      },
+      {
+        path: "myShop",
+        element: <MyShop />,
       },
     ],
   },

@@ -4,7 +4,7 @@ import app from "../../../firebase.config";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const style = {
-  massagestyle: `flex items-center shadow-xl m-4 py-2 px-3 rounded-tl-full rounded-tr-full  `,
+  massagestyle: `flex items-center shadow-xl m-4 py-1 px-3 rounded-tl-full rounded-tr-full mb-16 `,
 
   sent: `bg-[#395dff] text-white flex-row-reverse text-end float-right rounded-bl-full`,
   received: `bg-[#e5e5ea] text-black float-left rounded-br-full `,
@@ -17,7 +17,7 @@ const ChatBoxText = ({ massage }) => {
   ? `${style.sent}` : `${style.received}`
 
   return (
-    <div>
+    <div className="">
       <div className={`${style.massagestyle} ${massageClass}`}>
         <div>
           <img
@@ -31,6 +31,23 @@ const ChatBoxText = ({ massage }) => {
           <p className="text-xl ">{massage?.text}</p>
         </div>
       </div>
+      <div className="text-right" >
+
+      
+      {
+        massage?.image ? 
+        <div>
+          <img
+            className="rounded w-32 h-32 shadow-2xl shadow-black"
+            src={massage?.image ? massage.image : ""}
+            alt=""
+          />
+        </div>
+        :
+        ""
+      }
+      </div>
+      
     </div>
   );
 };
