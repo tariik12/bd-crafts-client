@@ -24,6 +24,8 @@ const ShopSlider = () => {
   return (
     <>
       <section>
+        {/* for test */}
+
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
