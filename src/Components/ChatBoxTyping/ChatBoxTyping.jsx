@@ -136,6 +136,7 @@ const ChatBoxTyping = () => {
                 <button
                   onClick={stopRecording}
                   className={style.textEmojiBtn}
+
                   type="button"
                 >
                   Stop

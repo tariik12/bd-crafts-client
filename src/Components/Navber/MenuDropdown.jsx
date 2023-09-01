@@ -1,85 +1,4 @@
-// import { Link } from "react-router-dom";
-// // import Avatar from "./Avatar";
 
-// import {
-//   FaUserLarge,
-//   FaEnvelopeOpenText,
-//   FaRegBell,
-//   FaHouse,
-// } from "react-icons/fa6";
-// import { useContext } from "react";
-// import { AuthContext } from "../../Provider/AuthProvider";
-
-// const MenuDropdown = () => {
-// const {user} = useContext(AuthContext)
-//   return (
-//     <div className="relative">
-//       <div className="flex flex-row items-center gap-3">
-//         <div className="hidden md:block text-sm font-semibold py-3 px-8 rounded-full  transition cursor-pointer">
-//           <div className=""></div>
-//           <div className="flex gap-4">
-//             <div className="flex items-center gap-4">
-//               <FaHouse size={25} className="text-white" />
-//               <Link to="/" className="text-[22px] text-white">
-//                 Home
-//               </Link>
-//             </div>
-//             <div className="ml-12 flex gap-4">
-//               <div className="relative">
-//                 <span className="absolute top-0 start-100 transform -translate-y-1/2 translate-x-1/2  text-[10px] text-center leading-none bg-red-500 text-white rounded-full p-[2px]">
-//                   99+
-//                 </span>
-//                 <div className="">
-//                 <Link to="/findFriend"><FaUserLarge size={25} className="text-white"/></Link>
-
-//                 </div>
-//               </div>
-//               <div className="relative">
-//                 <span className="absolute top-0 start-100 transform -translate-y-1/2 translate-x-1/2  text-[10px] text-center leading-none bg-red-500 text-white rounded-full p-[2px]">
-//                   99+
-//                 </span>
-//                 <div className="">
-
-//                   <FaRegBell size={25} className="text-white"/>
-
-//                 </div>
-//               </div>
-//               <div className="relative">
-//                 <span className="absolute top-0 start-100 transform -translate-y-1/2 translate-x-1/2  text-[10px] text-center leading-none bg-red-500 text-white rounded-full p-[2px]">
-//                   99+
-//                 </span>
-//                 <div className="">
-//                   <Link to="/messages">
-//                   <FaEnvelopeOpenText size={25} className="text-white"/></Link>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//         <div>
-//           {
-//             user? <>
-//                       <div className="avatar">
-// <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-// <img src={user?.photoURL} />
-// </div>
-// </div>
-//             </>:<>
-//             <img
-//             src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
-//             className="h-[50px] w-[50px] rounded-full"
-//             alt="profile"
-//           />
-//             </>
-//           }
-
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MenuDropdown;
 import {
   FaUserLarge,
   FaEnvelopeOpenText,
@@ -93,7 +12,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { useContext, useState } from "react";
 
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 
 import { toast } from "react-hot-toast";
 const MenuDropdown = () => {
@@ -187,14 +106,15 @@ const MenuDropdown = () => {
 
            
               <>
-                <Link
+        {   user &&   <>  <Link
                   to="/"
                   className="px-4 py-3 flex items-center gap-4 cursor-pointer"
                 >
+                  <FaHouseChimney size={20} className="text-[#417FF8]" />
                   <div className=" hover:bg-neutral-100 transition font-semibold">
                     {user?.displayName}
                   </div>
-                  <FaHouseChimney size={20} className="text-[#417FF8]" />
+                  
                 </Link>
                 <Link
                   to="/profile"
@@ -214,7 +134,9 @@ const MenuDropdown = () => {
                 >
                   Settings & Privacy
                 </Link>
-
+                </>
+                }
+{user?
                 <div
                   onClick={() => {
                     logOut();
@@ -225,22 +147,17 @@ const MenuDropdown = () => {
                 >
                   Logout
                 </div>
-              </>
-           
-              <>
+                :
                 <Link
                   to="/login"
                   className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
                 >
                   Login
-                </Link>
-                <Link
-                  to="/signup"
-                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                >
-                  Sign Up
-                </Link>
-              
+                </Link>}
+              </>
+           
+              <>
+             
               </>
             
           </div>
