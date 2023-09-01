@@ -1,0 +1,8 @@
+.left{
+    height: 100vh;
+    position:fixed;
+    /* background-color:rgb(94, 3, 3); */
+   overflow-y: scroll;
+   z-index: 20;
+   
+}

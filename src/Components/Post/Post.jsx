@@ -6,37 +6,39 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Post = () => {
-  const { user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   return (
     <div className="card shadow-xl mt-10 mb-10 bg-[#186DBE0F] ">
       <div className=" card-body">
         <div className="flex ml-0">
-    <div className="relative left-11 top-2 ">
-    {user ?  
-        <div className="avatar online ">
-            <div className="w-9 rounded-full ">
-              <img src={user?.photoURL} />
-            </div>
-          </div>:
-          <div className="avatar online ">
-          <div className="w-9 rounded-full ">
-            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" />
-          </div>
-        </div>
-          
-          }
-    </div>
-<div className="">
-<button
-            className="p-5 w-[500px] btn bg-base-200  hover:bg-[#7eb9df] rounded-3xl"
-            onClick={() => window.my_modal_2.showModal()}
-          >
-          <p className="text-left ml-9">  Share your ideas... {user?.displayName}</p>
+          <div className="relative left-11 top-2 ">
+            {user ?
+              <div className="avatar online ">
+                <div className="w-9 rounded-full ">
+                  <img src={user?.photoURL} />
+                </div>
+              </div> :
+              <div className="avatar online ">
+                <div className="w-9 rounded-full ">
+                  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" />
+                </div>
+              </div>
 
-          </button>
-</div>
-         
+            }
+          </div>
+
+          {/* create post section */}
+          <div className="">
+            <button
+              className="p-5 w-[250px] btn bg-base-200  hover:bg-[#7eb9df] rounded-3xl"
+              onClick={() => window.my_modal_2.showModal()}
+            >
+              <p className="text-left ml-9">  Share your ideas... {user?.displayName}</p>
+
+            </button>
+          </div>
+
         </div>
       </div>
       <p className="  border-b-2  w-full  border-black  mt-1 mb-3 "></p>
@@ -66,7 +68,7 @@ const Post = () => {
           </form>
         </dialog>
       </div>
-  
+
 
     </div>
   );

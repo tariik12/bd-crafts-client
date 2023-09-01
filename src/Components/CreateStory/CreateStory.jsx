@@ -47,11 +47,11 @@ const CreateStory = () => {
               <div className="">
                 <img
                   className="w-full h-[180px] rounded-2xl object-cover"
-                  src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
+                  src={user?.photoURL}
                   alt="slider"
                 />
               </div>
-              <div className="text-black flex items-center justify-center cursor-pointer">
+              <div className="text-black my-1 flex items-center justify-center cursor-pointer">
                 <span className="bg-[#7BB4FF] flex items-center justify-center border-2 border-gray-400 text-white h-10 w-10 rounded-full shadow-2xl">
                   <FaPlus className="h-5 w-5" />
                 </span>
