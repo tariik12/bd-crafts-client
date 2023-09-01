@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      //mostafizur
+      //mostafizur rahmaan
       {
         path: "/setting",
         element: <SettingPage />,
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/setting/support",
-            element: <Alert />,
+            element: "support",
           },
           {
             path: "/setting/alert",
