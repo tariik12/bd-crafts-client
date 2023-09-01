@@ -13,7 +13,7 @@ const ShopSlider = () => {
     },
     {
       image:
-        "https://img.freepik.com/free-photo/ceramic-pottery-tools-still-life_23-2150197294.jpg?size=626&ext=jpg&ga=GA1.1.649939747.1680192950&semt=ais",
+        "https://img.freepik.com/premium-photo/closeup-craft-hearts-female-hands_392895-77875.jpg?w=900",
     },
     {
       image:
