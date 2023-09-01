@@ -5,9 +5,9 @@ import {
   BsFillForwardFill,
 } from "react-icons/bs";
 import { FaComment, FaExternalLinkAlt } from "react-icons/fa";
-import { FaGear, FaShopLock, FaShopware, FaUserGroup } from "react-icons/fa6";
+import { FaGear, FaShopware, FaUserGroup } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import './LeftSideBar.css'
 const LeftSideBar = () => {
   const [shop, setShop] = useState([]);
 
@@ -18,10 +18,10 @@ const LeftSideBar = () => {
   }, []);
 
   return (
-    <div>
-      <div className=" flex flex-col gap-12 ">
+    <div className="left">
+      <div className=" flex flex-col">
         <div className="">
-          <div className="grid grid-cols-2 gap-2 p-2">
+          <div className="grid grid-cols-2 gap-8">
             {/* bookmark card */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg flex flex-col justify-center items-center p-2 gap-2">
               <BsFillBookmarkFill className="text-[#7BB4FF] w-10 h-10" />
@@ -68,7 +68,7 @@ const LeftSideBar = () => {
           </div>
         </div>
         {/* left side bar bottom  */}
-        <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md ">
+        <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24">
           <h1 className="text-[#7BB4FF] text-2xl font-semibold">Shops</h1>
           {/* shop list */}
 
