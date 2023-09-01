@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      //mostafizur
+      //mostafizur rahmaan
       {
         path: "/setting",
         element: <SettingPage />,
