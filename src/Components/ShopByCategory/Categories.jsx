@@ -8,7 +8,6 @@ const Categories = () => {
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
-  console.log(categories);
 
   return (
     <>

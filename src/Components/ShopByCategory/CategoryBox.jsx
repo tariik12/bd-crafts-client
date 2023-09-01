@@ -3,9 +3,9 @@ import { useState } from "react";
 const CategoryBox = ({ subCategory, name }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  // const toggleDropdown = () => {
+  //   setIsDropdownOpen(!isDropdownOpen);
+  // };
   const selected = false;
   return (
     <div
@@ -32,8 +32,8 @@ const CategoryBox = ({ subCategory, name }) => {
     >
       <h1
         className="text-xl font-medium"
-        onMouseEnter={toggleDropdown}
-        onMouseLeave={toggleDropdown}
+        // onMouseEnter={toggleDropdown}
+        // onMouseLeave={toggleDropdown}
       >
         {name}
       </h1>
