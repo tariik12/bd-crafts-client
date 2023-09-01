@@ -6,8 +6,8 @@ import './Navbar.css' ;
 
 const Navbar = () => {
   return (
-    <div className="navbar fixed lg:w-full bg-[#327ee0] z-50 text-white ">
-    {/* <div className="lg:w-full mx-auto bg-[#327ee0]  z-10 shadow-sm nav"> */}
+    // <div className="navbar  lg:w-full bg-[#327ee0] z-50 text-white ">
+     <div className="lg:w-full fixed mx-auto bg-[#327ee0]  z-10 shadow-sm nav"> 
       <div className="py-1 border-b[1px]">
         <Container>
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
