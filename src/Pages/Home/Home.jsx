@@ -46,7 +46,7 @@ const Home = () => {
 
 
       {/* <div className=" w-[300px] bg-base-300 "> */}
-      <div className=" w-3/12 text-black  bg-red-900">
+      <div className=" w-3/12 text-black  ">
         <RightSideBar />
         {/* <h4>gfyjf</h4> */}
       </div>

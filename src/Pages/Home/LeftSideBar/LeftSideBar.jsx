@@ -5,7 +5,7 @@ import {
   BsFillForwardFill,
 } from "react-icons/bs";
 import { FaComment, FaExternalLinkAlt } from "react-icons/fa";
-import { FaGear, FaShopLock, FaShopware, FaUserGroup } from "react-icons/fa6";
+import { FaGear, FaShopware, FaUserGroup } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import './LeftSideBar.css'
 const LeftSideBar = () => {
