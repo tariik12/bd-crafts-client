@@ -3,8 +3,11 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { ref, uploadString, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../../../firebase.config";
-import EmojiPicker from 'emoji-picker-react';
-import { FaIcons, FaImage } from 'react-icons/fa';
+import EmojiPicker from "emoji-picker-react";
+import { FaIcons, FaImage } from "react-icons/fa";
+import { BsSignStop } from "react-icons/bs";
+import { MdOutlineKeyboardVoice } from "react-icons/md";
+import { ReactMediaRecorder } from "react-media-recorder";
 
 const style = {
   inputCls: `block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`,
@@ -16,27 +19,35 @@ const ChatBoxTyping = () => {
   const [input, setInput] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [recordedAudio, setRecordedAudio] = useState(null);
+
   const fileInputRef = useRef(null);
 
   const sendMassage = async (e) => {
     e.preventDefault();
 
-    if (input === "" && imageURL === "") {
-      alert("Please enter a valid message or select an image");
+    if (input === "" && imageURL === "" && !recordedAudio) {
+      alert("Please enter a valid message, select an image, or record audio");
       return;
     }
 
+    console.log("Sending message with audio:", recordedAudio);
+
     const { uid, displayName, photoURL } = user;
-    await addDoc(collection(db, "massages"), {
+    const messageData = {
       text: input,
       name: displayName,
       uid: uid,
       timestamp: serverTimestamp(),
       photoURL: photoURL,
       image: imageURL,
-    });
+      audio: recordedAudio ? recordedAudio : null,
+    };
+
+    await addDoc(collection(db, "massages"), messageData);
     setInput("");
     setImageURL("");
+    setRecordedAudio(null);
   };
 
   const openImageFile = () => {
@@ -70,12 +81,18 @@ const ChatBoxTyping = () => {
   };
 
   const handleEmojiSelect = (emoji) => {
-    const emojiText = emoji.native || emoji.emoji; 
+    const emojiText = emoji.native || emoji.emoji;
     setInput(input + emojiText);
   };
+
+  const handleAudioRecorded = (data) => {
+    setRecordedAudio(data.blob);
+    console.log("Recorded audio:", data);
+  };
+
   return (
     <div className="w-full">
-      <form  >
+      <form>
         <div className="flex items-center px-3 py-2 rounded-lg gap-2">
           <button
             onClick={openImageFile}
@@ -93,19 +110,48 @@ const ChatBoxTyping = () => {
             <span className="sr-only">Upload image</span>
           </button>
           <button
-            className={style.textEmojiBtn}  type="button"
+            className={style.textEmojiBtn}
+            type="button"
             onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-            
           >
             <FaIcons size={25}></FaIcons>
           </button>
 
+          <ReactMediaRecorder
+            audio
+            render={({
+              startRecording,
+              stopRecording,
+              mediaBlobUrl,
+              status,
+            }) => (
+              <div className="flex justify-center items-center gap-2">
+                <button
+                  onClick={startRecording}
+                  className={style.textEmojiBtn}
+                  type="button"
+                >
+                  Start
+                </button>
+                <button
+                  onClick={stopRecording}
+                  className={style.textEmojiBtn}
+
+                  type="button"
+                >
+                  Stop
+                </button>
+                {status === "recording" && <audio src={mediaBlobUrl} controls />}
+                {recordedAudio && <audio src={mediaBlobUrl} controls />}
+                
+              </div>
+            )}
+            onData={handleAudioRecorded}
+          />
+
           {showEmojiPicker && (
             <div className="absolute z-10 bottom-14 right-0">
-              <EmojiPicker 
-              onEmojiClick={handleEmojiSelect}
-              />
-             
+              <EmojiPicker onEmojiClick={handleEmojiSelect} />
             </div>
           )}
           <input
@@ -116,8 +162,11 @@ const ChatBoxTyping = () => {
             className={style.inputCls}
             placeholder="Your message..."
           ></input>
-          <button className="btn bg-sky-700 text-white" type="submit"
-          onClick={sendMassage}          >
+          <button
+            className="btn bg-sky-700 text-white"
+            type="submit"
+            onClick={sendMassage}
+          >
             Send
           </button>
         </div>
