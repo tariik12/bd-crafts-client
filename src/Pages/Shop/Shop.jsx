@@ -1,12 +1,14 @@
+import Categories from "../../Components/ShopByCategory/Categories";
 import ShopSlider from "../../Components/ShopSlider/ShopSlider";
-import Container from "../../Utilities/Container";
 
 const Shop = () => {
   return (
     <div>
-      <Container>
-        <ShopSlider></ShopSlider>
-      </Container>
+      {/* <Container> */}
+      <h1 className="text-3xl font-bold text-center my-3">Craft Box</h1>
+      <ShopSlider></ShopSlider>
+      <Categories></Categories>
+      {/* </Container> */}
     </div>
   );
 };
