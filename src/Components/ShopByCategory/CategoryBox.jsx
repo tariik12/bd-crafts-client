@@ -31,7 +31,7 @@ const CategoryBox = ({ subCategory, name }) => {
       `}
     >
       <h1
-        className="text-xl font-medium"
+        className="text-xl font-medium btn"
         // onMouseEnter={toggleDropdown}
         // onMouseLeave={toggleDropdown}
       >
