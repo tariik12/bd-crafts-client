@@ -14,9 +14,8 @@ import useAdmin from "../../hooks/useAdmin";
 
 
 const DashboardLayout = () => {
-// const isAdmin =false;
-// const isSeller =false;
-
+const isBuyer =false;
+const isWholeseller =false;
 const [isSeller,isSellerLoading] = useSeller();
 const [isAdmin,isLoading] = useAdmin();
 
@@ -41,7 +40,7 @@ if(isLoading || isSellerLoading){
     <ul className="menu p-4 w-80 h-full bg-[#7BB4FF] text-base-content font-bold">
       {/* Sidebar content here */}
 
-      {isAdmin && (
+      {isAdmin &&(
             <>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
                 <NavLink to="manageShop"><FcShop></FcShop> Manage Shop</NavLink>
@@ -62,9 +61,20 @@ if(isLoading || isSellerLoading){
               </li>
             </>
           )}
-          {!isAdmin && !isSeller && (
+          {isWholeseller && (
             <>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
+                <NavLink to="myShop">
+                <FcShop></FcShop> My Shop</NavLink>
+              </li>
+              <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
+                <NavLink to="addProducts"><FaShopify></FaShopify> Add Products</NavLink>
+              </li>
+            </>
+          )}
+          {isBuyer && (
+            <>
+             <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
                 <NavLink to="myCart"><GiShoppingCart></GiShoppingCart> MyCart </NavLink>
               </li>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
@@ -75,6 +85,7 @@ if(isLoading || isSellerLoading){
               </li>
             </>
           )}
+       
         
        <div className="divider"></div>
          <li className="hover:bg-[#b2c9e6] p-1 rounded-xl"><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>

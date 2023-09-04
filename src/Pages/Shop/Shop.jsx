@@ -22,9 +22,9 @@ const Shop = () => {
 //     Aos.init({ duration: 2000 })
 //   }, [])
   return (
-    <div >
+    <div className="">
  
-      <h1 className="text-3xl font-bold text-center my-3">Craft Box</h1>
+      <h1 className="text-3xl font-bold text-center my-3 ">Craft Box</h1>
       <Slider {...settings} className=" border-b mx-10">
 {/* 
         <div >

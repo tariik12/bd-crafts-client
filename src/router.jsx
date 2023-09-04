@@ -184,7 +184,7 @@ const router = createBrowserRouter([
       },
       {
         path: "myShop",
-        element: <MyShop />,
+        element: <MyShop/>,
       },
     ],
   },

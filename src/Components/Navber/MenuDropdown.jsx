@@ -15,6 +15,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Link,  useNavigate } from "react-router-dom";
 
 import { toast } from "react-hot-toast";
+
 const MenuDropdown = () => {
   const navigate = useNavigate();
   const { user, logOut } = useContext(AuthContext);
@@ -122,6 +123,7 @@ const MenuDropdown = () => {
                 >
                   Profile
                 </Link>
+               
                 <Link
                   to="/dashboard"
                   className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
@@ -136,6 +138,7 @@ const MenuDropdown = () => {
                 </Link>
                 </>
                 }
+             
 {user?
                 <div
                   onClick={() => {
