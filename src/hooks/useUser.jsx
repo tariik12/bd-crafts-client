@@ -9,7 +9,8 @@ const useUser = () => {
         enabled:!loader,
         queryFn:async ()=>{
             const res=await axios.get(`${import.meta.env.VITE_URL}/user/${user?.email}`)
-            return res.data.seller;
+            // return res.data.seller;
+            console.log(res.data);
         }
     })
     return [isUser,isUserLoading]

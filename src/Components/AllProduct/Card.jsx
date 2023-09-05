@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 
-const Card = ({d}) => {
+
+const Card = ({d,handleAddToCart}) => {
+
+
+
+
+  
+
     return (
         <div>
             <Link className="col-span-1 cursor-pointer group">
@@ -35,6 +42,12 @@ const Card = ({d}) => {
           <div className="font-semibold">$ {d.price}</div>
           <div className="font-light">In Stock</div>
         </div>
+        <button
+     onClick={()=>handleAddToCart(d)}
+     className="btn btn-outline border-0 border-b-4 border-orange-500 mt-4 "
+   >
+   Add to Card
+   </button>
       </div>
     </Link>
         </div>

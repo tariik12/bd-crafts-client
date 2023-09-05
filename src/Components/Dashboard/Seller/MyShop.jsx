@@ -62,12 +62,7 @@ const {user}=useAuth()
         </div>
   <div className="flex gap-5 mt-1">
     <div>
-    <button
-     
-     className="btn btn-outline border-0 border-b-4 border-orange-500 mt-4 "
-   >
-   Add to Card
-   </button>
+ 
     </div>
     <div>
     <button
