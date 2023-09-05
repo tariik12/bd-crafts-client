@@ -43,7 +43,7 @@ if(isLoading || isSellerLoading){
       {isAdmin &&(
             <>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
-                <NavLink to="manageShop"><FcShop></FcShop> Manage Shop</NavLink>
+                <NavLink to="manageShop"><FcShop></FcShop> Manage Products</NavLink>
               </li>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
                 <NavLink to="pendingSeller"><AiOutlineUsergroupAdd></AiOutlineUsergroupAdd>Pending Sellers</NavLink>

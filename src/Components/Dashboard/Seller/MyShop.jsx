@@ -11,7 +11,7 @@ const {user}=useAuth()
 
   const [data, setData] = useState();
   useEffect(() => {
-    fetch(`http://localhost:5000/myProducts?email=${user?.email}`)
+    fetch(`${import.meta.env.VITE_URL}/myProducts?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);

@@ -25,7 +25,7 @@ const AddProducts = () => {
     data = {...data,status:'pending'}
     // console.log(data);
  
-    fetch("http://localhost:5000/addProducts", {
+    fetch(`${import.meta.env.VITE_URL}/addProducts`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
