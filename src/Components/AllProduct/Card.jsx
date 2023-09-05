@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Card = ({room}) => {
+const Card = ({d}) => {
     return (
         <div>
             <Link className="col-span-1 cursor-pointer group">
@@ -21,19 +21,19 @@ const Card = ({room}) => {
                 rounded-xl
                 
               "
-              src={room?.image?.img}
+              src={d?.img}
               alt="Room"
             />
 
        
         </div>
-        <div className="font-semibold text-lg">{room.location}</div>
+        <div className="font-semibold text-lg">{d.name}</div>
         <div className="font-light text-neutral-500">
-          5 nights . {room.dateRange}
+          Quantity : {d.quantity}
         </div>
         <div className="flex flex-row items-center gap-1">
-          <div className="font-semibold">$ {room.price}</div>
-          <div className="font-light">night</div>
+          <div className="font-semibold">$ {d.price}</div>
+          <div className="font-light">In Stock</div>
         </div>
       </div>
     </Link>

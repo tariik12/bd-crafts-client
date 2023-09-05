@@ -5,15 +5,15 @@ import Card from "./Card";
 import Heading from "../Heading/Heading";
 
 const AllProduct = () => {
-    const [rooms, setRooms] = useState([]);
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
   
     useEffect(() => {
       setLoading(true);
-      fetch(`https://airbnb-clone-server-ruby.vercel.app/${"all"}`)
+      fetch(`${import.meta.env.VITE_URL}/allProduct`)
         .then((res) => res.json())
         .then((data) => {
-          setRooms(data);
+          setData(data);
           setLoading(false);
         })
         .catch((err) => console.log(err));
@@ -22,18 +22,19 @@ const AllProduct = () => {
     if (loading) {
       return <Loader />;
     }
+   console.log(data);
     return (
         <div>
-           {rooms && rooms.length > 0 ? (
+           {data && data.length > 0 ? (
         <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
-          {rooms.map((room, index) => (
-            <Card key={index} room={room} />
+          {data.map((d, index) => (
+            <Card key={index} d={d} />
           ))}
         </div>
       ) : (
         <div className="pt-12">
           <Heading
-            title="No Rooms Available In This Category!"
+            title="No Products Available In This Category!"
             subtitle="Please Select Other Categories."
             center={true}
           />
