@@ -9,17 +9,20 @@ import {FcShop } from "react-icons/fc";
 import { NavLink, Outlet } from "react-router-dom";
 import useSeller from "../../hooks/useSeller";
 import useAdmin from "../../hooks/useAdmin";
+import useCart from "../../hooks/useCart";
+
 
 
 
 
 const DashboardLayout = () => {
-const isBuyer =false;
+
 const isWholeseller =false;
 const [isSeller,isSellerLoading] = useSeller();
 const [isAdmin,isLoading] = useAdmin();
-
-if(isLoading || isSellerLoading){
+const [carts]=useCart()
+console.log(carts);
+if(isLoading || isSellerLoading ){
   return <div className="flex md:mt-64 items-center justify-center ">
     <div className="radial-progress animate-spin" style={{"--value":70}}>70%</div>
   </div>
@@ -72,11 +75,16 @@ if(isLoading || isSellerLoading){
               </li>
             </>
           )}
-          {isBuyer && (
+          {!isAdmin && !isSeller && (
             <>
-             <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
-                <NavLink to="myCart"><GiShoppingCart></GiShoppingCart> MyCart </NavLink>
-              </li>
+             <div  className="hover:bg-[#b2c9e6]   p-1 rounded-xl">
+                <li>
+                <NavLink to="myCart"><GiShoppingCart size={23}></GiShoppingCart><div className="badge relative right-36 bottom-3 badge-secondary">+{carts?.length || 0}</div>
+                <div>MyCart </div>
+                 </NavLink>
+                
+                </li>
+              </div>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
                 <NavLink to="payed"><FaChessBishop></FaChessBishop> Payed</NavLink>
               </li>
