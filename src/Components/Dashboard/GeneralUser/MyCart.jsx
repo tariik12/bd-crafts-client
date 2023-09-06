@@ -3,6 +3,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
+import Heading from "../../Heading/Heading";
 
 const MyCart = () => {
     const [cart,refetch]=useCart()
@@ -19,10 +20,10 @@ const MyCart = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
-           
+          
             if (result.isConfirmed) {
            
-                fetch(`${import.meta.env.VITE_URL}/carts/${i?._id}`, {
+                fetch(`${import.meta.env.VITE_URL}/carts/${i?.id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -41,11 +42,10 @@ const MyCart = () => {
 
     return (
         <div className="w-full">
-    
-        
-      
-       
-          <div className="overflow-x-auto w-full">
+    {
+        cart.length > 0?
+        <>
+                  <div className="overflow-x-auto w-full">
   <table className="table w-full">
     {/* head */}
     <thead>
@@ -97,6 +97,22 @@ const MyCart = () => {
                   <button className="btn btn-warning btn-sm">PAY</button>
               </Link>
         </div>
+        </>:
+        <>
+          <div className="pt-12">
+          <Heading
+            title="Your Cart is Empty!"
+            subtitle="Looks like you haven't made order yet."
+            center={true}
+            
+          />
+        </div>
+        </>
+    }
+        
+      
+       
+
 
         </div>
     );

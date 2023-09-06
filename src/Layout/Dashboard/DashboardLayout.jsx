@@ -10,6 +10,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useSeller from "../../hooks/useSeller";
 import useAdmin from "../../hooks/useAdmin";
 import useCart from "../../hooks/useCart";
+import Loader from "../../Components/Loader";
 
 
 
@@ -23,9 +24,7 @@ const [isAdmin,isLoading] = useAdmin();
 const [carts]=useCart()
 
 if(isLoading || isSellerLoading ){
-  return <div className="flex md:mt-64 items-center justify-center ">
-    <div className="radial-progress animate-spin" style={{"--value":70}}>70%</div>
-  </div>
+  return <Loader />
 }
 
     return (
