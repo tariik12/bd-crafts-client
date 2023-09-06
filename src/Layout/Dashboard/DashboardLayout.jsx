@@ -21,7 +21,7 @@ const isWholeseller =false;
 const [isSeller,isSellerLoading] = useSeller();
 const [isAdmin,isLoading] = useAdmin();
 const [carts]=useCart()
-console.log(carts);
+
 if(isLoading || isSellerLoading ){
   return <div className="flex md:mt-64 items-center justify-center ">
     <div className="radial-progress animate-spin" style={{"--value":70}}>70%</div>
