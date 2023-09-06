@@ -4,6 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import AddProduct from "./AddProduct";
 
 // import AddProduct from "./AddProduct";
+import useCart from "../../hooks/useCart";
 // TODO: PROVIDE PUBLISH KEY
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_pk);
 const Payment = () => {
@@ -29,13 +30,16 @@ const Payment = () => {
             console.log(result)
         })
     }
+    const [cart] = useCart();
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const price = parseFloat(total.toFixed(2))
     return (
         <div>
            <AddProduct></AddProduct>
             <button onClick={onSubmit} className="btn mx-a w-32">payment ssl</button>
             <Elements stripe={stripePromise}> 
 
-            <CheckoutForm/>
+            <CheckoutForm cart={cart} price={price}/>
             </Elements>
         </div>
     );

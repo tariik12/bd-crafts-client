@@ -122,10 +122,7 @@ const router = createBrowserRouter([
         path: "/createGroup",
         element: <CreateGroup></CreateGroup>,
       },
-      {
-        path: "/payment",
-        element: <Payment />,
-      },
+      
       {
         path: "/shop",
         element: <Shop />,
@@ -165,6 +162,10 @@ const router = createBrowserRouter([
         element: <MyCart />,
       },
       {
+        path: "payment",
+        element: <Payment />,
+      },
+      {
         path: "paymentHistory",
         element: <PaymentHistory />,
       },
@@ -184,7 +185,7 @@ const router = createBrowserRouter([
       },
       {
         path: "myShop",
-        element: <MyShop />,
+        element: <MyShop/>,
       },
     ],
   },
