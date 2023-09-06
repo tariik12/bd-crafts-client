@@ -24,8 +24,13 @@ const AllProduct = () => {
 
     const handleAddToCart=(item)=>{
     
-     
-      const info = {...item,email:user?.email}
+     console.log(item);
+      const info = {id:item?._id,email:user?.email,
+      img:item?.img,name:item?.name,price:item?.price,quantity:item?.quantity,sellerEmail
+:item?.sellerEmail,sellername:item?.sellerName,
+
+
+      }
       if(user && user.email){
 
         fetch(`${import.meta.env.VITE_URL}/carts`,{
@@ -67,7 +72,7 @@ const AllProduct = () => {
     if (loading) {
       return <Loader />;
     }
-   console.log(data);
+   
     return (
         <div>
            {data && data.length > 0 ? (
