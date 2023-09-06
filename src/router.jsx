@@ -24,7 +24,7 @@ import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
 import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
 import MyCart from "./Components/Dashboard/GeneralUser/MyCart";
 import PaymentHistory from "./Components/Dashboard/GeneralUser/PaymentHistory";
-import ManageShop from "./Components/Dashboard/Admin/ManageShop";
+
 
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
@@ -36,6 +36,7 @@ import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDe
 import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/PasswordAndSecurity/PasswordAndSecurity";
 import AddPreference from "./Components/Navber/SettingPage/Security/AddPreference/AddPreference";
 import Privacy from "./Components/Navber/SettingPage/Privacy/Privacy";
+import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
 
 const router = createBrowserRouter([
   {
@@ -172,7 +173,7 @@ const router = createBrowserRouter([
 
       {
         path: "manageShop",
-        element: <ManageShop />,
+        element: <ManageProducts />,
       },
 
       {
