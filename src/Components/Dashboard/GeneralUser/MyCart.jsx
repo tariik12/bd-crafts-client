@@ -22,7 +22,7 @@ const MyCart = () => {
            
             if (result.isConfirmed) {
            
-                fetch(`http://localhost:5000/carts/${i?._id}`, {
+                fetch(`${import.meta.env.VITE_URL}/carts/${i?._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
