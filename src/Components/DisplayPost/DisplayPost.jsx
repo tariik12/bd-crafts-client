@@ -3,13 +3,33 @@ import { BiLike } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useContext } from "react";
+import { useContext,useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 const DisplayPost = ({ post }) => {
   const { user } = useContext(AuthContext);
+  const [openModal, setOpenModal] = useState(false);
   const { caption, photoUrl } = post;
-  const { register, handleSubmit } = useForm();
+
+  // get comments 
+  const { data: comments = [], refetch } = useQuery(["comments"], async () => {
+    const res = await fetch(`${import.meta.env.VITE_URL}/comments/${post?._id}`);
+    
+    return res.json();
+  });
+// const displayComments=(post)=>{
+//   fetch(`http://localhost:5000/comments/${post?._id}`)
+//   .then(res=>res.json())
+//   .then(data=>console.log(data))
+// }
+
+
+
+
+
+
+  const { register, handleSubmit,reset } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+
     const name=user?.displayName;
     const userImg = user?.photoURL;
     const postId =post?._id;
@@ -24,10 +44,18 @@ const DisplayPost = ({ post }) => {
       .then((data) => {
         
         if (data.insertedId) {
+          reset()
+          refetch()
           toast.success("comment done");
         }
       });
   };
+
+
+
+
+
+
   return (
     <div className="mt-10 p-5 bg-[#186DBE0F] shadow-2xl rounded-2xl w-full">
       <div className="flex gap-3">
@@ -70,11 +98,11 @@ const DisplayPost = ({ post }) => {
                     <BiLike size={20}></BiLike>Like
                   </span>
                   <button
-                    onClick={() => window.my_modal_1.showModal()}
+                     onClick={() => setOpenModal(!openModal)}
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaComment size={20}></FaComment>Comment
+                    <FaComment size={20}></FaComment>{comments?.length} Comment
                   </button>
                   <span className="flex items-center gap-2">
                     {" "}
@@ -125,7 +153,8 @@ const DisplayPost = ({ post }) => {
                     <BiLike size={20}></BiLike>Like
                   </span>
                   <button
-                    onClick={() => window.my_modal_1.showModal()}
+                      onClick={() => setOpenModal(!openModal)}
+                     
                     className="flex items-center gap-2"
                   >
                     {" "}
@@ -173,16 +202,42 @@ const DisplayPost = ({ post }) => {
 
       {/* display comment on modal */}
 
-      <div className="w-full ">
-        <dialog id="my_modal_1" className="modal">
-          <form method="dialog" className="modal-box">
-            <p className="py-4">{post?.comment}</p>
-            <div className="modal-action">
-              <button className="btn">Close</button>
+       {openModal && (
+        
+       <>
+       
+       <div className=" rounded-xl shadow-md w-[40vw]  max-h-screen bg-white  overflow-hidden text-sm ">
+          <div className="flex flex-col cursor-pointer px-4 py-4">
+            <div>
+              <h2 className="text-2xl">Comments</h2>
+              <div className="flex mt-4">
+               
+              </div>
+              <div className="">
+                <span className="">
+                 {
+                  comments?.map((c,i)=>
+                    
+                    <div key={i}  >
+<div className="flex items-center gap-3">
+<img className="w-12 rounded-full" src={c?.userImg} alt="" />
+                      <p className="text-black" >{c?.name}</p>
+                      
+</div>
+                      <div className="ml-16 bg-slate-400 max-w-max p-2 rounded-2xl">
+
+                      <p className="text-black " >{c?.comment}</p>
+                      </div>
+                    </div>
+                  )
+                 }
+                </span>
+              </div>
             </div>
-          </form>
-        </dialog>
-      </div>
+          </div>
+        </div>
+       </>
+      )}
     </div>
   );
 };
