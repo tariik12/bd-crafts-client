@@ -1,10 +1,12 @@
 import { FaComment, FaShare } from "react-icons/fa6";
 import { BiLike } from "react-icons/bi";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
+
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useContext,useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
+import { Navigate } from "react-router-dom";
 const DisplayPost = ({ post }) => {
   const { user } = useContext(AuthContext);
   const [openModal, setOpenModal] = useState(false);
@@ -34,22 +36,58 @@ const DisplayPost = ({ post }) => {
     const userImg = user?.photoURL;
     const postId =post?._id;
     const info = {...data,name,userImg,postId}
-    fetch(`${import.meta.env.VITE_URL}/comment`, {
-    
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(info),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        
-        if (data.insertedId) {
-          reset()
-          refetch()
-          toast.success("comment done");
+
+    if(user && user.email){
+
+      fetch(`${import.meta.env.VITE_URL}/comment`,{
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(info),
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        if(data.insertedId){
+           reset()
+           refetch()
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Comment Success',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
-      });
-  };
+      })
+    }else{
+      Swal.fire({
+        title: 'You have to login for comment',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Login Now!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+        Navigate('/Login',{state:{from:location}})
+        }
+      })
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

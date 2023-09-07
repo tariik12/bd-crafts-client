@@ -13,7 +13,7 @@ const CreatePost = () => {
    const email = user?.email;
     const info = {...data,name,img,email}
 
-
+  
 
     if(user && user.email){
 
@@ -29,7 +29,7 @@ const CreatePost = () => {
           Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Item Added',
+            title: 'Post Sucess',
             showConfirmButton: false,
             timer: 1500
           })
