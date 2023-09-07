@@ -29,6 +29,7 @@ const Home = () => {
 
       {/* <div className=" w-[680px] ms-12 "> */}
       <div className=" w-5/12">
+    
         <div >
           <CreateStory />
         </div>
