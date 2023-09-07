@@ -9,15 +9,14 @@ import useCart from "../../hooks/useCart";
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_pk);
 const Payment = () => {
 
-  
-    const onSubmit =() =>{
-        const  data = {
-            price:"12",
-            name:"tarikul",
-            currency:"USD",
-            address: 'Dhaka,bangladesh',
-            productID: "64f62e6e2def29c44000216b"
-        }
+    const [cart] = useCart();
+    const data = cart;
+    console.log(data)
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    parseFloat(total.toFixed(2))
+    data.price = "1222"
+   
+    const onSubmit = () =>{    
         console.log(data)
         fetch("http://localhost:5000/order",{
             method:'POST',
@@ -30,16 +29,14 @@ const Payment = () => {
             console.log(result)
         })
     }
-    const [cart] = useCart();
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    const price = parseFloat(total.toFixed(2))
+    
     return (
         <div>
            <AddProduct></AddProduct>
             <button onClick={onSubmit} className="btn mx-a w-32">payment ssl</button>
             <Elements stripe={stripePromise}> 
 
-            <CheckoutForm cart={cart} price={price}/>
+            <CheckoutForm cart={cart} price={data.price}/>
             </Elements>
         </div>
     );
