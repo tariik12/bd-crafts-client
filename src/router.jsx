@@ -37,6 +37,7 @@ import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/Passwo
 import AddPreference from "./Components/Navber/SettingPage/Security/AddPreference/AddPreference";
 import Privacy from "./Components/Navber/SettingPage/Privacy/Privacy";
 import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
       //mostafizur rahmaan
       {
         path: "/setting",
-        element: <SettingPage />,
+        element: <PrivetRoute><SettingPage /></PrivetRoute>,
         children: [
           {
             path: "/setting/genarel",
@@ -100,28 +101,28 @@ const router = createBrowserRouter([
       //Mahdi vai
       {
         path: "/profile",
-        element: <Profile />,
+        element: <PrivetRoute><Profile /></PrivetRoute>,
       },
       //Rabeya Akter
       {
         path: "/findFriend",
-        element: <FindFriend />,
+        element: <PrivetRoute><FindFriend /></PrivetRoute>,
       },
       {
         path: "/friendRequest",
-        element: <FriendRequest></FriendRequest>,
+        element: <PrivetRoute><FriendRequest></FriendRequest></PrivetRoute>,
       },
       {
         path: "/addFriend",
-        element: <AddFriend></AddFriend>,
+        element: <PrivetRoute><AddFriend></AddFriend></PrivetRoute>,
       },
       {
         path: "/allFriend",
-        element: <AllFriend></AllFriend>,
+        element: <PrivetRoute><AllFriend></AllFriend></PrivetRoute>,
       },
       {
         path: "/createGroup",
-        element: <CreateGroup></CreateGroup>,
+        element: <PrivetRoute><CreateGroup></CreateGroup></PrivetRoute>,
       },
       
       {
@@ -131,14 +132,14 @@ const router = createBrowserRouter([
 
       {
         path: "/selerForm",
-        element: <SellerForm />,
+        element: <PrivetRoute><SellerForm /></PrivetRoute>,
       },
     ],
   },
   // Rayhan
   {
     path: "messages",
-    element: <MessageLayout />,
+    element: <PrivetRoute><MessageLayout /></PrivetRoute>,
     children: [
       {
         path: "/messages",
@@ -148,7 +149,7 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivetRoute><DashboardLayout/></PrivetRoute>,
     children: [
       {
         path: "/dashboard",

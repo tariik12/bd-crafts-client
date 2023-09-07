@@ -2,9 +2,9 @@
 import { useContext } from 'react';
 import { useForm,Controller} from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import {  Navigate, useLocation } from 'react-router-dom';
+
 import { AuthContext } from '../../Provider/AuthProvider';
-import Swal from 'sweetalert2';
+
 
 const handicraftCategories = [
     'Pottery',
@@ -18,9 +18,9 @@ const handicraftCategories = [
   ];
 
 const SellerForm = () => {
-    const location = useLocation()
+  
     const {user}=useContext(AuthContext)
-    console.log(user);
+   
   const { register,
     handleSubmit,control,reset,
      } = useForm();
@@ -42,7 +42,7 @@ const SellerForm = () => {
   };
 
 
-if(user){
+
 return <div className="hero min-h-screen bg-base-100 shadow-2xl pt-20 pb-14" style={{ backgroundImage:
         `linear-gradient(to bottom, rgba(21, 21, 21, 0.6),rgba(21, 21, 21, 0.6)),
          url('https://img.freepik.com/premium-photo/colorful-vase-with-red-yellow-design-bottom_865967-463128.jpg?w=900&fbclid=IwAR0WB9Lb7sxelWOt_7WVbgNAjZYzFf1NGXSHHEDU3g0-olw5E8ZxJ2iPuZU')` }}>
@@ -96,16 +96,8 @@ return <div className="hero min-h-screen bg-base-100 shadow-2xl pt-20 pb-14" sty
         </div>
     
 </div>
-}else{
 
-Swal.fire({
-    title: 'error!',
-    text: 'You have to log in first to go this page',
-    icon: 'error',
-    confirmButtonText: 'Ok'
-  })
-}
-return <Navigate to="/login" state={{ from: location }} replace></Navigate>
+
 
 };
 
