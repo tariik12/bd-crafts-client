@@ -8,6 +8,7 @@ import Post from "../../Components/Post/Post";
 
 
 
+
 const Home = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -31,7 +32,7 @@ const Home = () => {
       <div className=" w-5/12">
     
         <div >
-          <CreateStory />
+         <CreateStory />
         </div>
         <div>
           <Post></Post>

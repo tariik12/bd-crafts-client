@@ -39,7 +39,7 @@ if(isLoading || isSellerLoading ){
   </div> 
   <div className="drawer-side  ">
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-    <ul className="menu p-4 w-80 h-full bg-[#7BB4FF] text-base-content font-bold">
+    <ul className="menu p-4 w-80 h-full bg-[#eaf0f9] text-base-content font-bold">
       {/* Sidebar content here */}
 
       {isAdmin &&(

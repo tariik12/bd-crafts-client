@@ -24,7 +24,7 @@ import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
 import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
 import MyCart from "./Components/Dashboard/GeneralUser/MyCart";
 import PaymentHistory from "./Components/Dashboard/GeneralUser/PaymentHistory";
-import ManageShop from "./Components/Dashboard/Admin/ManageShop";
+
 
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
@@ -36,6 +36,8 @@ import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDe
 import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/PasswordAndSecurity/PasswordAndSecurity";
 import AddPreference from "./Components/Navber/SettingPage/Security/AddPreference/AddPreference";
 import Privacy from "./Components/Navber/SettingPage/Privacy/Privacy";
+import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +51,7 @@ const router = createBrowserRouter([
       //mostafizur rahmaan
       {
         path: "/setting",
-        element: <SettingPage />,
+        element: <PrivetRoute><SettingPage /></PrivetRoute>,
         children: [
           {
             path: "/setting/genarel",
@@ -99,28 +101,28 @@ const router = createBrowserRouter([
       //Mahdi vai
       {
         path: "/profile",
-        element: <Profile />,
+        element: <PrivetRoute><Profile /></PrivetRoute>,
       },
       //Rabeya Akter
       {
         path: "/findFriend",
-        element: <FindFriend />,
+        element: <PrivetRoute><FindFriend /></PrivetRoute>,
       },
       {
         path: "/friendRequest",
-        element: <FriendRequest></FriendRequest>,
+        element: <PrivetRoute><FriendRequest></FriendRequest></PrivetRoute>,
       },
       {
         path: "/addFriend",
-        element: <AddFriend></AddFriend>,
+        element: <PrivetRoute><AddFriend></AddFriend></PrivetRoute>,
       },
       {
         path: "/allFriend",
-        element: <AllFriend></AllFriend>,
+        element: <PrivetRoute><AllFriend></AllFriend></PrivetRoute>,
       },
       {
         path: "/createGroup",
-        element: <CreateGroup></CreateGroup>,
+        element: <PrivetRoute><CreateGroup></CreateGroup></PrivetRoute>,
       },
       
       {
@@ -130,14 +132,14 @@ const router = createBrowserRouter([
 
       {
         path: "/selerForm",
-        element: <SellerForm />,
+        element: <PrivetRoute><SellerForm /></PrivetRoute>,
       },
     ],
   },
   // Rayhan
   {
     path: "messages",
-    element: <MessageLayout />,
+    element: <PrivetRoute><MessageLayout /></PrivetRoute>,
     children: [
       {
         path: "/messages",
@@ -147,7 +149,7 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivetRoute><DashboardLayout/></PrivetRoute>,
     children: [
       {
         path: "/dashboard",
@@ -172,7 +174,7 @@ const router = createBrowserRouter([
 
       {
         path: "manageShop",
-        element: <ManageShop />,
+        element: <ManageProducts />,
       },
 
       {

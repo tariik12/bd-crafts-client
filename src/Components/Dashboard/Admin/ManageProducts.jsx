@@ -4,7 +4,7 @@ import ProductsTable from "../../ProductsTable/ProductsTable";
 
 
 
-const ManageShop = () => {
+const ManageProducts = () => {
     const { data: products = [], refetch } = useQuery(["products"], async () => {
     
         const res = await fetch(`${import.meta.env.VITE_URL}/pendingProducts`);
@@ -85,4 +85,4 @@ products?.map((p,idx)=><ProductsTable key={idx} p={p} idx={idx}  handleApproved=
     );
 };
 
-export default ManageShop;
+export default ManageProducts;

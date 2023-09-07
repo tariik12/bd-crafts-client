@@ -40,7 +40,11 @@ const Card = ({d,handleAddToCart}) => {
         </div>
         <div className="flex flex-row items-center gap-1">
           <div className="font-semibold">$ {d.price}</div>
-          <div className="font-light">In Stock</div>
+          <div className={d?.quantity ==0 ? 'text-red-900 text-xs' :'text-light text-xs'}>
+              {
+                d?.quantity == 0?"Stock Out":"In Stock"
+              }
+              </div>
         </div>
         <button
      onClick={()=>handleAddToCart(d)}
