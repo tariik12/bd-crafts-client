@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { Navigate } from "react-router-dom";
 const CreatePost = () => {
   const { user} = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
@@ -11,19 +13,51 @@ const CreatePost = () => {
    const email = user?.email;
     const info = {...data,name,img,email}
 
-      fetch(`${import.meta.env.VITE_URL}/post`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(info),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-        
-        toast.success("post done")  
+
+
+    if(user && user.email){
+
+      fetch(`${import.meta.env.VITE_URL}/post`,{
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(info),
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        if(data.insertedId){
+           
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Item Added',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
-      });
+      })
+    }else{
+      Swal.fire({
+        title: 'You have to login for post',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Login Now!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+        Navigate('/Login',{state:{from:location}})
+        }
+      })
+    }
+
+
+
+
+
+
   };
+
+
 
   return (
     <div className=" w-full bg-[#cfe0ec] rounded-3xl shadow-2xl mt-10 p-5">

@@ -24,7 +24,6 @@ const AllProduct = () => {
 
     const handleAddToCart=(item)=>{
     
-     console.log(item);
       const info = {id:item?._id,email:user?.email,
       img:item?.img,name:item?.name,price:item?.price,quantity:item?.quantity,sellerEmail
 :item?.sellerEmail,sellername:item?.sellerName,
@@ -53,7 +52,7 @@ const AllProduct = () => {
         })
       }else{
         Swal.fire({
-          title: 'You have to login for order food',
+          title: 'You have to login for order this products',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
