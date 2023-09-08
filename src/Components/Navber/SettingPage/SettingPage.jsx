@@ -12,7 +12,7 @@ const SettingPage = () => {
             <div className="flex items-center justify-center mt-9">
               <img
                 className="w-[202px] h-[202px]  rounded-full"
-                src="https://i.ibb.co/3CqFXC5/Mostafizur-Rahman.jpg"
+                src={user?.photoURL}
                 alt="userIMg"
               />
             </div>
