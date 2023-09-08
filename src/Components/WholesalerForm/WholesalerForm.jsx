@@ -17,38 +17,35 @@ const handicraftCategories = [
     'Other'
   ];
 
-const SellerForm = () => {
-  
+
+const WholesalerForm = () => {
     const {user}=useContext(AuthContext)
    
-  const { register,
-    handleSubmit,control,reset,
-     } = useForm();
-
-  const onSubmit = (data) => {
-    
-    fetch(`${import.meta.env.VITE_URL}/sellerForm`,{
-    method : "POST",
-    headers :{"Content-Type":"application/json"},
-    body : JSON.stringify(data)
-})
-.then((res)=>res.json())
-.then((data)=>{
-    if(data.insertedId){
-        toast.success("Your form has been recorded.Please wait for the admin approval")
-        reset()
-    }
-})
-  };
-
-
-
-return <div className="hero min-h-screen bg-base-100 shadow-2xl pt-20 pb-14" style={{ backgroundImage:
+    const { register,
+      handleSubmit,control,reset,
+       } = useForm();
+  
+    const onSubmit = (data) => {
+      
+      fetch(`${import.meta.env.VITE_URL}/sellerForm`,{
+      method : "POST",
+      headers :{"Content-Type":"application/json"},
+      body : JSON.stringify(data)
+  })
+  .then((res)=>res.json())
+  .then((data)=>{
+      if(data.insertedId){
+          toast.success("Your form has been recorded.Please wait for the admin approval")
+          reset()
+      }
+  })
+    };
+    return <div className="hero min-h-screen bg-base-100 shadow-2xl pt-20 pb-14" style={{ backgroundImage:
         `linear-gradient(to bottom, rgba(21, 21, 21, 0.6),rgba(21, 21, 21, 0.6)),
          url('https://img.freepik.com/premium-photo/colorful-vase-with-red-yellow-design-bottom_865967-463128.jpg?w=900&fbclid=IwAR0WB9Lb7sxelWOt_7WVbgNAjZYzFf1NGXSHHEDU3g0-olw5E8ZxJ2iPuZU')` }}>
    
         <div className="card px-5 w-full  max-w-sm shadow-2xl bg-[#f0dcdc55]">
-            <h3 className='text-4xl  pt-5 font-serif'>Seller Form</h3>
+            <h3 className='text-4xl  pt-5 font-serif'>Wholesaler Form</h3>
         
             <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
                 <div className="">
@@ -101,4 +98,4 @@ return <div className="hero min-h-screen bg-base-100 shadow-2xl pt-20 pb-14" sty
 
 };
 
-export default SellerForm;
+export default WholesalerForm;

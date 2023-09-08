@@ -1,22 +1,24 @@
-import { Outlet } from "react-router-dom";
-import LeftSide from "../Components/Messeges/Messages/LeftSide/LeftSide";
-
-// import Navbar from "../Components/Navber/Navbar";
+import ChatBox from "../Components/ChatBox/ChatBox";
+import ChatListNew from "../Components/Messeges/Messages/LeftSide/ChatListNew";
+import IconBer from "../Components/Messeges/Messages/LeftSide/IconBer";
 
 const MessageLayout = () => {
-  return (
-    <div className="">
-     {/* <div className="fixed z-10 left-96">
-     <Navbar />
-     </div> */}
-     
-      <div className="flex ">
-      <div className="w-1/4 h-[690px]   ">
-        <LeftSide></LeftSide>
+   return (
+    <>
+      <div className="flex flex-row">
+        <div className="h-full w-22" >
+          <IconBer></IconBer>
+        </div>
+
+        <div className="h-full w-80">
+          <ChatListNew></ChatListNew>
+        </div>
+
+        <div className="h-full flex-grow bg-slate-500">
+          <ChatBox></ChatBox>
+        </div>
       </div>
-        <Outlet />
-      </div>
-    </div>
+    </>
   );
 };
 

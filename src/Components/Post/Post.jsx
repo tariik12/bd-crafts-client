@@ -29,9 +29,9 @@ const Post = () => {
           </div>
 
           {/* create post section */}
-          <div className="">
+          <div className="w-full">
             <button
-              className="p-5 w-[250px] btn bg-base-200  hover:bg-[#7eb9df] rounded-3xl"
+              className="p-5  btn bg-base-200  hover:bg-[#7eb9df] rounded-3xl"
               onClick={() => window.my_modal_2.showModal()}
             >
               <p className="text-left ml-9">  Share your ideas... {user?.displayName}</p>
