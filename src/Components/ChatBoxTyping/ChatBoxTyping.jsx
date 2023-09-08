@@ -3,10 +3,10 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { ref, uploadString, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../../../firebase.config";
-import EmojiPicker, { Emoji } from "emoji-picker-react";
 import { ReactMediaRecorder } from "react-media-recorder";
 import { IconButton } from "@mui/material";
-import { Image, Record, Smiley, Stop } from "phosphor-react";
+import { Image, Record, Stop, Smiley } from "phosphor-react";
+import EmojiPicker from "emoji-picker-react";
 import { ThumbUp } from "@mui/icons-material";
 
 const style = {
@@ -17,47 +17,10 @@ const ChatBoxTyping = () => {
   const { user } = useContext(AuthContext);
   const [input, setInput] = useState("");
   const [imageURL, setImageURL] = useState("");
+  const [recordedAudioBase64, setRecordedAudioBase64] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  const [recordedAudio, setRecordedAudio] = useState(null);
 
   const fileInputRef = useRef(null);
-
-  const sendMassage = async (e) => {
-    e.preventDefault();
-
-    if (input === "" && imageURL === "" && !recordedAudio) {
-      alert("Please enter a valid message, select an image, or record audio");
-      return;
-    }
-
-    console.log("Sending message with audio:", recordedAudio);
-
-    const { uid, displayName, photoURL } = user;
-    const messageData = {
-      text: input,
-      name: displayName,
-      uid: uid,
-      timestamp: serverTimestamp(),
-      photoURL: photoURL,
-      image: imageURL,
-      audio: recordedAudio ? recordedAudio : null,
-    };
-
-    try {
-      await addDoc(collection(db, "messages"), messageData);
-      setInput("");
-      setImageURL("");
-      setRecordedAudio(null);
-    } catch (error) {
-      console.error("Error sending message:", error);
-    }
-  };
-
-  const openImageFile = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
-  };
 
   const handleSendImage = async (e) => {
     const file = e.target.files[0];
@@ -83,19 +46,73 @@ const ChatBoxTyping = () => {
     };
   };
 
-  const handleEmojiSelect = (emoji) => {
-    const emojiText = emoji.native || emoji.emoji;
-    setInput(input + emojiText);
-  };
-
   const handleAudioRecorded = (data) => {
     console.log("Audio recorded:", data);
     if (data.blob) {
-      setRecordedAudio(data.blob);
-      console.log("Recorded audio blob:", data.blob);
+      // Convert the Blob to a base64 string
+      const reader = new FileReader();
+      reader.readAsDataURL(data.blob);
+      reader.onloadend = () => {
+        setRecordedAudioBase64(reader.result);
+        console.log("Recorded audio base64:", reader.result);
+      };
     } else {
       console.error("No audio blob found.");
     }
+  };
+
+  const sendMassage = async (e) => {
+    e.preventDefault();
+
+    if (input === "" && imageURL === "" && !recordedAudioBase64) {
+      alert("Please enter a valid message, select an image, or record audio");
+      return;
+    }
+
+    const { uid, displayName, photoURL } = user;
+    const messageData = {
+      text: input,
+      name: displayName,
+      uid: uid,
+      timestamp: serverTimestamp(),
+      photoURL: photoURL,
+      image: imageURL,
+      audioBase64: recordedAudioBase64 || null,
+      audioURL: "",
+    };
+
+    try {
+      await addDoc(collection(db, "messages"), messageData);
+      setInput("");
+      setImageURL("");
+      setRecordedAudioBase64("");
+
+      if (recordedAudioBase64) {
+        const audioDataUrl = recordedAudioBase64.split(",")[1];
+        const storageRef = ref(
+          storage,
+          `audio/${user.uid}/${Date.now()}.webm`
+        );
+        await uploadString(storageRef, audioDataUrl, "data_url");
+        const downloadURL = await getDownloadURL(storageRef);
+        messageData.audioURL = downloadURL;
+        const messageRef = collection(db, "messages").doc();
+        await messageRef.set(messageData);
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  };
+
+  const openImageFile = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleEmojiSelect = (emoji) => {
+    const emojiText = emoji.native || emoji.emoji;
+    setInput(input + emojiText);
   };
 
   return (
@@ -108,7 +125,7 @@ const ChatBoxTyping = () => {
             className="border rounded-md bg-white"
           >
             <IconButton>
-              <Image className="text-black"></Image>
+              <Image className="text-black" />
             </IconButton>
             <input
               ref={fileInputRef}
@@ -120,12 +137,12 @@ const ChatBoxTyping = () => {
             <span className="sr-only">Upload image</span>
           </button>
           <button
-            className="border rounded-md bg-white "
+            className="border rounded-md bg-white"
             type="button"
             onClick={() => setShowEmojiPicker(!showEmojiPicker)}
           >
             <IconButton>
-              <Smiley className="text-green-900"></Smiley>
+              <Smiley className="text-green-900" />
             </IconButton>
           </button>
 
@@ -139,23 +156,24 @@ const ChatBoxTyping = () => {
                   type="button"
                 >
                   <IconButton>
-                    <Record className="text-red-500"></Record>
+                    <Record className="text-red-500" />
                   </IconButton>
                 </button>
+                
                 <button
                   onClick={stopRecording}
                   className="border rounded-md bg-white"
                   type="button"
                 >
                   <IconButton>
-                    <Stop className="text-red-400"></Stop>
+                    <Stop className="text-red-400" />
                   </IconButton>
                 </button>
+                {recordedAudioBase64 && (
+                  <audio src={recordedAudioBase64} controls />
+                )}
                 {status === "recording" && <p>Recording...</p>}
                 {error && <p>Error: {error}</p>}
-                {recordedAudio && (
-                  <audio src={URL.createObjectURL(recordedAudio)} controls />
-                )}
               </div>
             )}
             onData={handleAudioRecorded}
@@ -174,12 +192,13 @@ const ChatBoxTyping = () => {
             className={style.inputCls}
             placeholder="Your message..."
           />
-          <button type="button" 
-          className="border rounded-md bg-white"
-          > 
-          <IconButton >
-            <ThumbUp className="text-green-500"></ThumbUp>
-          </IconButton>
+          <button
+            type="button"
+            className="border rounded-md bg-white"
+          >
+            <IconButton>
+              <ThumbUp className="text-green-500" />
+            </IconButton>
           </button>
           <button className="btn bg-sky-700 text-white" type="submit">
             Send
