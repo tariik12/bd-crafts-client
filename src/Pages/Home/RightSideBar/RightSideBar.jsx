@@ -41,13 +41,13 @@ const RightSideBar = () => {
   };
   return (
     <div className="p-2 Right">
-      <div className="grid grid-cols-1 ">
+      <div className="grid grid-cols-1">
         <h1 className="text-xl font-bold">All Friends</h1>
 
 
 
-        <Slider  {...settings}>
-          {onlineFriends?.map((friend) => <div key={friend.id} className="card w-full mx-5 my-4 bg-base-100 shadow-xl">
+        <Slider  {...settings} className="">
+          {onlineFriends?.map((friend) => <div key={friend.id} className="card w-full mx-5  my-4 bg-base-100 shadow-xl">
             <div className="avatar">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src={friend?.Profile_image} />
@@ -64,7 +64,7 @@ const RightSideBar = () => {
         <p className="border-b-2  w-full  border-black  mt-1 mb-3 "></p>
       </div>
       <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24">
-          <h1 className="text-[#7BB4FF] text-2xl font-semibold">Shops</h1>
+          <h1 className="text-[#7BB4FF] text-2xl font-semibold">Active Friend</h1>
           {/* shop list */}
 
           {onlineFriends?.map((friend) => (
