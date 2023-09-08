@@ -37,6 +37,7 @@ import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDe
 import Security from "./Components/Navber/SettingPage/Security/Security";
 import SellerForm from "./Components/SellerForm/SellerForm";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
+import ManageUser from "./Components/Dashboard/Admin/ManageUser";
 
 import EventPage from "./Components/Event/EventPage";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
@@ -251,6 +252,10 @@ const router = createBrowserRouter([
       {
         path: "pendingSeller",
         element: <PendingSeller></PendingSeller>,
+      },
+      {
+        path: "manageUser",
+        element: <ManageUser/>,
       },
       {
         path: "addProducts",
