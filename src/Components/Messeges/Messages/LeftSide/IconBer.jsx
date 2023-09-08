@@ -3,6 +3,8 @@ import { useTheme } from "@mui/material/styles";
 import logo from "../../../../assets/icon/bdcraft_logo.png";
 import { Gear, Phone, User } from "phosphor-react";
 import { Message } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import { FaHouse } from "react-icons/fa6";
 
 const IconBer = () => {
   const theme = useTheme();
@@ -29,16 +31,21 @@ const IconBer = () => {
           spacing={4}
         >
           <Stack>
+            <Link to='/'>
             <Box
               sx={{
                 backgroundColor: theme.palette.primary.main,
                 height: 60,
                 width: 60,
                 borderRadius: 1.5,
+               padding:1,
+               marginTop:1,
               }}
             >
-              <img src={logo} alt="logo" />
+              <img  src={logo} alt="logo" />
+              <FaHouse size={25} className="text-white ms-2 mt-2" />
             </Box>
+            </Link>
 
             <div className="flex flex-col gap-5 py-5 text-3xl text-white">
               <div className={style.iconCss}>

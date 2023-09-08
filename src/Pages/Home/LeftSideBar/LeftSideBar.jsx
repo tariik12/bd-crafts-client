@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import {
   BsCalendarCheckFill,
   BsFillBookmarkFill,
-  BsFillForwardFill,
+
 } from "react-icons/bs";
 import { FaComment, FaExternalLinkAlt } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 import { FaGear, FaShopware, FaUserGroup } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import './LeftSideBar.css'
@@ -24,46 +25,46 @@ const LeftSideBar = () => {
           <div className="grid grid-cols-2 gap-8">
             {/* bookmark card */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg flex flex-col justify-center items-center p-2 gap-2">
-              <BsFillBookmarkFill className="text-[#7BB4FF] w-10 h-10" />
-              <Link className="text-center hover:underline">
-                Bookmarked Posts
+              <Link to='/profile' className="text-center hover:underline">
+              <CgProfile className="text-[#7BB4FF] w-10 h-10 ms-1" />
+               Profile
               </Link>
             </div>
             {/* Connection Requests */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <BsFillForwardFill className="text-[#7BB4FF] w-10 h-10" />
-              <Link className="text-center hover:underline">
-                Connection Requests
+              <Link to='/wholeSealerForm' className="text-center hover:underline">
+              <FaShopware className="text-[#7BB4FF] w-10 h-10 ms-9" />
+              Wholesaler Form
               </Link>
             </div>
             {/* Events */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <BsCalendarCheckFill className="text-[#7BB4FF] w-10 h-10" />
-              <Link className="text-center hover:underline">Events</Link>
+              
+              <Link to='/eventPage' className="text-center hover:underline"><BsCalendarCheckFill className="text-[#7BB4FF] w-10 h-10 ms-1" /> Events</Link>
             </div>
             {/* Activity Log */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <BsFillBookmarkFill className="text-[#7BB4FF] w-10 h-10" />
-              <Link className="text-center hover:underline">Activity Log</Link>
+              
+              <Link to='/shop' className="text-center hover:underline"> <BsFillBookmarkFill className="text-[#7BB4FF] w-10 h-10 ms-2" /> All Shop</Link>
             </div>
             {/* All Comments */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <FaComment className="text-[#7BB4FF] w-10 h-10" />
-              <Link className="text-center hover:underline">All Comments</Link>
+              <Link to='/messages' className="text-center hover:underline"><FaComment className="text-[#7BB4FF] w-10 h-10 ms-5" /> Massage</Link>
             </div>
             {/* Settings */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <FaGear className="text-[#7BB4FF] w-10 h-10" />
-              <Link className="text-center hover:underline">Settings</Link>
+              <Link to='/setting' className="text-center justify-center hover:underline"> <FaGear className="text-[#7BB4FF] w-10 h-10 ms-2" />Settings </Link>
+              
             </div>
             {/* Groups */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
               <FaUserGroup className="text-[#7BB4FF] w-10 h-10" />
-              <Link className="text-center hover:underline">My Groups</Link>
+              <Link to='/myGroup' className="text-center hover:underline">My Groups</Link>
             </div>
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <FaShopware className="text-[#7BB4FF] w-10 h-10" />
-              <Link to="selerForm" className="text-center hover:underline">Seller Form</Link>
+              
+              <Link to="selerForm" className="text-center hover:underline">
+              <FaShopware className="text-[#7BB4FF] w-10 h-10 ms-4" /> Seller Form</Link>
             </div>
           </div>
         </div>

@@ -39,6 +39,10 @@ import Privacy from "./Components/Navber/SettingPage/Privacy/Privacy";
 import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
+import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
+import EventPage from "./Components/Event/EventPage";
+import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -109,6 +113,14 @@ const router = createBrowserRouter([
         element: <PrivetRoute><FindFriend /></PrivetRoute>,
       },
       {
+        path:'/myGroup',
+        element:<MyGroupPage/>
+      },
+      {
+        path:'/eventPage',
+        element:<EventPage/>
+      },
+      {
         path: "/friendRequest",
         element: <PrivetRoute><FriendRequest></FriendRequest></PrivetRoute>,
       },
@@ -134,8 +146,15 @@ const router = createBrowserRouter([
         path: "/selerForm",
         element: <PrivetRoute><SellerForm /></PrivetRoute>,
       },
+      {
+        path: "/wholeSealerForm",
+        element: <PrivetRoute><WholesalerForm /></PrivetRoute>,
+      },
     ],
+
+   
   },
+ 
   // Rayhan
   {
     path: "messages",
