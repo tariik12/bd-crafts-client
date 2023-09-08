@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import OnlineFriends from "../../../Components/OnlineFriends/OnlineFriends";
+// import OnlineFriends from "../../../Components/OnlineFriends/OnlineFriends";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick";
 import { AiOutlineFundView } from "react-icons/ai";
-import { FaUserFriends } from "react-icons/fa";
+import { FaExternalLinkAlt, FaUserFriends } from "react-icons/fa";
 import './RightSideBar.css'
+import { Link } from "react-router-dom";
 const RightSideBar = () => {
   const [friends, setFriends] = useState([]);
 
@@ -20,6 +21,7 @@ const RightSideBar = () => {
   const onlineFriends = friends?.filter(
     (onlineFriend) => onlineFriend.status === "active"
   );
+  console.log(onlineFriends)
   const settings = {
     autoplay: true,
     infinite: true,
@@ -61,13 +63,34 @@ const RightSideBar = () => {
         </Slider>
         <p className="border-b-2  w-full  border-black  mt-1 mb-3 "></p>
       </div>
-      <div className="grid grid-cols-1 h-[400px] rounded-md shadow-2xl ">
+      <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24">
+          <h1 className="text-[#7BB4FF] text-2xl font-semibold">Shops</h1>
+          {/* shop list */}
+
+          {onlineFriends?.map((friend) => (
+            <div
+              key={friend._id}
+              className="flex justify-between items-center my-1"
+            >
+              <img
+                src={friend?.Profile_image}
+                alt=""
+                className="w-10 h-10 rounded-full"
+              />
+              <p className="text-[#082B59]">{friend?.Name}</p>
+              <Link>
+                <FaExternalLinkAlt />
+              </Link>
+            </div>
+          ))}
+        </div>
+      {/* <div className="grid grid-cols-1 h-[400px] rounded-md shadow-2xl ">
         <h1 className="text-xl font-bold">Online Friends</h1>
 
         {onlineFriends?.map((friend) => (
           <OnlineFriends key={friend?._id} friend={friend} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

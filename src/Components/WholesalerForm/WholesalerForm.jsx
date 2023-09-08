@@ -45,7 +45,7 @@ const WholesalerForm = () => {
          url('https://img.freepik.com/premium-photo/colorful-vase-with-red-yellow-design-bottom_865967-463128.jpg?w=900&fbclid=IwAR0WB9Lb7sxelWOt_7WVbgNAjZYzFf1NGXSHHEDU3g0-olw5E8ZxJ2iPuZU')` }}>
    
         <div className="card px-5 w-full  max-w-sm shadow-2xl bg-[#f0dcdc55]">
-            <h3 className='text-4xl  pt-5 font-serif'>Seller Form</h3>
+            <h3 className='text-4xl  pt-5 font-serif'>Wholesaler Form</h3>
         
             <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
                 <div className="">

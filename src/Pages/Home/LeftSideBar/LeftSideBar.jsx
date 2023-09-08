@@ -84,7 +84,7 @@ const LeftSideBar = () => {
                 className="w-10 h-10 rounded-full"
               />
               <p className="text-[#082B59]">{singleShop?.Name}</p>
-              <Link>
+              <Link to={`/specificShop/${singleShop._id}`}>
                 <FaExternalLinkAlt />
               </Link>
             </div>
