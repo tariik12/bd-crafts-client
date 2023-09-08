@@ -63,8 +63,8 @@ const ManageUser = () => {
       <tr>
        
         <th>NO</th>
-        <th>User Info</th>
-        <th>User Name</th>
+        <th>Image</th>
+        <th>Name</th>
         <th>Role</th>
         <th>Action</th>
       </tr>
@@ -86,7 +86,7 @@ const ManageUser = () => {
           </div>
         </td>
         <td>
-        {user?.displayName}
+        {user?.name}
         </td>
         <td>
         {user?.role}
