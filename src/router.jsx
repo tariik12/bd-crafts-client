@@ -5,44 +5,43 @@ import Register from "./Pages/Authentication/Register";
 import FindFriend from "./Pages/FindFriend/FindFriend";
 import Home from "./Pages/Home/Home";
 
-import Profile from "./Pages/Profile/Profile";
-import "./index.css";
-import MessageLayout from "./Layout/MessageLayout";
 import ChatBox from "./Components/ChatBox/ChatBox";
-import FriendRequest from "./Pages/FindFriend/FriendRequest";
+import MessageLayout from "./Layout/MessageLayout";
 import AddFriend from "./Pages/FindFriend/AddFriend";
 import AllFriend from "./Pages/FindFriend/AllFriend";
 import CreateGroup from "./Pages/FindFriend/CreateGroup";
+import FriendRequest from "./Pages/FindFriend/FriendRequest";
 import Payment from "./Pages/Payment/Payment";
+import Profile from "./Pages/Profile/Profile";
 import Shop from "./Pages/Shop/Shop";
+import "./index.css";
 
-import SettingPage from "./Components/Navber/SettingPage/SettingPage";
-import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
-import Alert from "./Components/Navber/SettingPage/Alert/Alert";
-import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
 import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
-import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
 import MyCart from "./Components/Dashboard/GeneralUser/MyCart";
+import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
 import PaymentHistory from "./Components/Dashboard/GeneralUser/PaymentHistory";
+import Alert from "./Components/Navber/SettingPage/Alert/Alert";
+import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
+import SettingPage from "./Components/Navber/SettingPage/SettingPage";
+import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
 
-
+import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
+import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
-import SellerForm from "./Components/SellerForm/SellerForm";
-import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
-import Security from "./Components/Navber/SettingPage/Security/Security";
-import Account from "./Components/Navber/SettingPage/Security/Account/Account";
-import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
-import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/PasswordAndSecurity/PasswordAndSecurity";
-import AddPreference from "./Components/Navber/SettingPage/Security/AddPreference/AddPreference";
 import Privacy from "./Components/Navber/SettingPage/Privacy/Privacy";
-import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
+import Account from "./Components/Navber/SettingPage/Security/Account/Account";
+import AddPreference from "./Components/Navber/SettingPage/Security/AddPreference/AddPreference";
+import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/PasswordAndSecurity/PasswordAndSecurity";
+import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
+import Security from "./Components/Navber/SettingPage/Security/Security";
+import SellerForm from "./Components/SellerForm/SellerForm";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
-import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
 import EventPage from "./Components/Event/EventPage";
-import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
 import SpecificShop from "./Components/SpecificShop/SpecificShop";
+import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 
 const router = createBrowserRouter([
   {
@@ -56,7 +55,11 @@ const router = createBrowserRouter([
       //mostafizur rahmaan
       {
         path: "/setting",
-        element: <PrivetRoute><SettingPage /></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <SettingPage />
+          </PrivetRoute>
+        ),
         children: [
           {
             path: "/setting/genarel",
@@ -64,29 +67,29 @@ const router = createBrowserRouter([
           },
           {
             path: "/setting/security",
-            element: <Security/>,
-            children:[
+            element: <Security />,
+            children: [
               {
-                path:'/setting/security/account',
-                element:<Account/>
+                path: "/setting/security/account",
+                element: <Account />,
               },
               {
-                path:'/setting/security/personalDetails',
-                element:<PersonalDetails/>
+                path: "/setting/security/personalDetails",
+                element: <PersonalDetails />,
               },
               {
-                path:'/setting/security/passwordAndSecurity',
-                element:<PasswordAndSecurity/>
+                path: "/setting/security/passwordAndSecurity",
+                element: <PasswordAndSecurity />,
               },
               {
-                path:'/setting/security/addPreference',
-                element:<AddPreference/>
-              }
-            ]
+                path: "/setting/security/addPreference",
+                element: <AddPreference />,
+              },
+            ],
           },
           {
             path: "/setting/privacy",
-            element: <Privacy/>,
+            element: <Privacy />,
           },
           {
             path: "/setting/activities",
@@ -106,38 +109,62 @@ const router = createBrowserRouter([
       //Mahdi vai
       {
         path: "/profile",
-        element: <PrivetRoute><Profile /></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <Profile />
+          </PrivetRoute>
+        ),
       },
       //Rabeya Akter
       {
         path: "/findFriend",
-        element: <PrivetRoute><FindFriend /></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <FindFriend />
+          </PrivetRoute>
+        ),
       },
       {
-        path:'/myGroup',
-        element:<MyGroupPage/>
+        path: "/myGroup",
+        element: <MyGroupPage />,
       },
       {
-        path:'/eventPage',
-        element:<EventPage/>
+        path: "/eventPage",
+        element: <EventPage />,
       },
       {
         path: "/friendRequest",
-        element: <PrivetRoute><FriendRequest></FriendRequest></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <FriendRequest></FriendRequest>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/addFriend",
-        element: <PrivetRoute><AddFriend></AddFriend></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <AddFriend></AddFriend>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/allFriend",
-        element: <PrivetRoute><AllFriend></AllFriend></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <AllFriend></AllFriend>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/createGroup",
-        element: <PrivetRoute><CreateGroup></CreateGroup></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <CreateGroup></CreateGroup>
+          </PrivetRoute>
+        ),
       },
-      
+
       {
         path: "/shop",
         element: <Shop />,
@@ -145,31 +172,41 @@ const router = createBrowserRouter([
       {
         path: "specificShop/:id",
         element: <SpecificShop />,
-        loader:({params}) => fetch(`shopData.json/${params.id}`)
+        loader: ({ params }) => fetch(`shopData.json/${params.id}`),
       },
       // {
       //   path:'updateToy/:id',
       //   element:<UpdateToy></UpdateToy>,
-       
+
       // },
 
       {
         path: "/selerForm",
-        element: <PrivetRoute><SellerForm /></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <SellerForm />
+          </PrivetRoute>
+        ),
       },
       {
         path: "/wholeSealerForm",
-        element: <PrivetRoute><WholesalerForm /></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <WholesalerForm />
+          </PrivetRoute>
+        ),
       },
     ],
-
-   
   },
- 
+
   // Rayhan
   {
     path: "messages",
-    element: <PrivetRoute><MessageLayout /></PrivetRoute>,
+    element: (
+      <PrivetRoute>
+        <MessageLayout />
+      </PrivetRoute>
+    ),
     children: [
       {
         path: "/messages",
@@ -179,7 +216,11 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <PrivetRoute><DashboardLayout/></PrivetRoute>,
+    element: (
+      <PrivetRoute>
+        <DashboardLayout />
+      </PrivetRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -217,7 +258,7 @@ const router = createBrowserRouter([
       },
       {
         path: "myShop",
-        element: <MyShop/>,
+        element: <MyShop />,
       },
     ],
   },
