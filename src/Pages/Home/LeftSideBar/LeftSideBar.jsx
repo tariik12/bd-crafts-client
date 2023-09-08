@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import {
   BsCalendarCheckFill,
-  BsFillBookmarkFill,
+ 
 
 } from "react-icons/bs";
-import { FaComment, FaExternalLinkAlt } from "react-icons/fa";
+import { FaComment, FaExternalLinkAlt, FaShoppingBasket } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
+
 import { FaGear, FaShopware, FaUserGroup } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import './LeftSideBar.css'
@@ -45,7 +46,7 @@ const LeftSideBar = () => {
             {/* Activity Log */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
               
-              <Link to='/shop' className="text-center hover:underline"> <BsFillBookmarkFill className="text-[#7BB4FF] w-10 h-10 ms-2" /> All Shop</Link>
+              <Link to='/shop' className="text-center hover:underline"> <FaShoppingBasket className="text-[#7BB4FF] w-10 h-10 ms-2" /> All Shop</Link>
             </div>
             {/* All Comments */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
