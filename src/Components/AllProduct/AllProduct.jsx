@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Loader from "../Loader";
 import Card from "./Card";
@@ -9,89 +8,85 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../hooks/useAuth";
 
 const AllProduct = () => {
-    const {user}=useAuth()
-    const [loading, setLoading] = useState(false);
-  
-    const { data: data = [], refetch } = useQuery(["data"], async () => {
-    setLoading(true)
-      const res = await fetch(`${import.meta.env.VITE_URL}/allProduct`);
-      setLoading(false)
-      return res.json();
-    });
+  const { user } = useAuth();
+  const [loading, setLoading] = useState(false);
 
-  
+  const { data: data = [], refetch } = useQuery(["data"], async () => {
+    setLoading(true);
+    const res = await fetch(`${import.meta.env.VITE_URL}/allProduct`);
+    setLoading(false);
+    return res.json();
+  });
 
-
-    const handleAddToCart=(item)=>{
-    
-      const info = {id:item?._id,email:user?.email,
-      img:item?.img,name:item?.name,price:item?.price,quantity:item?.quantity,sellerEmail
-:item?.sellerEmail,sellername:item?.sellerName,
-
-
-      }
-      if(user && user.email){
-
-        fetch(`${import.meta.env.VITE_URL}/carts`,{
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(info),
-        })
-        .then(res=>res.json())
-        .then(data=>{
-          if(data.insertedId){
-            refetch()  
+  const handleAddToCart = (item) => {
+    const info = {
+      id: item?._id,
+      email: user?.email,
+      img: item?.img,
+      name: item?.name,
+      price: item?.price,
+      quantity: item?.quantity,
+      sellerEmail: item?.sellerEmail,
+      sellername: item?.sellerName,
+    };
+    if (user && user.email) {
+      fetch(`${import.meta.env.VITE_URL}/carts`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(info),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            refetch();
             Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Item Added',
+              position: "top-end",
+              icon: "success",
+              title: "Item Added",
               showConfirmButton: false,
-              timer: 1500
-            })
+              timer: 1500,
+            });
           }
-        })
-      }else{
-        Swal.fire({
-          title: 'You have to login for order this products',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Login Now!'
-        }).then((result) => {
-          if (result.isConfirmed) {
-          Navigate('/Login',{state:{from:location}})
-          }
-        })
-      }
+        });
+    } else {
+      Swal.fire({
+        title: "You have to login for order this products",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login Now!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Navigate("/Login", { state: { from: location } });
+        }
+      });
     }
+  };
 
+  if (loading) {
+    return <Loader />;
+  }
 
-
-    if (loading) {
-      return <Loader />;
-    }
-   
-    return (
-        <div>
-           {data && data.length > 0 ? (
+  return (
+    <div>
+      {data && data.length > 0 ? (
         <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
           {data.map((d, index) => (
-            <Card key={index} d={d} handleAddToCart={handleAddToCart}/>
+            <Card key={index} d={d} handleAddToCart={handleAddToCart} />
           ))}
         </div>
       ) : (
         <div className="pt-12">
           <Heading
-            title="No Products Available In This Category!"
-            subtitle="Please Select Other Categories."
+            title="No Products Available In This Shop!"
+            subtitle="Product is coming soon."
             center={true}
           />
         </div>
-      )} 
-            
-        </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default AllProduct;
