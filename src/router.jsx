@@ -38,6 +38,7 @@ import AddPreference from "./Components/Navber/SettingPage/Security/AddPreferenc
 import Privacy from "./Components/Navber/SettingPage/Privacy/Privacy";
 import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
+import ManageUser from "./Components/Dashboard/Admin/ManageUser";
 
 const router = createBrowserRouter([
   {
@@ -180,6 +181,10 @@ const router = createBrowserRouter([
       {
         path: "pendingSeller",
         element: <PendingSeller></PendingSeller>,
+      },
+      {
+        path: "manageUser",
+        element: <ManageUser/>,
       },
       {
         path: "addProducts",
