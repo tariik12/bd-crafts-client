@@ -42,6 +42,7 @@ import PrivetRoute from "./PrivetRoute/PrivetRoute";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
 import EventPage from "./Components/Event/EventPage";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+import SpecificShop from "./Components/SpecificShop/SpecificShop";
 
 const router = createBrowserRouter([
   {
@@ -141,6 +142,16 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <Shop />,
       },
+      {
+        path: "specificShop/:id",
+        element: <SpecificShop />,
+        loader:({params}) => fetch(`shopData.json/${params.id}`)
+      },
+      // {
+      //   path:'updateToy/:id',
+      //   element:<UpdateToy></UpdateToy>,
+       
+      // },
 
       {
         path: "/selerForm",
