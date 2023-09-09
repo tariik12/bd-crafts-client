@@ -38,6 +38,7 @@ import Security from "./Components/Navber/SettingPage/Security/Security";
 import SellerForm from "./Components/SellerForm/SellerForm";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
 import ManageUser from "./Components/Dashboard/Admin/ManageUser";
+import MsgApp from "./Pages/MsgApp/MsgApp/MsgApp";
 
 import EventPage from "./Components/Event/EventPage";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
@@ -274,6 +275,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/msgApp",
+    element: <MsgApp/>,
   },
 ]);
 
