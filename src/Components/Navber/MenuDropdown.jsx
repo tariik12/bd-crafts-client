@@ -61,7 +61,7 @@ const MenuDropdown = () => {
                   99+
                 </span>
                 <div className="">
-                  <Link to="/messages">
+                  <Link to="/msgApp">
                     <FaEnvelopeOpenText size={25} className="text-white" />
                   </Link>
                 </div>
