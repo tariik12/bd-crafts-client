@@ -43,6 +43,7 @@ import EventPage from "./Components/Event/EventPage";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
 import SpecificShop from "./Components/SpecificShop/SpecificShop";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
 
 const router = createBrowserRouter([
   {
@@ -175,12 +176,11 @@ const router = createBrowserRouter([
         element: <SpecificShop />,
         loader: ({ params }) => fetch(`shopData.json/${params.id}`),
       },
-      // {
-      //   path:'updateToy/:id',
-      //   element:<UpdateToy></UpdateToy>,
-
-      // },
-
+      {
+      path:'/searchData',
+      element:<ShowSearchData/>
+      },
+   
       {
         path: "/selerForm",
         element: (
