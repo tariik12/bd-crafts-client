@@ -21,7 +21,6 @@ const RightSideBar = () => {
   const onlineFriends = friends?.filter(
     (onlineFriend) => onlineFriend.status === "active"
   );
-  console.log(onlineFriends)
   const settings = {
     autoplay: true,
     infinite: true,
@@ -47,7 +46,7 @@ const RightSideBar = () => {
 
 
         <Slider  {...settings} className="">
-          {onlineFriends?.map((friend) => <div key={friend.id} className="card w-full mx-5  my-4 bg-base-100 shadow-xl">
+          {onlineFriends?.map((friend,index) => <div key={index} className="card w-full mx-5  my-4 bg-base-100 shadow-xl">
             <div className="avatar">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src={friend?.Profile_image} />

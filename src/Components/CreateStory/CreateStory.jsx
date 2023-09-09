@@ -142,6 +142,38 @@ const CreateStory = () => {
             </div>
           </div>
         </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[140px] lg:w-full h-[251px]  bg-contain bg-no-repeat bg-center bg-black rounded-2xl relative">
+            <img
+              className="w-full h-full rounded-xl object-cover"
+              src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
+              alt="slider"
+            />
+            <div className="absolute top-2 left-2  z-50">
+              <img
+                className="w-12 h-12 rounded-full border-2 border-[#7BB4FF]"
+                src="https://i.ibb.co/B21QWks/P3-OLGJ1-copy-1.png"
+                alt="user img"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[140px] lg:w-full h-[251px]  bg-contain bg-no-repeat bg-center bg-black rounded-2xl relative">
+            <img
+              className="w-full h-full rounded-xl object-cover"
+              src="https://i.ibb.co/2gbzMTG/Rectangle-5.png"
+              alt="slider"
+            />
+            <div className="absolute top-2 left-2  z-50">
+              <img
+                className="w-12 h-12 rounded-full border-2 border-[#7BB4FF]"
+                src="https://i.ibb.co/B21QWks/P3-OLGJ1-copy-1.png"
+                alt="user img"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </>
   );
