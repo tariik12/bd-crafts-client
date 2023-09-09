@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 const ApiContext = createContext();
 
-export const useTaskContext = () => {
+export const useSearchContext = () => {
     return useContext(ApiContext);
   };
 
