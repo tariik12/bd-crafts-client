@@ -4,6 +4,7 @@ import { HiOutlineEmojiHappy } from "react-icons/hi";
 import CreatePost from "../Navber/CreatePosts/CreatePost";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Post = () => {
   const { user } = useContext(AuthContext)
@@ -44,15 +45,15 @@ const Post = () => {
       <p className="  border-b-2  w-full  border-black  mt-1 mb-3 "></p>
       <div className="flex justify-between p-5">
         <div className="flex gap-3">
-          <BsCameraVideoFill size={30} />
-          <p>Live Vedio</p>
+          <BsCameraVideoFill size={30} color="#1589FF"/>
+          <Link to="/liveStreaming">Live Vedio</Link>
         </div>
         <div className="flex gap-3">
-          <BiSolidPhotoAlbum size={30} />
+          <BiSolidPhotoAlbum size={30} color="#1589FF"/>
           <p>Photos/Vedios</p>
         </div>
         <div className="flex gap-3">
-          <HiOutlineEmojiHappy size={30} />
+          <HiOutlineEmojiHappy size={30} color="#1589FF"/>
           <p>Feeling/Activity</p>
         </div>
       </div>
