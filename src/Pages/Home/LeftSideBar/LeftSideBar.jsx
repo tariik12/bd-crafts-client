@@ -7,7 +7,7 @@ import {
 import { FaComment, FaExternalLinkAlt, FaShoppingBasket } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 
-import { FaGear, FaShopware, FaUserGroup } from "react-icons/fa6";
+import { FaGear, FaShopware, FaUserGroup, FaVideo } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import './LeftSideBar.css'
 const LeftSideBar = () => {
@@ -23,7 +23,7 @@ const LeftSideBar = () => {
     <div className="left">
       <div className=" flex flex-col">
         <div className="">
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid mb-5 grid-cols-2 gap-8">
             {/* bookmark card */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg flex flex-col justify-center items-center p-2 gap-2">
               <Link to='/profile' className="text-center hover:underline">
@@ -66,6 +66,11 @@ const LeftSideBar = () => {
               
               <Link to="selerForm" className="text-center hover:underline">
               <FaShopware className="text-[#7BB4FF] w-10 h-10 ms-4" /> Seller Form</Link>
+            </div>
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              
+              <Link to="/conference" className="text-center hover:underline">
+              <FaVideo className="text-[#7BB4FF] w-10 h-10 ms-4" /> Vedio Conference</Link>
             </div>
           </div>
         </div>
