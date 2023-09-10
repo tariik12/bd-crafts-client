@@ -13,7 +13,7 @@ const RoomPage = () => {
     if(loading){
         <Loader></Loader>
     }
-    console.log(import.meta.env.VITE_ZEGO_CLOUD_SERVER_SECRET);
+  
    const myMeeting =async(element)=>{
     const appID = parseInt(import.meta.env.VITE_ZEGO_CLOUD_APP_ID);
  const serverSecret = import.meta.env.VITE_ZEGO_CLOUD_SERVER_SECRET;

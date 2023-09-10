@@ -47,6 +47,8 @@ import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
 import VedioConference from "./Pages/VedioConference/VedioConference";
 import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
+import LiveStreaming from "./Pages/LiveStreaming/LiveStreaming";
+import Live from "./Pages/LiveStreaming/Live/Live";
 
 const router = createBrowserRouter([
   {
@@ -175,6 +177,14 @@ const router = createBrowserRouter([
         element: <Shop />,
       },
       {
+        path: "/liveStreaming",
+        element: <LiveStreaming/>,
+      },
+      {
+        path: "/live/:roomId",
+        element:<Live/>,
+      },
+      {
         path: "specificShop/:id",
         element: <SpecificShop />,
         loader: ({ params }) => fetch(`shopData.json/${params.id}`),
@@ -280,16 +290,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/msgApp",
-    element: <MsgApp/>,
+    element: <PrivetRoute><MsgApp/></PrivetRoute>,
   },
   {
     path: "/conference",
-    element: <VedioConference/>,
+    element:<PrivetRoute> <VedioConference/></PrivetRoute>,
   },
   {
     path: "/meetRoom/:roomCode",
-    element:<RoomPage/>,
+    element:<PrivetRoute><RoomPage/></PrivetRoute>,
   },
+
 ]);
 
 export default router;
