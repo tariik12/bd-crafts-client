@@ -6,7 +6,8 @@ const FriendRequest = () => {
     const [addFriends, SetAddFriends] = useState([]);
 
     useEffect(() => {
-        fetch('addFriend.json')
+        fetch('http://localhost:5000/allFriendRequestLink')
+        // fetch('addFriend.json')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
