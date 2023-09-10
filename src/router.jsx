@@ -45,6 +45,8 @@ import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
 import SpecificShop from "./Components/SpecificShop/SpecificShop";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
+import VedioConference from "./Pages/VedioConference/VedioConference";
+import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
 
 const router = createBrowserRouter([
   {
@@ -279,6 +281,14 @@ const router = createBrowserRouter([
   {
     path: "/msgApp",
     element: <MsgApp/>,
+  },
+  {
+    path: "/conference",
+    element: <VedioConference/>,
+  },
+  {
+    path: "/meetRoom/:roomCode",
+    element:<RoomPage/>,
   },
 ]);
 
