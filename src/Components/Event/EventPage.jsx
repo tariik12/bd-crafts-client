@@ -50,7 +50,7 @@ const createEvent = (event) => {
   };
   console.log(eventCreate);
 
-  fetch("http://localhost:5000/eventdata", {
+  fetch(`${import.meta.env.VITE_URL}/eventdata`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -70,7 +70,7 @@ const EventPage = () => {
   const [open1, setOpen1] = useState(true);
   const [open, setOpen] = useState(true);
   const [eventsData, setEventsData] = useState([]);
-  
+
   const modalRef = useRef(null);
 
   const handleClick = () => {
@@ -87,7 +87,7 @@ const EventPage = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/eventdata")
+    fetch(`${import.meta.env.VITE_URL}/eventdata`)
       .then((response) => response.json())
       .then((data) => {
         setEventsData(data);
