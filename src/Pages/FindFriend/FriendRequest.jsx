@@ -6,7 +6,8 @@ const FriendRequest = () => {
     const [addFriends, SetAddFriends] = useState([]);
 
     useEffect(() => {
-        fetch('addFriend.json')
+        fetch('http://localhost:5000/allFriendRequestLink')
+        // fetch('addFriend.json')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -31,8 +32,8 @@ const FriendRequest = () => {
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">{data.Name}</h2>
                             <div className="card-actions ">
-                                <button className="btn btn-primary  ">Confirm</button>
-                                <button className="btn btn-primary">Delete</button>
+                                <button className="btn btn-primary bg-green-600  text-white hover:text-black hover:bg-green-500 font-bold">Confirm</button>
+                                <button className="btn btn-primary bg-gray-700 text-white hover:bg-gray-700">Delete</button>
                             </div>
                         </div>
                     </div>

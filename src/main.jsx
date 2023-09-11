@@ -11,8 +11,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import AuthProvider from './Provider/AuthProvider';
+import ApiContestProvider from "./Provider/ApiContestProvider";
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <AuthProvider>
+  <ApiContestProvider>
+ <AuthProvider>
     <QueryClientProvider client={queryClient}>
 
      <div className="">
@@ -32,5 +34,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 </div>   
     </QueryClientProvider>
   </AuthProvider>
+  </ApiContestProvider>
+ 
 
 );
