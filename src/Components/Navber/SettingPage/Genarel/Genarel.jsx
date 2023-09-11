@@ -3,7 +3,7 @@ import { AuthContext } from "../../../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 
 const General = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext); 
 
   return (
     <div className="w-full max-w-screen-md h-[803px] flex items-center justify-center mx-auto mt-2  overflow-hidden">
@@ -16,7 +16,7 @@ const General = () => {
                 <td className="pl-2">Name :</td>
                 <td>{user?.displayName}</td>
                 <td className="pl-2">
-                  <Link to="#">Edit</Link>
+                  <Link to="/edit">Update</Link>
                 </td>
               </tr>
               <br />
@@ -24,7 +24,7 @@ const General = () => {
                 <td className="pl-2">Status</td>
                 <td>todo</td>
                 <td className="pl-2">
-                  <Link to="#">Edit</Link>
+                  <Link to="#">Update</Link>
                 </td>
               </tr>
                <br />
@@ -32,7 +32,7 @@ const General = () => {
                 <td className="pl-2">Email:</td>
                 <td>{user?.email}</td>
                 <td className="pl-2">
-                  <Link to="#">Edit</Link>
+                  <Link to="/edit">Update</Link>
                 </td>
               </tr>
               <br />
@@ -40,7 +40,7 @@ const General = () => {
                 <td className="pl-2">Username:</td>
                 <td>todo</td>
                 <td className="pl-2">
-                  <Link to="#">Edit</Link>
+                  <Link to="#">Update</Link>
                 </td>
               </tr>
                <br />
@@ -48,7 +48,7 @@ const General = () => {
                 <td className="pl-2">Contact:</td>
                 <td>+8801758614542</td>
                 <td className="pl-2">
-                  <Link to="#">Edit</Link>
+                  <Link to="#">Update</Link>
                 </td>
               </tr>
             </tbody>

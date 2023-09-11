@@ -43,6 +43,7 @@ import EventPage from "./Components/Event/EventPage";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
 import SpecificShop from "./Components/SpecificShop/SpecificShop";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+import Edit from "./Components/Navber/SettingPage/Genarel/Edit";
 
 const router = createBrowserRouter([
   {
@@ -132,6 +133,7 @@ const router = createBrowserRouter([
       {
         path: "/eventPage",
         element: <EventPage />,
+        loader: () => fetch(`http://localhost:5000/eventdata`)
       },
       {
         path: "/friendRequest",
@@ -275,6 +277,9 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+  {
+    path: "/edit", element: <Edit></Edit>
+  }
 ]);
 
 export default router;
