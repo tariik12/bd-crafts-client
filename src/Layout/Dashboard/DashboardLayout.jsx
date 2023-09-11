@@ -9,21 +9,22 @@ import {FcShop } from "react-icons/fc";
 import { NavLink, Outlet } from "react-router-dom";
 import useSeller from "../../hooks/useSeller";
 import useAdmin from "../../hooks/useAdmin";
+import useCart from "../../hooks/useCart";
+import Loader from "../../Components/Loader";
+
 
 
 
 
 const DashboardLayout = () => {
-// const isAdmin =false;
-// const isSeller =false;
 
+const isWholeseller =false;
 const [isSeller,isSellerLoading] = useSeller();
 const [isAdmin,isLoading] = useAdmin();
+const [carts]=useCart()
 
-if(isLoading || isSellerLoading){
-  return <div className="flex md:mt-64 items-center justify-center ">
-    <div className="radial-progress animate-spin" style={{"--value":70}}>70%</div>
-  </div>
+if(isLoading || isSellerLoading ){
+  return <Loader />
 }
 
     return (
@@ -38,16 +39,19 @@ if(isLoading || isSellerLoading){
   </div> 
   <div className="drawer-side  ">
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-    <ul className="menu p-4 w-80 h-full bg-[#7BB4FF] text-base-content font-bold">
+    <ul className="menu p-4 w-80 h-full bg-[#eaf0f9] text-base-content font-bold">
       {/* Sidebar content here */}
 
-      {isAdmin && (
+      {isAdmin &&(
             <>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
-                <NavLink to="manageShop"><FcShop></FcShop> Manage Shop</NavLink>
+                <NavLink to="manageShop"><FcShop></FcShop> Manage Products</NavLink>
               </li>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
                 <NavLink to="pendingSeller"><AiOutlineUsergroupAdd></AiOutlineUsergroupAdd>Pending Sellers</NavLink>
+              </li>
+              <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
+                <NavLink to="manageUser"><AiOutlineUsergroupAdd></AiOutlineUsergroupAdd>Manage Users</NavLink>
               </li>
             </>
           )}
@@ -62,11 +66,27 @@ if(isLoading || isSellerLoading){
               </li>
             </>
           )}
-          {!isAdmin && !isSeller && (
+          {isWholeseller && (
             <>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
-                <NavLink to="myCart"><GiShoppingCart></GiShoppingCart> MyCart </NavLink>
+                <NavLink to="myShop">
+                <FcShop></FcShop> My Shop</NavLink>
               </li>
+              <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
+                <NavLink to="addProducts"><FaShopify></FaShopify> Add Products</NavLink>
+              </li>
+            </>
+          )}
+          {!isAdmin && !isSeller && (
+            <>
+             <div  className="hover:bg-[#b2c9e6]   p-1 rounded-xl">
+                <li>
+                <NavLink to="myCart"><GiShoppingCart size={23}></GiShoppingCart><div className="badge relative right-36 bottom-3 badge-secondary">+{carts?.length || 0}</div>
+                <div>MyCart </div>
+                 </NavLink>
+                
+                </li>
+              </div>
               <li className="hover:bg-[#b2c9e6] p-1 rounded-xl">
                 <NavLink to="payed"><FaChessBishop></FaChessBishop> Payed</NavLink>
               </li>
@@ -75,6 +95,7 @@ if(isLoading || isSellerLoading){
               </li>
             </>
           )}
+       
         
        <div className="divider"></div>
          <li className="hover:bg-[#b2c9e6] p-1 rounded-xl"><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>

@@ -1,43 +1,84 @@
 import { FaComment, FaShare } from "react-icons/fa6";
 import { BiLike } from "react-icons/bi";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
+import { FacebookShareButton, WhatsappShareButton } from "react-share";
+import { FacebookIcon, WhatsappIcon } from "react-share";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
+import { Navigate } from "react-router-dom";
 const DisplayPost = ({ post }) => {
   const { user } = useContext(AuthContext);
   const { caption, photoUrl } = post;
-  const { register, handleSubmit } = useForm();
+  const [openModal, setOpenModal] = useState(false);
+  const [openModal2, setOpenModal2] = useState(false);
+
+  // get comments
+  const { data: comments = [], refetch } = useQuery(["comments"], async () => {
+    const res = await fetch(
+      `${import.meta.env.VITE_URL}/comments/${post?._id}`
+    );
+
+    return res.json();
+  });
+  // const displayComments=(post)=>{
+  //   fetch(`http://localhost:5000/comments/${post?._id}`)
+  //   .then(res=>res.json())
+  //   .then(data=>console.log(data))
+  // }
+
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-    const name=user?.displayName;
+    const name = user?.displayName;
     const userImg = user?.photoURL;
-    const postId =post?._id;
-    const info = {...data,name,userImg,postId}
-    fetch(`${import.meta.env.VITE_URL}/comment`, {
-    
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(info),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        
-        if (data.insertedId) {
-          toast.success("comment done");
+    const postId = post?._id;
+    const info = { ...data, name, userImg, postId };
+
+    if (user && user.email) {
+      fetch(`${import.meta.env.VITE_URL}/comment`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(info),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            reset();
+            refetch();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Comment Success",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "You have to login for comment",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login Now!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Navigate("/Login", { state: { from: location } });
         }
       });
+    }
   };
+
   return (
     <div className="mt-10 p-5 bg-[#186DBE0F] shadow-2xl rounded-2xl w-full">
       <div className="flex gap-3">
         <div className="flex justify-center items-center w-14 h-14 p-2  ">
           <div className="avatar online">
-           
-              <div className="w-12 rounded-full">
-                <img src={post?.img} />
-              </div>
-        
+            <div className="w-12 rounded-full">
+              <img src={post?.img} />
+            </div>
           </div>
         </div>
         <div className="flex flex-col">
@@ -70,16 +111,20 @@ const DisplayPost = ({ post }) => {
                     <BiLike size={20}></BiLike>Like
                   </span>
                   <button
-                    onClick={() => window.my_modal_1.showModal()}
+                    onClick={() => setOpenModal(!openModal)}
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaComment size={20}></FaComment>Comment
+                    <FaComment size={20}></FaComment>
+                    {comments?.length} Comment
                   </button>
-                  <span className="flex items-center gap-2">
+                  <button
+                    onClick={() => setOpenModal2(!openModal2)}
+                    className="flex items-center gap-2"
+                  >
                     {" "}
                     <FaShare size={20}></FaShare> Share
-                  </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -125,7 +170,7 @@ const DisplayPost = ({ post }) => {
                     <BiLike size={20}></BiLike>Like
                   </span>
                   <button
-                    onClick={() => window.my_modal_1.showModal()}
+                    onClick={() => setOpenModal(!openModal)}
                     className="flex items-center gap-2"
                   >
                     {" "}
@@ -173,16 +218,51 @@ const DisplayPost = ({ post }) => {
 
       {/* display comment on modal */}
 
-      <div className="w-full ">
-        <dialog id="my_modal_1" className="modal">
-          <form method="dialog" className="modal-box">
-            <p className="py-4">{post?.comment}</p>
-            <div className="modal-action">
-              <button className="btn">Close</button>
+      {openModal && (
+        <>
+          <div className=" rounded-xl shadow-md w-[40vw]  max-h-screen bg-white  overflow-hidden text-sm ">
+            <div className="flex flex-col cursor-pointer px-4 py-4">
+              <div>
+                <h2 className="text-2xl">Comments</h2>
+                <div className="flex mt-4"></div>
+                <div className="">
+                  <span className="">
+                    {comments?.map((c, i) => (
+                      <div key={i}>
+                        <div className="flex items-center gap-3">
+                          <img
+                            className="w-12 rounded-full"
+                            src={c?.userImg}
+                            alt=""
+                          />
+                          <p className="text-black">{c?.name}</p>
+                        </div>
+                        <div className="ml-16 bg-slate-400 max-w-max p-2 rounded-2xl">
+                          <p className="text-black ">{c?.comment}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </span>
+                </div>
+              </div>
             </div>
-          </form>
-        </dialog>
-      </div>
+          </div>
+        </>
+      )}
+      {openModal2 && (
+        <>
+          <div className=" rounded-xl shadow-md w-[40vw]  max-h-screen bg-white  overflow-hidden text-sm ">
+            <div className="flex flex-row gap-3  cursor-pointer px-4 py-4">
+              <FacebookShareButton url="https://bd-crafts-client.vercel.app/"  hashtag="#React">
+                <FacebookIcon round={true}></FacebookIcon>
+              </FacebookShareButton>
+              <WhatsappShareButton url="https://bd-crafts-client.vercel.app/"  hashtag="#React">
+                <WhatsappIcon round={true}></WhatsappIcon>
+              </WhatsappShareButton>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

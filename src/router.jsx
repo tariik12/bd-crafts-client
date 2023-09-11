@@ -5,37 +5,48 @@ import Register from "./Pages/Authentication/Register";
 import FindFriend from "./Pages/FindFriend/FindFriend";
 import Home from "./Pages/Home/Home";
 
-import Profile from "./Pages/Profile/Profile";
-import "./index.css";
-import MessageLayout from "./Layout/MessageLayout";
 import ChatBox from "./Components/ChatBox/ChatBox";
-import FriendRequest from "./Pages/FindFriend/FriendRequest";
+import MessageLayout from "./Layout/MessageLayout";
 import AddFriend from "./Pages/FindFriend/AddFriend";
 import AllFriend from "./Pages/FindFriend/AllFriend";
 import CreateGroup from "./Pages/FindFriend/CreateGroup";
+import FriendRequest from "./Pages/FindFriend/FriendRequest";
 import Payment from "./Pages/Payment/Payment";
+import Profile from "./Pages/Profile/Profile";
 import Shop from "./Pages/Shop/Shop";
+import "./index.css";
 
-import SettingPage from "./Components/Navber/SettingPage/SettingPage";
-import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
-import Alert from "./Components/Navber/SettingPage/Alert/Alert";
-import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
 import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
-import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
 import MyCart from "./Components/Dashboard/GeneralUser/MyCart";
+import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
 import PaymentHistory from "./Components/Dashboard/GeneralUser/PaymentHistory";
-import ManageShop from "./Components/Dashboard/Admin/ManageShop";
+import Alert from "./Components/Navber/SettingPage/Alert/Alert";
+import Genarel from "./Components/Navber/SettingPage/Genarel/Genarel";
+import SettingPage from "./Components/Navber/SettingPage/SettingPage";
+import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
 
+import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
+import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
-import SellerForm from "./Components/SellerForm/SellerForm";
-import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
-import Security from "./Components/Navber/SettingPage/Security/Security";
-import Account from "./Components/Navber/SettingPage/Security/Account/Account";
-import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
-import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/PasswordAndSecurity/PasswordAndSecurity";
-import AddPreference from "./Components/Navber/SettingPage/Security/AddPreference/AddPreference";
 import Privacy from "./Components/Navber/SettingPage/Privacy/Privacy";
+import Account from "./Components/Navber/SettingPage/Security/Account/Account";
+import AddPreference from "./Components/Navber/SettingPage/Security/AddPreference/AddPreference";
+import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/PasswordAndSecurity/PasswordAndSecurity";
+import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
+import Security from "./Components/Navber/SettingPage/Security/Security";
+import SellerForm from "./Components/SellerForm/SellerForm";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
+import ManageUser from "./Components/Dashboard/Admin/ManageUser";
+import MsgApp from "./Pages/MsgApp/MsgApp/MsgApp";
+
+import EventPage from "./Components/Event/EventPage";
+import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
+import SpecificShop from "./Components/SpecificShop/SpecificShop";
+import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
+import VedioConference from "./Pages/VedioConference/VedioConference";
+import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +60,11 @@ const router = createBrowserRouter([
       //mostafizur rahmaan
       {
         path: "/setting",
-        element: <SettingPage />,
+        element: (
+          <PrivetRoute>
+            <SettingPage />
+          </PrivetRoute>
+        ),
         children: [
           {
             path: "/setting/genarel",
@@ -57,29 +72,29 @@ const router = createBrowserRouter([
           },
           {
             path: "/setting/security",
-            element: <Security/>,
-            children:[
+            element: <Security />,
+            children: [
               {
-                path:'/setting/security/account',
-                element:<Account/>
+                path: "/setting/security/account",
+                element: <Account />,
               },
               {
-                path:'/setting/security/personalDetails',
-                element:<PersonalDetails/>
+                path: "/setting/security/personalDetails",
+                element: <PersonalDetails />,
               },
               {
-                path:'/setting/security/passwordAndSecurity',
-                element:<PasswordAndSecurity/>
+                path: "/setting/security/passwordAndSecurity",
+                element: <PasswordAndSecurity />,
               },
               {
-                path:'/setting/security/addPreference',
-                element:<AddPreference/>
-              }
-            ]
+                path: "/setting/security/addPreference",
+                element: <AddPreference />,
+              },
+            ],
           },
           {
             path: "/setting/privacy",
-            element: <Privacy/>,
+            element: <Privacy />,
           },
           {
             path: "/setting/activities",
@@ -99,48 +114,103 @@ const router = createBrowserRouter([
       //Mahdi vai
       {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <PrivetRoute>
+            <Profile />
+          </PrivetRoute>
+        ),
       },
       //Rabeya Akter
       {
         path: "/findFriend",
-        element: <FindFriend />,
+        element: (
+          <PrivetRoute>
+            <FindFriend />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/myGroup",
+        element: <MyGroupPage />,
+      },
+      {
+        path: "/eventPage",
+        element: <EventPage />,
       },
       {
         path: "/friendRequest",
-        element: <FriendRequest></FriendRequest>,
+        element: (
+          <PrivetRoute>
+            <FriendRequest></FriendRequest>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/addFriend",
-        element: <AddFriend></AddFriend>,
+        element: (
+          <PrivetRoute>
+            <AddFriend></AddFriend>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/allFriend",
-        element: <AllFriend></AllFriend>,
+        element: (
+          <PrivetRoute>
+            <AllFriend></AllFriend>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/createGroup",
-        element: <CreateGroup></CreateGroup>,
+        element: (
+          <PrivetRoute>
+            <CreateGroup></CreateGroup>
+          </PrivetRoute>
+        ),
       },
-      {
-        path: "/payment",
-        element: <Payment />,
-      },
+
       {
         path: "/shop",
         element: <Shop />,
       },
-
+      {
+        path: "specificShop/:id",
+        element: <SpecificShop />,
+        loader: ({ params }) => fetch(`shopData.json/${params.id}`),
+      },
+      {
+      path:'/searchData',
+      element:<ShowSearchData/>
+      },
+   
       {
         path: "/selerForm",
-        element: <SellerForm />,
+        element: (
+          <PrivetRoute>
+            <SellerForm />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/wholeSealerForm",
+        element: (
+          <PrivetRoute>
+            <WholesalerForm />
+          </PrivetRoute>
+        ),
       },
     ],
   },
+
   // Rayhan
   {
     path: "messages",
-    element: <MessageLayout />,
+    element: (
+      <PrivetRoute>
+        <MessageLayout />
+      </PrivetRoute>
+    ),
     children: [
       {
         path: "/messages",
@@ -150,7 +220,11 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: (
+      <PrivetRoute>
+        <DashboardLayout />
+      </PrivetRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -165,18 +239,26 @@ const router = createBrowserRouter([
         element: <MyCart />,
       },
       {
+        path: "payment",
+        element: <Payment />,
+      },
+      {
         path: "paymentHistory",
         element: <PaymentHistory />,
       },
 
       {
         path: "manageShop",
-        element: <ManageShop />,
+        element: <ManageProducts />,
       },
 
       {
         path: "pendingSeller",
         element: <PendingSeller></PendingSeller>,
+      },
+      {
+        path: "manageUser",
+        element: <ManageUser/>,
       },
       {
         path: "addProducts",
@@ -195,6 +277,18 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/msgApp",
+    element: <MsgApp/>,
+  },
+  {
+    path: "/conference",
+    element: <VedioConference/>,
+  },
+  {
+    path: "/meetRoom/:roomCode",
+    element:<RoomPage/>,
   },
 ]);
 
