@@ -44,6 +44,7 @@ import EventPage from "./Components/Event/EventPage";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
 import SpecificShop from "./Components/SpecificShop/SpecificShop";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+import Edit from "./Components/Navber/SettingPage/Genarel/Edit";
 import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
 import VedioConference from "./Pages/VedioConference/VedioConference";
 import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
@@ -138,6 +139,7 @@ const router = createBrowserRouter([
       {
         path: "/eventPage",
         element: <EventPage />,
+        loader: () => fetch(`http://localhost:5000/eventdata`),
       },
       {
         path: "/friendRequest",
@@ -178,11 +180,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/liveStreaming",
-        element: <LiveStreaming/>,
+        element: <LiveStreaming />,
       },
       {
         path: "/live/:roomId",
-        element:<Live/>,
+        element: <Live />,
       },
       {
         path: "specificShop/:id",
@@ -190,10 +192,10 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`shopData.json/${params.id}`),
       },
       {
-      path:'/searchData',
-      element:<ShowSearchData/>
+        path: "/searchData",
+        element: <ShowSearchData />,
       },
-   
+
       {
         path: "/selerForm",
         element: (
@@ -268,7 +270,7 @@ const router = createBrowserRouter([
       },
       {
         path: "manageUser",
-        element: <ManageUser/>,
+        element: <ManageUser />,
       },
       {
         path: "addProducts",
@@ -289,18 +291,34 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
+    path: "/edit",
+    element: <Edit></Edit>,
+  },
+  {
     path: "/msgApp",
-    element: <PrivetRoute><MsgApp/></PrivetRoute>,
+    element: (
+      <PrivetRoute>
+        <MsgApp />
+      </PrivetRoute>
+    ),
   },
   {
     path: "/conference",
-    element:<PrivetRoute> <VedioConference/></PrivetRoute>,
+    element: (
+      <PrivetRoute>
+        {" "}
+        <VedioConference />
+      </PrivetRoute>
+    ),
   },
   {
     path: "/meetRoom/:roomCode",
-    element:<PrivetRoute><RoomPage/></PrivetRoute>,
+    element: (
+      <PrivetRoute>
+        <RoomPage />
+      </PrivetRoute>
+    ),
   },
-
 ]);
 
 export default router;
