@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Edit = () => {
     const [userData, setUserData] = useState()
     useEffect(() => {
-        fetch("http://localhost:5000/allusers")
+        fetch(`${import.meta.env.VITE_URL}/allusers`)
           .then((response) => response.json())
           .then((data) => {
             setUserData(data);
