@@ -67,10 +67,11 @@ const createEvent = (event) => {
 };
 
 const EventPage = () => {
-  const [open, setOpen] = useState(true);
   const [open1, setOpen1] = useState(true);
-  const modalRef = useRef(null);
+  const [open, setOpen] = useState(true);
   const [eventsData, setEventsData] = useState([]);
+  
+  const modalRef = useRef(null);
 
   const handleClick = () => {
     setOpen(!open);
