@@ -13,7 +13,7 @@ const Navbar = () => {
   // const [projects,setProject] = useState([])
   // console.log(projects)
   const [posts, setPosts] = useState([]);
-  console.log(posts)
+  // console.log(posts)
   useEffect(() => {
     setLoading(true)
     fetch(`${import.meta.env.VITE_URL}/allposts`)
@@ -49,7 +49,7 @@ const Navbar = () => {
         }
   return (
     // <div className="navbar  lg:w-full bg-[#327ee0] z-50 text-white ">
-     <div className="lg:w-full fixed mx-auto bg-[#327ee0]  z-10 shadow-sm nav"> 
+     <div className="lg:w-full mx-auto bg-[#327ee0]  z-10 shadow-sm nav"> 
       <div className="py-1 border-b[1px]">
         <Container>
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">

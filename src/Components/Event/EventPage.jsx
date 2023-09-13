@@ -25,7 +25,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
@@ -50,7 +50,7 @@ const createEvent = (event) => {
   };
   console.log(eventCreate);
 
-  fetch(`${import.meta.env.VITE_URL}/eventdata`, {
+  fetch("https://bd-crafts-server.vercel.app/eventdataPost", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -59,7 +59,7 @@ const createEvent = (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       if (data.acknowledged === true) {
         alert("Event Created Successfully");
       }
@@ -67,10 +67,10 @@ const createEvent = (event) => {
 };
 
 const EventPage = () => {
-  const [open1, setOpen1] = useState(true);
-  const [open, setOpen] = useState(true);
   const [eventsData, setEventsData] = useState([]);
-
+  console.log(eventsData);
+  const [open, setOpen] = useState(true);
+  const [open1, setOpen1] = useState(true);
   const modalRef = useRef(null);
 
   const handleClick = () => {
@@ -87,7 +87,7 @@ const EventPage = () => {
   };
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_URL}/eventdata`)
+    fetch("https://bd-crafts-server.vercel.app/eventdata")
       .then((response) => response.json())
       .then((data) => {
         setEventsData(data);
