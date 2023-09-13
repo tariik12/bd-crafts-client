@@ -21,7 +21,7 @@ const SocialLogin = () => {
              const loggedUser =(result.user)
              console.log(loggedUser)
             if(loggedUser){
-                const saveUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL }
+                const saveUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL , role:'user'}
             fetch(`${import.meta.env.VITE_URL}/users`, {
                 method: 'POST',
                 headers: {

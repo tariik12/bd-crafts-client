@@ -1,8 +1,4 @@
 import { useContext } from "react";
-import { BiSolidPhotoAlbum } from "react-icons/bi";
-import { BsCameraVideoFill } from "react-icons/bs";
-import { HiOutlineEmojiHappy } from "react-icons/hi";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import CreatePost from "../Navber/CreatePosts/CreatePost";
 

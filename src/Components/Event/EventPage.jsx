@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from "react";
 import {
   CalendarMonth,
   Event,
@@ -9,6 +8,8 @@ import {
   Star,
   StarBorder,
 } from "@mui/icons-material";
+import AddIcon from "@mui/icons-material/Add";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ShareIcon from "@mui/icons-material/Share";
 import {
   Button,
@@ -25,9 +26,8 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { Link, useLoaderData } from "react-router-dom";
-import AddIcon from "@mui/icons-material/Add";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const createEvent = (event) => {
   event.preventDefault();
@@ -50,7 +50,7 @@ const createEvent = (event) => {
   };
   console.log(eventCreate);
 
-  fetch(`${import.meta.env.VITE_URL}/eventdata`, {
+  fetch("https://bd-crafts-server.vercel.app/eventdataPost", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -59,7 +59,7 @@ const createEvent = (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       if (data.acknowledged === true) {
         alert("Event Created Successfully");
       }
@@ -67,10 +67,10 @@ const createEvent = (event) => {
 };
 
 const EventPage = () => {
-  const [open1, setOpen1] = useState(true);
-  const [open, setOpen] = useState(true);
   const [eventsData, setEventsData] = useState([]);
-
+  console.log(eventsData);
+  const [open, setOpen] = useState(true);
+  const [open1, setOpen1] = useState(true);
   const modalRef = useRef(null);
 
   const handleClick = () => {
@@ -87,7 +87,7 @@ const EventPage = () => {
   };
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_URL}/eventdata`)
+    fetch("https://bd-crafts-server.vercel.app/eventdata")
       .then((response) => response.json())
       .then((data) => {
         setEventsData(data);
@@ -170,66 +170,69 @@ const EventPage = () => {
           {/* Events Cards Here */}
 
           <div>
-            <div  className=" mt-5 grid md:grid-cols-3 gap-5">
+            <div className=" mt-5 grid md:grid-cols-3 gap-5">
               {eventsData.map((event) => (
-                  <Card
-                    className="relative"
-                    sx={{ maxWidth: 345 }}
-                    key={event.id}
-                  >
-                    <CardMedia
-                      component="img"
-                      height="194"
-                      image={event.photoUrl} 
-                      alt={event.photoUrl} 
-                    />
-                    <CardContent>
-                      <div className="flex justify-between pb-2">
+                <Card
+                  className="relative"
+                  sx={{ maxWidth: 345 }}
+                  key={event.id}
+                >
+                  <CardMedia
+                    component="img"
+                    height="194"
+                    image={event.photoUrl}
+                    alt={event.photoUrl}
+                  />
+                  <CardContent>
+                    <div className="flex justify-between pb-2">
                       <Typography variant="body2" color="text.secondary">
                         <h1 className="font-bold"> Date: {event.startdate}</h1>
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         <h1 className="font-bold"> Time: {event.starttime}</h1>
                       </Typography>
-                      </div>
-                      <Typography variant="body2" color="text.secondary">
-                        Title: {event.ename}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        <h1 className="font-semibold"> Location: {event.address}</h1>
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        <h1 className="text-gray-600">{event.attendance}</h1>
-                      </Typography>
-                    </CardContent>
+                    </div>
+                    <Typography variant="body2" color="text.secondary">
+                      Title: {event.ename}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      <h1 className="font-semibold">
+                        {" "}
+                        Location: {event.address}
+                      </h1>
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      <h1 className="text-gray-600">{event.attendance}</h1>
+                    </Typography>
+                  </CardContent>
 
-                    <div className="flex justify-around">
-                  <IconButton size="large">
-                    <Button
-                      variant="outlined"
-                      color="success"
-                      primary="Interested"
-                    >
-                      <Star className="pr-2 font-bold" color="success"></Star>{" "}
-                      Interested
-                    </Button>
-                  </IconButton>
+                  <div className="flex justify-around">
+                    <IconButton size="large">
+                      <Button
+                        variant="outlined"
+                        color="success"
+                        primary="Interested"
+                      >
+                        <Star className="pr-2 font-bold" color="success"></Star>{" "}
+                        Interested
+                      </Button>
+                    </IconButton>
 
-                  <IconButton>
-                    <Button
-                      variant="outlined"
-                      color="success"
-                      primary="Interested"
-                    >
-                      <ShareIcon></ShareIcon>
-                    </Button>
-                  </IconButton>
-                </div>
-                <div className="absolute top-3 right-3 border rounded-full bg-white">
-                  <MoreVertIcon></MoreVertIcon>
-                </div>
-                   </Card>
-                ))}
+                    <IconButton>
+                      <Button
+                        variant="outlined"
+                        color="success"
+                        primary="Interested"
+                      >
+                        <ShareIcon></ShareIcon>
+                      </Button>
+                    </IconButton>
+                  </div>
+                  <div className="absolute top-3 right-3 border rounded-full bg-white">
+                    <MoreVertIcon></MoreVertIcon>
+                  </div>
+                </Card>
+              ))}
             </div>
 
             <div>
