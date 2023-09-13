@@ -1,23 +1,30 @@
-import { useEffect, useState } from "react";
-import CategoryBox from "./CategoryBox";
-const Categories = () => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    fetch("../../../public/category.json")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  }, []);
+const Categories = ({ filterSearch }) => {
+  const categories = [
+    "allProduct",
+    "Textile",
+    "Pottery",
+    "Woodworking",
+    "Jewelry",
+    "PaperCrafts",
+    "Glass",
+    "Metal",
+    "Leather",
+    "CandleMaking",
+    "BambooCrafts",
+  ];
 
   return (
     <>
-      <div className="pt-24 flex flex-row items-center justify-center overflow-x-auto">
+      <div className="flex flex-col items-start justify-center overflow-x-auto">
+        <h1 className="text-xl font-semibold">Product Category</h1>
         {categories.map((item, i) => (
-          <CategoryBox
-            name={item.name}
-            subCategory={item.subcategory}
+          <p
             key={i}
-          />
+            onClick={() => filterSearch(item)}
+            className="hover:text-blue-600 my-2 cursor-pointer capitalize"
+          >
+            {item}
+          </p>
         ))}
       </div>
     </>

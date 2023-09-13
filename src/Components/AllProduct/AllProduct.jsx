@@ -1,19 +1,21 @@
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import Heading from "../Heading/Heading";
 import Loader from "../Loader";
 import Card from "./Card";
-import Heading from "../Heading/Heading";
-import Swal from "sweetalert2";
-import { Navigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../hooks/useAuth";
 
-const AllProduct = () => {
+const AllProduct = ({ categoryName }) => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const { data: data = [], refetch } = useQuery(["data"], async () => {
     setLoading(true);
-    const res = await fetch(`${import.meta.env.VITE_URL}/allProduct`);
+    const res = await fetch(
+      `${import.meta.env.VITE_URL}/product/${categoryName}`
+    );
     setLoading(false);
     return res.json();
   });

@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const Edit = () => {
@@ -11,7 +10,9 @@ const Edit = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`https://bd-crafts-server.vercel.app/singleUser/${user?.email}`);
+        const response = await fetch(
+          `https://bd-crafts-server.vercel.app/singleUser/${user?.email}`
+        );
         if (response.ok) {
           const data = await response.json();
           setUserData(data);
@@ -31,13 +32,16 @@ const Edit = () => {
 
   const handleUpdateName = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/updateUserName/${user?.email}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ newName: newName }),
-      });
+      const response = await fetch(
+        `http://localhost:5000/updateUserName/${user?.email}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ newName: newName }),
+        }
+      );
 
       if (response.ok) {
         setUserData({ ...userData, name: newName });
@@ -84,7 +88,6 @@ const Edit = () => {
                   </>
                 )}
               </tr>
-
             </tbody>
           </table>
         </div>

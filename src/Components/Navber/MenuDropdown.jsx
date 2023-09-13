@@ -1,4 +1,3 @@
-
 import {
   FaUserLarge,
   FaEnvelopeOpenText,
@@ -12,7 +11,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { useContext, useState } from "react";
 
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { toast } from "react-hot-toast";
 
@@ -102,41 +101,41 @@ const MenuDropdown = () => {
               Profile
             </Link>
 
-           
-              <>
-        {   user &&   <>  <Link
-                  to="/"
-                  className="px-4 py-3 flex items-center gap-4 cursor-pointer"
-                >
-                  <FaHouseChimney size={20} className="text-[#417FF8]" />
-                  <div className=" hover:bg-neutral-100 transition font-semibold">
-                    {user?.displayName}
-                  </div>
-                  
-                </Link>
-                <Link
-                  to="/profile"
-                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                >
-                  Profile
-                </Link>
-               
-                <Link
-                  to="/dashboard"
-                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  to="/setting"
-                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                >
-                  Settings & Privacy
-                </Link>
+            <>
+              {user && (
+                <>
+                  {" "}
+                  <Link
+                    to="/"
+                    className="px-4 py-3 flex items-center gap-4 cursor-pointer"
+                  >
+                    <FaHouseChimney size={20} className="text-[#417FF8]" />
+                    <div className=" hover:bg-neutral-100 transition font-semibold">
+                      {user?.displayName}
+                    </div>
+                  </Link>
+                  <Link
+                    to="/profile"
+                    className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                  >
+                    Profile
+                  </Link>
+                  <Link
+                    to="/dashboard"
+                    className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    to="/setting"
+                    className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                  >
+                    Settings & Privacy
+                  </Link>
                 </>
-                }
-             
-{user?
+              )}
+
+              {user ? (
                 <div
                   onClick={() => {
                     logOut();
@@ -147,19 +146,17 @@ const MenuDropdown = () => {
                 >
                   Logout
                 </div>
-                :
+              ) : (
                 <Link
                   to="/login"
                   className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
                 >
                   Login
-                </Link>}
-              </>
-           
-              <>
-             
-              </>
-            
+                </Link>
+              )}
+            </>
+
+            <></>
           </div>
         </div>
       )}
