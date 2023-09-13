@@ -1,33 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Event } from "@mui/icons-material";
 import {
-  CalendarMonth,
-  Event,
-  ExpandLess,
-  ExpandMore,
-  Home,
-  LocationOn,
-  Star,
-  StarBorder,
-} from "@mui/icons-material";
-import ShareIcon from "@mui/icons-material/Share";
-import {
-  Button,
   Card,
   CardContent,
   CardMedia,
-  Collapse,
   Divider,
   Fab,
   IconButton,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const createEvent = (event) => {
   event.preventDefault();
@@ -98,79 +80,38 @@ const EventPage = () => {
   }, []);
 
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="container mx-auto">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex p-5 bg-gray-400">
+      <div className="drawer-content flex flex-col bg-white">
         {/* Page content here */}
+        {/* <label
+          htmlFor="my-drawer-2"
+          className="btn btn-primary drawer-button lg:hidden"
+        >
+          Open Sideber
+        </label> */}
         <div>
           {/* Title */}
-          <div>
-            <h1 className="text-2xl font-bold">
-              {" "}
+          <div
+           onClick={() => window.my_modal_3.showModal()}
+           className="border rounded-md bg-slate-200 flex items-center justify-center md:w-1/4"
+          >
+          <a className="flex items-center gap-3 font-semibold mb-3">
               <IconButton>
                 <Event></Event>
-              </IconButton>{" "}
-              Discover Events
-            </h1>
+              </IconButton> 
+              Create a new Event
+              <Fab size="small" color="primary" aria-label="add" >
+                <AddIcon ></AddIcon>
+              </Fab>
+            </a>
             <Divider></Divider>
-          </div>
-          {/* Top Button */}
-          <div className="flex gap-2 mt-3  ">
-            <div className="border rounded-md p-1">
-              {" "}
-              <h1>
-                <ListItemButton onClick={handleClick}>
-                  <ListItemIcon>
-                    <LocationOn></LocationOn>
-                  </ListItemIcon>
-                  <ListItemText primary="Location" />
-                  {!open ? <ExpandLess /> : <ExpandMore />}
-                </ListItemButton>
-                <Collapse in={!open} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText primary="Starred" />
-                    </ListItemButton>
-                  </List>
-                </Collapse>
-              </h1>
-            </div>
-            <div className="border rounded-md p-1">
-              <h1>
-                <ListItemButton onClick={handleClick1}>
-                  <ListItemIcon>
-                    <CalendarMonth></CalendarMonth>
-                  </ListItemIcon>
-                  <ListItemText primary=" Any Date" />
-                  {!open ? <ExpandLess /> : <ExpandMore />}
-                </ListItemButton>
-                <Collapse in={!open1} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText primary="Starred" />
-                    </ListItemButton>
-                  </List>
-                </Collapse>
-              </h1>
-            </div>
-            <div>
-              <Button variant="contained">Top</Button>
-            </div>
-            <div>
-              <Button variant="contained">Following</Button>
-            </div>
           </div>
 
           {/* Events Cards Here */}
 
           <div>
-            <div  className=" mt-5 grid md:grid-cols-3 gap-5">
+            <div  className=" mt-5 grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center gap-5 ">
               {eventsData.map((event) => (
                   <Card
                     className="relative"
@@ -179,7 +120,7 @@ const EventPage = () => {
                   >
                     <CardMedia
                       component="img"
-                      height="194"
+                      height="300"
                       image={event.photoUrl} 
                       alt={event.photoUrl} 
                     />
@@ -202,32 +143,6 @@ const EventPage = () => {
                         <h1 className="text-gray-600">{event.attendance}</h1>
                       </Typography>
                     </CardContent>
-
-                    <div className="flex justify-around">
-                  <IconButton size="large">
-                    <Button
-                      variant="outlined"
-                      color="success"
-                      primary="Interested"
-                    >
-                      <Star className="pr-2 font-bold" color="success"></Star>{" "}
-                      Interested
-                    </Button>
-                  </IconButton>
-
-                  <IconButton>
-                    <Button
-                      variant="outlined"
-                      color="success"
-                      primary="Interested"
-                    >
-                      <ShareIcon></ShareIcon>
-                    </Button>
-                  </IconButton>
-                </div>
-                <div className="absolute top-3 right-3 border rounded-full bg-white">
-                  <MoreVertIcon></MoreVertIcon>
-                </div>
                    </Card>
                 ))}
             </div>
@@ -238,12 +153,12 @@ const EventPage = () => {
               <dialog ref={modalRef} id="my_modal_3" className="modal">
                 <div className="modal-box">
                   <button
-                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                    className="btn btn-sm btn-circle bg-red-500 absolute right-2 top-2"
                     onClick={closeModal}
                   >
                     ✕
                   </button>
-                  <div className="container mx-auto border p-5 bg-slate-00-800 shadow-2xl rounded-lg my-10">
+                  <div className="container mx-auto border p-5 bg-slate-400 shadow-2xl rounded-lg my-10">
                     <form onSubmit={(event) => createEvent(event)}>
                       <div className="bg-blue-400 p-3 my-3 rounded ">
                         <h1 className="text-xl font-bold text-black text-center">
@@ -394,52 +309,13 @@ const EventPage = () => {
                 </div>
               </dialog>
 
-              {/* 
-=====================
-===============
-================
-=================== */}
-
               {/* ======================================== */}
             </div>
           </div>
         </div>
-        <label
-          htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
-        >
-          Open Sideber
-        </label>
+
       </div>
-      <div className="drawer-side">
-        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 min-h-full text-base-content bg-slate-300">
-          {/* Sidebar content here */}
-          <li>
-            <a>
-              <IconButton>
-                <Link to={"/"}>
-                  <Home></Home> Home
-                </Link>
-              </IconButton>
-            </a>
-          </li>
-          <li
-            onClick={() => window.my_modal_3.showModal()}
-            className="border rounded-md bg-slate-400"
-          >
-            <a>
-              <IconButton>
-                <Event></Event>
-              </IconButton>{" "}
-              Create a new Event
-              <Fab size="small" color="primary" aria-label="add">
-                <AddIcon></AddIcon>
-              </Fab>
-            </a>
-          </li>
-        </ul>
-      </div>
+
     </div>
   );
 };

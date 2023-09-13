@@ -64,9 +64,9 @@ const router = createBrowserRouter([
       {
         path: "/setting",
         element: (
-          // <PrivetRoute>
+            <PrivetRoute>
             <SettingPage />
-          // </PrivetRoute>
+           </PrivetRoute>
         ),
         children: [
           {
