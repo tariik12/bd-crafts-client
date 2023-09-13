@@ -6,18 +6,15 @@ import RightSideBar from "./RightSideBar/RightSideBar";
 import CreateStory from "../../Components/CreateStory/CreateStory";
 import Post from "../../Components/Post/Post";
 
-
-
-
 const Home = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetch(`${import.meta.env.VITE_URL}/allposts`)
       .then((res) => res.json())
       .then((data) => {
-        setPosts(data)
-      })
-  }, [])
+        setPosts(data);
+      });
+  }, []);
 
   return (
     <div className="flex justify-between">
@@ -30,22 +27,19 @@ const Home = () => {
 
       {/* <div className=" w-[680px] ms-12 "> */}
       <div className=" w-5/12">
-    
-        <div >
-         <CreateStory />
+        <div>
+          <CreateStory />
         </div>
         <div>
           <Post></Post>
         </div>
         <div className=" grid  gap-3 ">
-          {
-            posts?.map((post) => <DisplayPost key={post?._id} post={post} />)
-          }
-        </div> 
+          {posts?.map((post) => (
+            <DisplayPost key={post?._id} post={post} />
+          ))}
+        </div>
         {/*  <p>Lorem ipsum dolor sit amet.</p> */}
-
       </div>
-
 
       {/* <div className=" w-[300px] bg-base-300 "> */}
       <div className=" w-3/12 text-black  ">
