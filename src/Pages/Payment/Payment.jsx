@@ -25,7 +25,8 @@ const Payment = () => {
     const onSubmit = (data) =>{    
         console.log(data)
         data.price = parseInt(total)
-        fetch("http://localhost:3000/order",{
+        if(data){
+          fetch("http://localhost:3000/order",{
             method:'POST',
             headers:{"content-type":"application/json"},
             body:JSON.stringify(data)
@@ -35,6 +36,8 @@ const Payment = () => {
             window.location.replace(result.url)
             console.log(result)
         })
+        }
+       
     }
     
 
@@ -63,7 +66,7 @@ const Payment = () => {
                 name="buyerEmail"
                 defaultValue={user.email}
                 placeholder='Your Email'
-                {...register ("buyerEmail")}
+                {...register("buyerEmail")}
                 readOnly
                 className="mt-1 p-2 border rounded w-full"
               />
@@ -76,7 +79,7 @@ const Payment = () => {
                name="confirmTime"
                readOnly
                value= { moment(user.date).format('llll')}
-               {...register ("confirmTime")}
+               {...register("confirmTime")}
                className="mt-1 p-2 border rounded w-full"
              />
            </div>
@@ -86,7 +89,7 @@ const Payment = () => {
                type="text"
                name="buyerAddress"
                placeholder='Your Address'
-               {...register ("buyerAddress")}
+               {...register("buyerAddress")}
                className="mt-1 p-2 border rounded w-full"
                required
              />

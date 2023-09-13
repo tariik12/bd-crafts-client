@@ -13,7 +13,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import Container from "../../../Utilities/Container";
 import toast from "react-hot-toast";
 
-const NavbarBottom = () => {
+const Navbar = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const { user, logOut } = useContext(AuthContext);
@@ -232,4 +232,4 @@ const NavbarBottom = () => {
   );
 };
 
-export default NavbarBottom;
+export default Navbar;
