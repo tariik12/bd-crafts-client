@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 import {
   CalendarMonth,
   Event,
@@ -25,7 +25,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
@@ -50,17 +50,14 @@ const createEvent = (event) => {
   };
   console.log(eventCreate);
 
-  fetch(`${import.meta.env.VITE_URL}/eventdata`, {
+  fetch(`https://bd-crafts-server.vercel.app/eventdataPost`,{
     method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(eventCreate),
   })
-    .then((res) => res.json())
-    .then((data) => {
-      // console.log(data);
-      if (data.acknowledged === true) {
+  .then(res=>res.json())
+  .then(data=>{
+    if(data.insertedId){
         alert("Event Created Successfully");
       }
     });
@@ -87,7 +84,7 @@ const EventPage = () => {
   };
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_URL}/eventdata`)
+    fetch(`https://bd-crafts-server.vercel.app/eventdata`)
       .then((response) => response.json())
       .then((data) => {
         setEventsData(data);
