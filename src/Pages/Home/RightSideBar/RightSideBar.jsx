@@ -7,6 +7,7 @@ import { AiOutlineFundView } from "react-icons/ai";
 import { FaExternalLinkAlt, FaUserFriends } from "react-icons/fa";
 import "./RightSideBar.css";
 import { Link } from "react-router-dom";
+import { Divider } from "@mui/material";
 const RightSideBar = () => {
   const [friends, setFriends] = useState([]);
 
@@ -40,21 +41,21 @@ const RightSideBar = () => {
   };
   return (
     <div className="p-2 Right">
-      <div className="grid grid-cols-1">
+      <div className="grid grid-cols-1 mb-3">
         <h1 className="text-xl font-bold">All Friends</h1>
 
         <Slider {...settings} className="">
           {onlineFriends?.map((friend, index) => (
             <div
               key={index}
-              className="card w-full mx-5  my-4 bg-base-100 shadow-xl"
+              className="card w-full mx-5  my-4 bg-base-100 shadow-md px-3"
             >
               <div className="avatar">
-                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 ">
                   <img src={friend?.Profile_image} />
                 </div>
               </div>
-              <div>
+              <div >
                 <h2 className="font-bold"> {friend?.Name}</h2>
                 <p className="flex items-center gap-3">
                   {" "}
@@ -70,7 +71,6 @@ const RightSideBar = () => {
             </div>
           ))}
         </Slider>
-        <p className="border-b-2  w-full  border-black  mt-1 mb-3 "></p>
       </div>
       <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24">
         <h1 className="text-[#7BB4FF] text-2xl font-semibold">Active Friend</h1>
