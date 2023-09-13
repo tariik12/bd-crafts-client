@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import {
-  BsCalendarCheckFill,
- 
-
-} from "react-icons/bs";
-import { FaComment, FaExternalLinkAlt, FaShoppingBasket } from "react-icons/fa";
+import { BsCalendarCheckFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
+import { FaComment, FaExternalLinkAlt, FaShoppingBasket } from "react-icons/fa";
 
 import { FaGear, FaShopware, FaUserGroup, FaVideo } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import './LeftSideBar.css'
+import "./LeftSideBar.css";
 const LeftSideBar = () => {
   const [shop, setShop] = useState([]);
 
@@ -20,62 +16,82 @@ const LeftSideBar = () => {
   }, []);
 
   return (
-    <div className="left">
+    <div className="left lg:overflow-y-auto lg:bg-none ">
       <div className=" flex flex-col">
-        <div className="">
-          <div className="grid mb-5 grid-cols-2 gap-8">
+        <div className="bg-slate-200  rounded-2xl">
+          <div className="grid mb-5 grid-cols-2 gap-8 m-3">
             {/* bookmark card */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg flex flex-col justify-center items-center p-2 gap-2">
-              <Link to='/profile' className="text-center hover:underline">
-              <CgProfile className="text-[#7BB4FF] w-10 h-10 ms-1" />
-               Profile
+              <Link to="/profile" className="text-center hover:underline">
+                <CgProfile className="text-[#7BB4FF] w-10 h-10 ms-1" />
+                Profile
               </Link>
             </div>
             {/* Connection Requests */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <Link to='/wholeSealerForm' className="text-center hover:underline">
-              <FaShopware className="text-[#7BB4FF] w-10 h-10 ms-9" />
-              Wholesaler Form
+              <Link
+                to="/wholeSealerForm"
+                className="text-center hover:underline"
+              >
+                <FaShopware className="text-[#7BB4FF] w-10 h-10 ms-9" />
+                Wholesaler Form
               </Link>
             </div>
             {/* Events */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              
-              <Link to='/eventPage' className="text-center hover:underline"><BsCalendarCheckFill className="text-[#7BB4FF] w-10 h-10 ms-1" /> Events</Link>
+              <Link to="/eventPage" className="text-center hover:underline">
+                <BsCalendarCheckFill className="text-[#7BB4FF] w-10 h-10 ms-1" />{" "}
+                Events
+              </Link>
             </div>
             {/* Activity Log */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              
-              <Link to='/shop' className="text-center hover:underline"> <FaShoppingBasket className="text-[#7BB4FF] w-10 h-10 ms-2" /> All Shop</Link>
+              <Link to="/shop" className="text-center hover:underline">
+                {" "}
+                <FaShoppingBasket className="text-[#7BB4FF] w-10 h-10 ms-2" />{" "}
+                All Shop
+              </Link>
             </div>
             {/* All Comments */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <Link to='/messages' className="text-center hover:underline"><FaComment className="text-[#7BB4FF] w-10 h-10 ms-5" /> Massage</Link>
+              <Link to="/messages" className="text-center hover:underline">
+                <FaComment className="text-[#7BB4FF] w-10 h-10 ms-5" /> Massage
+              </Link>
             </div>
             {/* Settings */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <Link to='/setting' className="text-center justify-center hover:underline"> <FaGear className="text-[#7BB4FF] w-10 h-10 ms-2" />Settings </Link>
-              
+              <Link
+                to="/setting"
+                className="text-center justify-center hover:underline"
+              >
+                {" "}
+                <FaGear className="text-[#7BB4FF] w-10 h-10 ms-2" />
+                Settings{" "}
+              </Link>
             </div>
             {/* Groups */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
               <FaUserGroup className="text-[#7BB4FF] w-10 h-10" />
-              <Link to='/myGroup' className="text-center hover:underline">My Groups</Link>
+              <Link to="/myGroup" className="text-center hover:underline">
+                My Groups
+              </Link>
             </div>
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              
               <Link to="selerForm" className="text-center hover:underline">
-              <FaShopware className="text-[#7BB4FF] w-10 h-10 ms-4" /> Seller Form</Link>
+                <FaShopware className="text-[#7BB4FF] w-10 h-10 ms-4" /> Seller
+                Form
+              </Link>
             </div>
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              
               <Link to="/conference" className="text-center hover:underline">
-              <FaVideo className="text-[#7BB4FF] w-10 h-10 ms-4" /> Vedio Conference</Link>
+                <FaVideo className="text-[#7BB4FF] w-10 h-10 ms-4" /> Vedio
+                Conference
+              </Link>
             </div>
           </div>
         </div>
         {/* left side bar bottom  */}
-        <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24">
+        <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24 hidden lg:block">
           <h1 className="text-[#7BB4FF] text-2xl font-semibold">Shops</h1>
           {/* shop list */}
 

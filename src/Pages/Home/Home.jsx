@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import DisplayPost from "../../Components/DisplayPost/DisplayPost";
 // import CreatePost from "../../Components/Navber/CreatePosts/CreatePost";
-import LeftSideBar from "./LeftSideBar/LeftSideBar";
-import RightSideBar from "./RightSideBar/RightSideBar";
 import CreateStory from "../../Components/CreateStory/CreateStory";
 import Post from "../../Components/Post/Post";
+import LeftSideBar from "./LeftSideBar/LeftSideBar";
+import RightSideBar from "./RightSideBar/RightSideBar";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -17,36 +17,33 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex justify-between">
-      {/* <div className="grid-cols-1 w-[300px] "> */}
-      <div className="w-4/12">
-        <LeftSideBar />
-        {/* <h5>hgfyufy</h5> */}
-      </div>
-      {/* Create post & Post Div (Rabeya) */}
+    <>
+      <div>
+        <div className="grid grid-cols-1 md:grid-cols-12">
+          <div className="lg:col-span-3 hidden lg:block ">
+            <LeftSideBar />
+          </div>
 
-      {/* <div className=" w-[680px] ms-12 "> */}
-      <div className=" w-5/12">
-        <div>
-          <CreateStory />
-        </div>
-        <div>
-          <Post></Post>
-        </div>
-        <div className=" grid  gap-3 ">
-          {posts?.map((post) => (
-            <DisplayPost key={post?._id} post={post} />
-          ))}
-        </div>
-        {/*  <p>Lorem ipsum dolor sit amet.</p> */}
-      </div>
+          <div className="grid-cols-12 md:col-span-6">
+            <div>
+              <CreateStory />
+            </div>
+            <div>
+              <Post></Post>
+            </div>
+            <div className=" grid  gap-3 ">
+              {posts?.map((post) => (
+                <DisplayPost key={post?._id} post={post} />
+              ))}
+            </div>
+          </div>
 
-      {/* <div className=" w-[300px] bg-base-300 "> */}
-      <div className=" w-3/12 text-black  ">
-        <RightSideBar />
-        {/* <h4>gfyjf</h4> */}
+          <div className=" lg:col-span-3 hidden lg:block text-black  ">
+            <RightSideBar />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
