@@ -25,6 +25,7 @@ import SettingPage from "./Components/Navber/SettingPage/SettingPage";
 import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
 
 import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
+import ManageUser from "./Components/Dashboard/Admin/ManageUser";
 import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
@@ -35,20 +36,20 @@ import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/Passwo
 import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
 import Security from "./Components/Navber/SettingPage/Security/Security";
 import SellerForm from "./Components/SellerForm/SellerForm";
-import PrivetRoute from "./PrivetRoute/PrivetRoute";
-import ManageUser from "./Components/Dashboard/Admin/ManageUser";
 import MsgApp from "./Pages/MsgApp/MsgApp/MsgApp";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 import EventPage from "./Components/Event/EventPage";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
-import SpecificShop from "./Components/SpecificShop/SpecificShop";
-import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 import Edit from "./Components/Navber/SettingPage/Genarel/Edit";
 import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
-import VedioConference from "./Pages/VedioConference/VedioConference";
-import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
-import LiveStreaming from "./Pages/LiveStreaming/LiveStreaming";
+import SpecificShop from "./Components/SpecificShop/SpecificShop";
+import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+import EditProfile from "./Pages/EditProfile/EditProfile";
 import Live from "./Pages/LiveStreaming/Live/Live";
+import LiveStreaming from "./Pages/LiveStreaming/LiveStreaming";
+import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
+import VedioConference from "./Pages/VedioConference/VedioConference";
 
 const router = createBrowserRouter([
   {
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
         path: "/setting",
         element: (
           // <PrivetRoute>
-            <SettingPage />
+          <SettingPage />
           // </PrivetRoute>
         ),
         children: [
@@ -177,6 +178,10 @@ const router = createBrowserRouter([
         element: <Shop />,
       },
       {
+        path: "/editProfile",
+        element: <EditProfile></EditProfile>,
+      },
+      {
         path: "/liveStreaming",
         element: <LiveStreaming />,
       },
@@ -236,7 +241,6 @@ const router = createBrowserRouter([
       </PrivetRoute>
     ),
     children: [
-    
       {
         path: "payed",
         element: <PayedProducts />,
@@ -290,7 +294,7 @@ const router = createBrowserRouter([
     element: <Edit></Edit>,
   },
   {
-  path: "/msgApp",
+    path: "/msgApp",
     element: (
       <PrivetRoute>
         <MsgApp />

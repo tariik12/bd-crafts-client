@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AboutCard from "../../Components/AboutCard/AboutCard";
 import DisplayPost from "../../Components/DisplayPost/DisplayPost";
 import PhotoGallery from "../../Components/PhotoGallery/PhotoGallery";
@@ -7,9 +7,11 @@ import ProfileBanner from "../../Components/ProfileBanner/ProfileBanner";
 import ProfileBio from "../../Components/ProfileBio/ProfileBio";
 import ProfileFunction from "../../Components/ProfileFunction/ProfileFunction";
 import UserProfileName from "../../Components/UserProfileName/UserProfileName";
+import { AuthContext } from "../../Provider/AuthProvider";
 import Container from "../../Utilities/Container";
 
 const Profile = () => {
+  const { user } = useContext(AuthContext);
   const userProfile = {
     id: 1,
     userName: "john_doe",
@@ -24,38 +26,6 @@ const Profile = () => {
     bio: "Software Developer | Nature Enthusiast",
     friendsCount: 256,
     followersCount: 512,
-    posts: [
-      {
-        id: 101,
-        timestamp: "2023-08-18T12:00:00Z",
-        content: "Just enjoying a beautiful day outdoors!",
-        likes: 42,
-        comments: [
-          {
-            id: 1001,
-            timestamp: "2023-08-18T12:30:00Z",
-            user: {
-              id: 2,
-              username: "jane_smith",
-              fullName: "Jane Smith",
-              profilePicture: "https://example.com/jane_profile.jpg",
-            },
-            content: "Looks amazing! 😍",
-          },
-          {
-            id: 1002,
-            timestamp: "2023-08-18T13:00:00Z",
-            user: {
-              id: 3,
-              username: "mike_jones",
-              fullName: "Mike Jones",
-              profilePicture: "https://example.com/mike_profile.jpg",
-            },
-            content: "Wish I could be there too!",
-          },
-        ],
-      },
-    ],
   };
 
   const {
@@ -71,6 +41,11 @@ const Profile = () => {
   } = userProfile;
 
   const [posts, setPosts] = useState([]);
+  const [userData, setUserData] = useState({});
+
+  // const {} = userData;
+  // console.log(userData);
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_URL}/allposts`)
       .then((res) => res.json())
@@ -78,6 +53,13 @@ const Profile = () => {
         setPosts(data);
       });
   }, []);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_URL}/singleUser/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setUserData(data);
+      });
+  }, [user?.email]);
 
   return (
     <>
