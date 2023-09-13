@@ -50,6 +50,7 @@ import VedioConference from "./Pages/VedioConference/VedioConference";
 import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
 import LiveStreaming from "./Pages/LiveStreaming/LiveStreaming";
 import Live from "./Pages/LiveStreaming/Live/Live";
+import PaymentSuccess from "./Pages/Payment/PaymentSuccess";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path:"/paymentSuccess/:id",
+        element:<PaymentSuccess/>
       },
       //mostafizur rahmaan
       {
@@ -276,6 +281,7 @@ const router = createBrowserRouter([
         path: "addProducts",
         element: <AddProducts />,
       },
+     
       {
         path: "myShop",
         element: <MyShop />,
@@ -290,6 +296,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+
   {
     path: "/edit",
     element: <Edit></Edit>,

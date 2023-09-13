@@ -3,8 +3,9 @@ import Container from "../../Utilities/Container";
 import MenuDropdown from "./MenuDropdown";
 import { FaSistrix } from "react-icons/fa6";
 import './Navbar.css' ; 
-import {  useEffect, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 import { useSearchContext } from "../../Provider/ApiContestProvider";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -12,7 +13,10 @@ const Navbar = () => {
   const {handleSearchData} = useSearchContext()
   // const [projects,setProject] = useState([])
   // console.log(projects)
+  const {user} = useContext(AuthContext)
+  console.log(user)
   const [posts, setPosts] = useState([]);
+  console.log(user)
   console.log(posts)
   useEffect(() => {
     setLoading(true)
