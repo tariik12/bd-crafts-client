@@ -36,7 +36,6 @@ const Post = () => {
           </div>
         </div>
       </div>
-      <p className="  border-b-2  w-full  border-black  mt-1 mb-3 "></p>
       {/* <div className="flex justify-between p-5">
         <div className="flex gap-3">
           <BsCameraVideoFill size={30} color="#1589FF" />
