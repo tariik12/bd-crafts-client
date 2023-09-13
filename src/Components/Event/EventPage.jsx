@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-import  { useEffect, useRef, useState } from "react";
->>>>>>> 079877cc62a5495e9771e9402c7d8ab7bde26e36
 import {
   CalendarMonth,
   Event,
