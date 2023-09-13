@@ -54,7 +54,7 @@ const LeftSideBar = () => {
             </div>
             {/* All Comments */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <Link to="/messages" className="text-center hover:underline">
+              <Link to="/msgApp" className="text-center hover:underline">
                 <FaComment className="text-[#7BB4FF] w-10 h-10 ms-5" /> Massage
               </Link>
             </div>
