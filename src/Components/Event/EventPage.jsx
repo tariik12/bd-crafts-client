@@ -50,24 +50,25 @@ const createEvent = (event) => {
   };
   console.log(eventCreate);
 
-  fetch(`https://bd-crafts-server.vercel.app/eventdataPost`,{
+  fetch("https://bd-crafts-server.vercel.app/eventdataPost", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(eventCreate),
   })
-  .then(res=>res.json())
-  .then(data=>{
-    if(data.insertedId){
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (data.acknowledged === true) {
         alert("Event Created Successfully");
       }
     });
 };
 
 const EventPage = () => {
-  const [open1, setOpen1] = useState(true);
-  const [open, setOpen] = useState(true);
   const [eventsData, setEventsData] = useState([]);
-
+  console.log(eventsData);
+  const [open, setOpen] = useState(true);
+  const [open1, setOpen1] = useState(true);
   const modalRef = useRef(null);
 
   const handleClick = () => {
@@ -84,7 +85,7 @@ const EventPage = () => {
   };
 
   useEffect(() => {
-    fetch(`https://bd-crafts-server.vercel.app/eventdata`)
+    fetch("https://bd-crafts-server.vercel.app/eventdata")
       .then((response) => response.json())
       .then((data) => {
         setEventsData(data);

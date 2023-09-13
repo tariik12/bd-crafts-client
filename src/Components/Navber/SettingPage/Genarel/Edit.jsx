@@ -1,18 +1,55 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const Edit = () => {
-    const [userData, setUserData] = useState()
-    useEffect(() => {
-        fetch(`${import.meta.env.VITE_URL}/allusers`)
-          .then((response) => response.json())
-          .then((data) => {
-            setUserData(data);
-          })
-          .catch((error) => {
-            console.error("Error fetching data:", error);
-          });
-      }, []);
+  const { user } = useContext(AuthContext);
+  const [userData, setUserData] = useState(null);
+  const [newName, setNewName] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(`https://bd-crafts-server.vercel.app/singleUser/${user?.email}`);
+        if (response.ok) {
+          const data = await response.json();
+          setUserData(data);
+          setNewName(data.name);
+        } else {
+          console.error("Failed to fetch user data");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    if (user?.email) {
+      fetchUserData();
+    }
+  }, [user]);
+
+  const handleUpdateName = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/updateUserName/${user?.email}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ newName: newName }),
+      });
+
+      if (response.ok) {
+        setUserData({ ...userData, name: newName });
+        setIsEditing(false); // Disable editing mode
+        window.location.href = "/setting/genarel";
+      } else {
+        console.error("Failed to update user name");
+      }
+    } catch (error) {
+      console.error("Error updating user name:", error);
+    }
+  };
 
   return (
     <div className="w-full max-w-screen-md h-[803px] flex items-center justify-center mx-auto mt-2  overflow-hidden">
@@ -25,22 +62,29 @@ const Edit = () => {
             <tbody>
               <tr className="bg-white h-[47px] px-4 ">
                 <td className="pl-2">Name :</td>
-                <td>{userData?.displayName}</td>
-                <td className="pl-2 border bg-gray-500 p-2">
-                  <button>
-                    <Link to={`/edit`}>Edit</Link>
-                  </button>
-                </td>
+                {isEditing ? (
+                  <>
+                    <td>
+                      <input
+                        type="text"
+                        value={newName}
+                        onChange={(e) => setNewName(e.target.value)}
+                      />
+                    </td>
+                    <td className="pl-2 border bg-gray-500 p-2">
+                      <button onClick={handleUpdateName}>Save</button>
+                    </td>
+                  </>
+                ) : (
+                  <>
+                    <td>{userData?.[0].name}</td>
+                    <td className="pl-2 border bg-slate-600 text-white rounded">
+                      <button onClick={() => setIsEditing(true)}>Edit</button>
+                    </td>
+                  </>
+                )}
               </tr>
-              <br />
 
-              <tr className="bg-white h-[47px] px-4 ">
-                <td className="pl-2">Email:</td>
-                <td>{userData?.email}</td>
-                <td className="pl-2 border bg-gray-500 p-2">
-                  <Link to="#">Edit</Link>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>

@@ -63,9 +63,9 @@ const router = createBrowserRouter([
       {
         path: "/setting",
         element: (
-          <PrivetRoute>
+          // <PrivetRoute>
             <SettingPage />
-          </PrivetRoute>
+          // </PrivetRoute>
         ),
         children: [
           {
@@ -138,7 +138,6 @@ const router = createBrowserRouter([
       {
         path: "/eventPage",
         element: <EventPage />,
-        loader: () => fetch(`http://localhost:5000/eventdata`),
       },
       {
         path: "/friendRequest",
