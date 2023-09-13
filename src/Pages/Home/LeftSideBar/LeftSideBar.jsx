@@ -18,8 +18,8 @@ const LeftSideBar = () => {
   return (
     <div className="left lg:overflow-y-auto lg:bg-none ">
       <div className=" flex flex-col">
-        <div className="bg-slate-200  rounded-2xl">
-          <div className="grid mb-5 grid-cols-2 gap-8 m-3">
+        <div className="bg-slate-200 md:bg-[#186DBE0F]  rounded-2xl">
+          <div className="grid mb-5 grid-cols-2 gap-6 py-3 px-2 m-3 md:m-0">
             {/* bookmark card */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg flex flex-col justify-center items-center p-2 gap-2">
               <Link to="/profile" className="text-center hover:underline">
