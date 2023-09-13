@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 // import SectionTitle from "../Share/SectionTitle";
 import { Link } from "react-router-dom";
 import './FindFriend.css';
-import DemoFriend from "./DemoFriend";
 
 
 const FindFriend = () => {
@@ -73,7 +72,7 @@ const FindFriend = () => {
 
             </div>
 
-            <DemoFriend></DemoFriend>
+            
         </div>
 
     );
