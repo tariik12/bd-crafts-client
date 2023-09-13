@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 import {
   CalendarMonth,
   Event,
@@ -52,9 +52,7 @@ const createEvent = (event) => {
 
   fetch("https://bd-crafts-server.vercel.app/eventdataPost", {
     method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(eventCreate),
   })
     .then((res) => res.json())

@@ -1,6 +1,6 @@
 import { FaHome ,FaShopify,FaChessBishop} from "react-icons/fa";
 
-import { GiShoppingCart } from "react-icons/gi";
+import { GiShoppingCart,GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { SiInstructure} from "react-icons/si";
@@ -29,12 +29,12 @@ if(isLoading || isSellerLoading ){
 
     return (
         <div className="drawer lg:drawer-open">
+    <label htmlFor="my-drawer-2" className="btn btn-primary m-3 drawer-button lg:hidden"><GiHamburgerMenu></GiHamburgerMenu></label>
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content flex flex-col  ">
 
     {/* Page content here */}
     <Outlet></Outlet>
-    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
   
   </div> 
   <div className="drawer-side  ">
