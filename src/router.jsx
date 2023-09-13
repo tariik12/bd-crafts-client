@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         path:"/paymentSuccess/:id",
         element:<PaymentSuccess/>
       },
-      //mostafizur rahmaan
+     
       {
         path: "/setting",
         element: (
