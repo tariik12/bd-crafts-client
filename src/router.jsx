@@ -16,7 +16,6 @@ import Profile from "./Pages/Profile/Profile";
 import Shop from "./Pages/Shop/Shop";
 import "./index.css";
 
-import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
 import MyCart from "./Components/Dashboard/GeneralUser/MyCart";
 import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
 import PaymentHistory from "./Components/Dashboard/GeneralUser/PaymentHistory";
@@ -69,9 +68,9 @@ const router = createBrowserRouter([
       {
         path: "/setting",
         element: (
-          <PrivetRoute>
+            <PrivetRoute>
             <SettingPage />
-          </PrivetRoute>
+           </PrivetRoute>
         ),
         children: [
           {
@@ -144,7 +143,6 @@ const router = createBrowserRouter([
       {
         path: "/eventPage",
         element: <EventPage />,
-        loader: () => fetch(`http://localhost:5000/eventdata`),
       },
       {
         path: "/friendRequest",
@@ -243,10 +241,7 @@ const router = createBrowserRouter([
       </PrivetRoute>
     ),
     children: [
-      {
-        path: "/dashboard",
-        element: <Dashboard></Dashboard>,
-      },
+    
       {
         path: "payed",
         element: <PayedProducts />,
@@ -302,7 +297,7 @@ const router = createBrowserRouter([
     element: <Edit></Edit>,
   },
   {
-    path: "/msgApp",
+  path: "/msgApp",
     element: (
       <PrivetRoute>
         <MsgApp />

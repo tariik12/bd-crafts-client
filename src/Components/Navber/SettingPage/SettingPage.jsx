@@ -1,10 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { Link, Outlet } from "react-router-dom";
 
 const SettingPage = () => {
-    const { user } = useContext(AuthContext);
-    console.log(user);
+  const { user } = useContext(AuthContext);
+  const [userData, setUserData] = useState(null);
+  // console.log(userData);
+
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`https://bd-crafts-server.vercel.app/singleUser/${user?.email}`)
+        .then((response) => response.json())
+        .then((data) => setUserData(data))
+        .catch((error) => console.error("Error fetching user data:", error));
+    }
+  }, [user?.email]);
+  
   
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4 h-screen">
@@ -18,8 +29,8 @@ const SettingPage = () => {
             </div>
             <div className="flex items-center justify-center mt-6">
               <div>
-                <h3 className="text-[35px] text-[#082B59]">{user?.displayName}</h3>
-                <span className="text-[18px] text-[#082B59]">{user?.email}</span>
+                <h3 className="text-[35px] text-[#082B59]">{userData?.[0].name}</h3>
+                <span className="text-[18px] text-[#082B59]">{userData?.[0].email}</span>
               </div>
             </div>
             <div className="mt-[45px]">
