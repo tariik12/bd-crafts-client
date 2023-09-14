@@ -47,7 +47,7 @@ import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
 import SpecificShop from "./Components/SpecificShop/SpecificShop";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 import EditProfile from "./Pages/EditProfile/EditProfile";
-import Live from "./Pages/LiveStreaming/Live/Live";
+
 import PaymentSuccess from "./Pages/Payment/PaymentSuccess";
 import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
 import VedioConference from "./Pages/VedioConference/VedioConference";
@@ -172,10 +172,7 @@ const router = createBrowserRouter([
         path: "/editProfile",
         element: <EditProfile></EditProfile>,
       },
-      {
-        path: "/live/:roomId",
-        element: <Live />,
-      },
+     
       {
         path: "specificShop/:id",
         element: <SpecificShop />,

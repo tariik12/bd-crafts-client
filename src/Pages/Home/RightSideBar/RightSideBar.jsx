@@ -3,9 +3,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-import { FaExternalLinkAlt } from "react-icons/fa";
+// import { FaExternalLinkAlt } from "react-icons/fa";
 import "./RightSideBar.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {  ProductionQuantityLimits } from "@mui/icons-material";
 import { Money } from "phosphor-react";
 
@@ -15,7 +15,7 @@ const RightSideBar = () => {
   console.log(products);
 
   useEffect(() => {
-    fetch("https://bd-crafts-server.vercel.app/allproduct")
+    fetch("https://bd-crafts-server.vercel.app/product/allProduct")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -47,8 +47,8 @@ const RightSideBar = () => {
 
   return (
     <div className="p-2 Right">
-      <div className="grid grid-cols-1 mb-3 items-center">
-        <h1 className="text-xl font-bold flex justify-center items-center">Populer Products</h1>
+      <div className="grid grid-cols-1 mb-3 items-center bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md">
+        <h1 className="text-xl font-bold text-center">Populer Products</h1>
 
         <Slider {...settings} className="mx-10">
           {products?.map((product, index) => (
@@ -82,22 +82,24 @@ const RightSideBar = () => {
 
 
       <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24">
-        <h1 className="text-[#7BB4FF] text-2xl font-semibold">All Friends</h1>
+        <h1 className="text-xl font-bold text-center">All Friends</h1>
         {/* shop list */}
-        {friends?.map((product) => (
+        {friends?.map((f) => (
           <div
-            key={product._id}
-            className="flex justify-between items-center my-1"
+            key={f?._id}
+            className="flex justify-between items-center my-1 p-3"
           >
+            <div className="flex gap-5">
             <img
-              src={product?.img}
-              alt={product?.name}
+              src={f?.photo}
+              alt={f?.name}
               className="w-10 h-10 rounded-full"
             />
-            <p className="text-[#082B59]">{product?.name}</p>
-            <Link>
+            <p className="text-[#082B59]">{f?.name}</p>
+            </div>
+            {/* <Link>
               <FaExternalLinkAlt />
-            </Link>
+            </Link> */}
           </div>
         ))}
       </div>
