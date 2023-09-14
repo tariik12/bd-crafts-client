@@ -29,8 +29,8 @@ const SettingPage = () => {
             </div>
             <div className="flex items-center justify-center mt-6">
               <div>
-                <h3 className="text-[35px] text-[#082B59]">{userData?.[0].name}</h3>
-                <span className="text-[18px] text-[#082B59]">{userData?.[0].email}</span>
+                <h3 className="text-[35px] text-[#082B59]">{userData?.name}</h3>
+                <span className="text-[18px] text-[#082B59]">{userData?.email}</span>
               </div>
             </div>
             <div className="mt-[45px]">

@@ -100,7 +100,7 @@ const CreateStorySlider = () => {
         <Slider {...settings} className="ms-12 md:ms-0 md:me-4 me-12  col-span-9 ">
         
           {
-          stories.map(story =><div key={story._id} className="px-3">
+          stories.map(story =><div key={story._id} className="md:px-3 lg:px-1">
               {story.photoUrl?
               
               <>

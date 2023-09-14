@@ -72,20 +72,21 @@ const AddProducts = () => {
               <span className="text-red-600"> Craft name is required</span>
             )}
           </div>
-          {/* ===================== */}
-          {/* <div className="mb-4">
+
+          <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
-              Select Catagory <span className="text-warning">*</span>
+              Shop Name <span className="text-warning">*</span>
             </label>
             <input
               type="text"
-              {...register("name", { required: true })}
+              {...register("shopname", { required: true })}
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
             />
-            {errors.name && (
+            {errors.shopname && (
               <span className="text-red-600"> Craft name is required</span>
             )}
-          </div> */}
+          </div>
+
 
           <div className="mb-4">
             <label

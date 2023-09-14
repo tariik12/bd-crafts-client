@@ -8,11 +8,15 @@ import { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { Navigate } from "react-router-dom";
+import { ThumbDown, ThumbUp } from "@mui/icons-material";
+
 const DisplayPost = ({ post }) => {
   const { user } = useContext(AuthContext);
   const { caption, photoUrl } = post;
   const [openModal, setOpenModal] = useState(false);
   const [openModal2, setOpenModal2] = useState(false);
+  const [like, setLike] = useState(0);
+  const [islike, setIsLike] = useState(false);
 
   // get comments
   const { data: comments = [], refetch } = useQuery(["comments"], async () => {
@@ -22,7 +26,6 @@ const DisplayPost = ({ post }) => {
 
     return res.json();
   });
- 
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -67,6 +70,11 @@ const DisplayPost = ({ post }) => {
     }
   };
 
+  const onLikeButtonClick = () => {
+    setLike(like + (islike ? -1 : 1));
+    setIsLike(!islike);
+  };
+
   return (
     <div className="mt-10 p-5 bg-[#186DBE0F] shadow-2xl rounded-2xl w-full">
       <div className="flex gap-3">
@@ -102,16 +110,25 @@ const DisplayPost = ({ post }) => {
               </div>
               <div className="p-4 rounded-3xl  shadow-lg pb-5 bg-[#FFF]">
                 <div className="flex items-center justify-between ">
-                  <span className="flex items-center gap-2">
-                    {" "}
-                    <BiLike size={20}></BiLike>Like
+                  <span className="flex items-center gap-2"
+                  onClick={onLikeButtonClick}
+                  >
+                    <ThumbUp
+                      size={25}
+                      style={{ color: islike ? "blue" : "black" }}
+                      
+                    />
+                    <p style={{ color: islike ? "blue" : "black" }}>Like {like ? 1 : ""}</p>
                   </span>
+
                   <button
                     onClick={() => setOpenModal(!openModal)}
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaComment size={20}></FaComment>
+                    <FaComment size={20}
+                    color="blue"
+                    ></FaComment>
                     {comments?.length} Comment
                   </button>
                   <button
@@ -119,7 +136,7 @@ const DisplayPost = ({ post }) => {
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaShare size={20}></FaShare> Share
+                    <FaShare size={20} color="blue"></FaShare> Share
                   </button>
                 </div>
               </div>
@@ -160,23 +177,38 @@ const DisplayPost = ({ post }) => {
           <div className="flex justify-center ">
             <div className="w-full max-w-6xl  ">
               <div className="p-4 rounded-3xl  shadow-lg pb-5 bg-[#FFF]">
-                <div className="flex items-center justify-between ">
-                  <span className="flex items-center gap-2">
-                    {" "}
-                    <BiLike size={20}></BiLike>Like
+
+              <div className="flex items-center justify-between ">
+                  <span className="flex items-center gap-2"
+                  onClick={onLikeButtonClick}
+                  >
+                    <ThumbUp
+                      size={25}
+                      style={{ color: islike ? "blue" : "black" }}
+                      
+                    />
+                    <p style={{ color: islike ? "blue" : "black" }}>Like {like ? 1 : ""}</p>
                   </span>
+
                   <button
                     onClick={() => setOpenModal(!openModal)}
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaComment size={20}></FaComment>Comment
+                    <FaComment size={20}
+                    color="blue"
+                    ></FaComment>
+                    {comments?.length} Comment
                   </button>
-                  <span className="flex items-center gap-2">
+                  <button
+                    onClick={() => setOpenModal2(!openModal2)}
+                    className="flex items-center gap-2"
+                  >
                     {" "}
-                    <FaShare size={20}></FaShare> Share
-                  </span>
+                    <FaShare size={20} color="blue"></FaShare> Share
+                  </button>
                 </div>
+
               </div>
             </div>
           </div>
@@ -249,10 +281,16 @@ const DisplayPost = ({ post }) => {
         <>
           <div className=" rounded-xl shadow-md w-[40vw]  max-h-screen bg-white  overflow-hidden text-sm ">
             <div className="flex flex-row gap-3  cursor-pointer px-4 py-4">
-              <FacebookShareButton url="https://bd-crafts-client.vercel.app/"  hashtag="#React">
+              <FacebookShareButton
+                url="https://bd-crafts-client.vercel.app/"
+                hashtag="#React"
+              >
                 <FacebookIcon round={true}></FacebookIcon>
               </FacebookShareButton>
-              <WhatsappShareButton url="https://bd-crafts-client.vercel.app/"  hashtag="#React">
+              <WhatsappShareButton
+                url="https://bd-crafts-client.vercel.app/"
+                hashtag="#React"
+              >
                 <WhatsappIcon round={true}></WhatsappIcon>
               </WhatsappShareButton>
             </div>
