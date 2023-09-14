@@ -10,14 +10,14 @@ import { ProductionQuantityLimits } from "@mui/icons-material";
 import { Money } from "phosphor-react";
 
 const RightSideBar = () => {
-  const [products, setFriends] = useState([]);
+  const [products, setProduct] = useState([]);
   // console.log(products);
 
   useEffect(() => {
     fetch("https://bd-crafts-server.vercel.app/allproduct")
       .then((res) => res.json())
       .then((data) => {
-        setFriends(data);
+        setProduct(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);

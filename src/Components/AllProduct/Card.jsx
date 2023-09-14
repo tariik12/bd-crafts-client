@@ -25,7 +25,8 @@ const Card = ({ d, handleAddToCart }) => {
               alt="Room"
             />
           </div>
-          <div className="font-semibold text-lg">{d.name}</div>
+          <div className="font-semibold text-lg"> Product: {d.name}</div>
+          <div className="font-semibold text-lg"> Shop:{d.shopname}</div>
           <div className="font-light text-neutral-500">
             Quantity : {d.quantity}
           </div>
