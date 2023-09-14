@@ -22,11 +22,7 @@ const DisplayPost = ({ post }) => {
 
     return res.json();
   });
-  // const displayComments=(post)=>{
-  //   fetch(`http://localhost:5000/comments/${post?._id}`)
-  //   .then(res=>res.json())
-  //   .then(data=>console.log(data))
-  // }
+ 
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -75,7 +71,7 @@ const DisplayPost = ({ post }) => {
     <div className="mt-10 p-5 bg-[#186DBE0F] shadow-2xl rounded-2xl w-full">
       <div className="flex gap-3">
         <div className="flex justify-center items-center w-14 h-14 p-2  ">
-          <div className="avatar online">
+          <div className="avatar ">
             <div className="w-12 rounded-full">
               <img src={post?.img} />
             </div>
@@ -134,7 +130,7 @@ const DisplayPost = ({ post }) => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="flex gap-3   mb-3 p-3">
                 <div className="mt-5    ">
-                  <div className="avatar online">
+                  <div className="avatar ">
                     <div className="w-12 rounded-full">
                       <img src={user?.photoURL} />
                     </div>

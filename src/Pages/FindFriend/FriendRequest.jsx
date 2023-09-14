@@ -1,13 +1,13 @@
 
 import { useEffect, useState } from "react";
-import SectionTitle from "../Share/SectionTitle";
+import { Link } from "react-router-dom";
 
 const FriendRequest = () => {
     const [addFriends, SetAddFriends] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/allFriendRequestLink')
-        // fetch('addFriend.json')
+            // fetch('addFriend.json')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -15,13 +15,29 @@ const FriendRequest = () => {
             })
     }, [])
 
-
     return (
         <div className="bg-slate-100">
-            <SectionTitle
-                subHeading={" "}
-                heading={"Friend Request"}
-            ></SectionTitle>
+          
+            <div className="bg-green-500  " >
+                <Link to='/'>
+                    <h3 className="text-4xl font-serif cursor-pointer my-2">Home</h3>
+                </Link>
+                <Link to="/friendRequest">
+                    <h3 className="text-4xl font-serif cursor-pointer my-2" >Friend Request</h3>
+                </Link>
+
+                <Link to="/allFriend">
+                    <h3 className="text-4xl font-serif cursor-pointer my-2">All  Friend</h3>
+                </Link>
+
+                <Link to="/addFriend">
+                    <h3 className="text-4xl font-serif cursor-pointer my-2">Add friend</h3>
+                </Link>
+                <Link to="/createGroup">
+                    <h3 className="text-4xl font-serif cursor-pointer my-2">Create Group</h3>
+                </Link>
+            </div>
+
 
             <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 {

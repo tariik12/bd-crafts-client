@@ -48,7 +48,7 @@ import SpecificShop from "./Components/SpecificShop/SpecificShop";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import Live from "./Pages/LiveStreaming/Live/Live";
-import LiveStreaming from "./Pages/LiveStreaming/LiveStreaming";
+import PaymentSuccess from "./Pages/Payment/PaymentSuccess";
 import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
 import VedioConference from "./Pages/VedioConference/VedioConference";
 
@@ -61,13 +61,17 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      //mostafizur rahmaan
+      {
+        path: "/paymentSuccess/:id",
+        element: <PaymentSuccess />,
+      },
+
       {
         path: "/setting",
         element: (
-          // <PrivetRoute>
-          <SettingPage />
-          // </PrivetRoute>
+          <PrivetRoute>
+            <SettingPage />
+          </PrivetRoute>
         ),
         children: [
           {
@@ -127,11 +131,7 @@ const router = createBrowserRouter([
       //Rabeya Akter
       {
         path: "/findFriend",
-        element: (
-          <PrivetRoute>
-            <FindFriend />
-          </PrivetRoute>
-        ),
+        element: <FindFriend />,
       },
       {
         path: "/myGroup",
@@ -143,35 +143,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/friendRequest",
-        element: (
-          <PrivetRoute>
-            <FriendRequest></FriendRequest>
-          </PrivetRoute>
-        ),
+        element: <FriendRequest></FriendRequest>,
       },
       {
         path: "/addFriend",
-        element: (
-          <PrivetRoute>
-            <AddFriend></AddFriend>
-          </PrivetRoute>
-        ),
+        element: <AddFriend></AddFriend>,
       },
       {
         path: "/allFriend",
-        element: (
-          <PrivetRoute>
-            <AllFriend></AllFriend>
-          </PrivetRoute>
-        ),
+        element: <AllFriend></AllFriend>,
       },
       {
         path: "/createGroup",
-        element: (
-          <PrivetRoute>
-            <CreateGroup></CreateGroup>
-          </PrivetRoute>
-        ),
+        element: <CreateGroup></CreateGroup>,
       },
 
       {
@@ -187,10 +171,6 @@ const router = createBrowserRouter([
       {
         path: "/editProfile",
         element: <EditProfile></EditProfile>,
-      },
-      {
-        path: "/liveStreaming",
-        element: <LiveStreaming />,
       },
       {
         path: "/live/:roomId",
@@ -282,6 +262,7 @@ const router = createBrowserRouter([
         path: "addProducts",
         element: <AddProducts />,
       },
+
       {
         path: "myShop",
         element: <MyShop />,
@@ -296,6 +277,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+
   {
     path: "/edit",
     element: <Edit></Edit>,
@@ -312,7 +294,6 @@ const router = createBrowserRouter([
     path: "/conference",
     element: (
       <PrivetRoute>
-        {" "}
         <VedioConference />
       </PrivetRoute>
     ),

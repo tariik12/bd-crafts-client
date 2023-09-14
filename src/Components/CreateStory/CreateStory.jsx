@@ -17,6 +17,7 @@ import Swal from "sweetalert2";
 import { Navigate, useNavigate } from "react-router-dom";
 import { BiImageAdd } from "react-icons/bi";
 
+
 const CreateStory = () => {
   const navigate = useNavigate()
   const { user } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const CreateStory = () => {
 
   const [stories, setStories] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3000/createStory')
+    fetch('https://bd-crafts-server.vercel.app/createStory')
       .then((res) => res.json())
       .then((data) => {
         setStories(data)
@@ -43,7 +44,7 @@ const CreateStory = () => {
 
     if(user && user.email){
 
-      fetch('http://localhost:3000/createStory',{
+      fetch('https://bd-crafts-server.vercel.app/createStory',{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(info),
@@ -52,6 +53,7 @@ const CreateStory = () => {
       .then(data=>{
         if(data.insertedId){
           reset()
+         
           navigate('/')
           Swal.fire({
             position: 'top-end',
