@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+import "./CreateStory.css"
 import { PiPenNibStraightLight } from "react-icons/pi";
 import { BiImageAdd } from "react-icons/bi";
 import StoryWriting from "./StoryWriting";
@@ -56,7 +56,7 @@ const CreateStorySlider = () => {
         ]
       };
     return (
-        <div className="z-50 ">
+        <div className="z-50 mt-[18px]">
          <div className="grid grid-cols-12">
          <div className="w-[120px]  h-[251px] bg-contain bg-no-repeat bg-center  rounded-xl border col-span-3">
             <div className="">
@@ -97,10 +97,10 @@ const CreateStorySlider = () => {
          <StoryImage  refetch={refetch}/>
            {/* /////55555 */}
           </div>
-        <Slider {...settings} className="ms-12 md:ms-0 md:me-4 me-12  col-span-9">
+        <Slider {...settings} className="ms-12 md:ms-0 md:me-4 me-12  col-span-9 ">
         
           {
-          stories.map(story =><div key={story._id} className="px-3">
+          stories.map(story =><div key={story._id} className="md:px-3 lg:px-1">
               {story.photoUrl?
               
               <>

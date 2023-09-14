@@ -5,8 +5,7 @@ import Register from "./Pages/Authentication/Register";
 import FindFriend from "./Pages/FindFriend/FindFriend";
 import Home from "./Pages/Home/Home";
 
-import ChatBox from "./Components/ChatBox/ChatBox";
-import MessageLayout from "./Layout/MessageLayout";
+
 import AddFriend from "./Pages/FindFriend/AddFriend";
 import AllFriend from "./Pages/FindFriend/AllFriend";
 import CreateGroup from "./Pages/FindFriend/CreateGroup";
@@ -47,7 +46,7 @@ import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
 import SpecificShop from "./Components/SpecificShop/SpecificShop";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 import EditProfile from "./Pages/EditProfile/EditProfile";
-import Live from "./Pages/LiveStreaming/Live/Live";
+
 import PaymentSuccess from "./Pages/Payment/PaymentSuccess";
 import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
 import VedioConference from "./Pages/VedioConference/VedioConference";
@@ -172,10 +171,7 @@ const router = createBrowserRouter([
         path: "/editProfile",
         element: <EditProfile></EditProfile>,
       },
-      {
-        path: "/live/:roomId",
-        element: <Live />,
-      },
+     
       {
         path: "specificShop/:id",
         element: <SpecificShop />,
@@ -206,20 +202,7 @@ const router = createBrowserRouter([
   },
 
   // Rayhan
-  {
-    path: "messages",
-    element: (
-      <PrivetRoute>
-        <MessageLayout />
-      </PrivetRoute>
-    ),
-    children: [
-      {
-        path: "/messages",
-        element: <ChatBox />,
-      },
-    ],
-  },
+
   {
     path: "dashboard",
     element: (

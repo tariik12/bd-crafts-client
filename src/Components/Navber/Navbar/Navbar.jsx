@@ -4,7 +4,7 @@ import {
   FaHouse,
   FaRegBell,
   FaSistrix,
-  FaUserLarge,
+ 
 } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSideBar from "../../../Pages/Home/LeftSideBar/LeftSideBar";
@@ -57,7 +57,7 @@ const Navbar = () => {
           <FaHouse size={25} className="text-white" />
         </Link>
       </li>
-      <li className="font-bold text-xl">
+      {/* <li className="font-bold text-xl">
         <div className="relative">
          
           <div className="">
@@ -66,7 +66,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-      </li>
+      </li> */}
       <li className="font-bold text-xl">
         <div className="relative">
           
@@ -122,7 +122,7 @@ const Navbar = () => {
               </div>
               <Link to="/">
                 <span className="text-[#FFF] md:text-[33px] text-[20px] font-normal capitalize">
-                  bdcrafts
+                  bdCrafts
                 </span>
               </Link>
               <div className="relative ms-2 lg:inline-block hidden">

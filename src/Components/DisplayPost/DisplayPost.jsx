@@ -87,7 +87,7 @@ const DisplayPost = ({ post }) => {
         </div>
         <div className="flex flex-col">
           <h1 className="font-bold text-xl">{post?.name}</h1>
-          <small>9 min ago</small>
+          
         </div>
       </div>
       <div className="py-5 text-black mb-3">
@@ -177,23 +177,38 @@ const DisplayPost = ({ post }) => {
           <div className="flex justify-center ">
             <div className="w-full max-w-6xl  ">
               <div className="p-4 rounded-3xl  shadow-lg pb-5 bg-[#FFF]">
-                <div className="flex items-center justify-between ">
-                  <span className="flex items-center gap-2">
-                    {" "}
-                    <BiLike size={20}></BiLike>Like
+
+              <div className="flex items-center justify-between ">
+                  <span className="flex items-center gap-2"
+                  onClick={onLikeButtonClick}
+                  >
+                    <ThumbUp
+                      size={25}
+                      style={{ color: islike ? "blue" : "black" }}
+                      
+                    />
+                    <p style={{ color: islike ? "blue" : "black" }}>Like {like ? 1 : ""}</p>
                   </span>
+
                   <button
                     onClick={() => setOpenModal(!openModal)}
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaComment size={20}></FaComment>Comment
+                    <FaComment size={20}
+                    color="blue"
+                    ></FaComment>
+                    {comments?.length} Comment
                   </button>
-                  <span className="flex items-center gap-2">
+                  <button
+                    onClick={() => setOpenModal2(!openModal2)}
+                    className="flex items-center gap-2"
+                  >
                     {" "}
-                    <FaShare size={20}></FaShare> Share
-                  </span>
+                    <FaShare size={20} color="blue"></FaShare> Share
+                  </button>
                 </div>
+
               </div>
             </div>
           </div>
