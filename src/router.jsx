@@ -131,9 +131,9 @@ const router = createBrowserRouter([
       {
         path: "/findFriend",
         element: (
-          <PrivetRoute>
+         
             <FindFriend />
-          </PrivetRoute>
+          
         ),
       },
       {
@@ -147,33 +147,33 @@ const router = createBrowserRouter([
       {
         path: "/friendRequest",
         element: (
-          <PrivetRoute>
+    
             <FriendRequest></FriendRequest>
-          </PrivetRoute>
+         
         ),
       },
       {
         path: "/addFriend",
         element: (
-          <PrivetRoute>
+        
             <AddFriend></AddFriend>
-          </PrivetRoute>
+     
         ),
       },
       {
         path: "/allFriend",
         element: (
-          <PrivetRoute>
+    
             <AllFriend></AllFriend>
-          </PrivetRoute>
+         
         ),
       },
       {
         path: "/createGroup",
         element: (
-          <PrivetRoute>
+        
             <CreateGroup></CreateGroup>
-          </PrivetRoute>
+         
         ),
       },
 
