@@ -10,11 +10,22 @@ import { ProductionQuantityLimits } from "@mui/icons-material";
 import { Money } from "phosphor-react";
 
 const RightSideBar = () => {
-  const [products, setFriends] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [friends, setFriends] = useState([]);
   console.log(products);
 
   useEffect(() => {
     fetch("https://bd-crafts-server.vercel.app/allproduct")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  useEffect(() => {
+    fetch("https://bd-crafts-server.vercel.app/allFakeFriend")
       .then((res) => res.json())
       .then((data) => {
         setFriends(data);
@@ -73,7 +84,7 @@ const RightSideBar = () => {
       <div className="bg-[#186DBE0F] py-2 px-3  rounded-lg shadow-md mb-24">
         <h1 className="text-[#000000] text-center text-2xl font-semibold">All Friends</h1>
         {/* shop list */}
-        {products?.map((product) => (
+        {friends?.map((product) => (
           <div
             key={product._id}
             className="flex justify-between items-center my-1"

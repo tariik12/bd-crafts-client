@@ -79,7 +79,7 @@ const DisplayPost = ({ post }) => {
         </div>
         <div className="flex flex-col">
           <h1 className="font-bold text-xl">{post?.name}</h1>
-          <small>9 min ago</small>
+          
         </div>
       </div>
       <div className="py-5 text-black mb-3">
