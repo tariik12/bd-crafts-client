@@ -13,7 +13,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import Container from "../../../Utilities/Container";
 import toast from "react-hot-toast";
 
-const NavbarBottom = () => {
+const Navbar = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const { user, logOut } = useContext(AuthContext);
@@ -37,7 +37,7 @@ const NavbarBottom = () => {
     }
     setLoading(true);
 
-    fetch(`http://localhost:3000/search/${searchText}`)
+    fetch(`https://bd-crafts-server.vercel.appc/search/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -59,9 +59,7 @@ const NavbarBottom = () => {
       </li>
       <li className="font-bold text-xl">
         <div className="relative">
-          <span className="absolute top-0 start-100 transform -translate-y-1/2 translate-x-1/2  text-[10px] text-center leading-none bg-red-500 text-white rounded-full p-[2px]">
-            99+
-          </span>
+         
           <div className="">
             <Link to="/findFriend">
               <FaUserLarge size={25} className="text-white" />
@@ -71,9 +69,7 @@ const NavbarBottom = () => {
       </li>
       <li className="font-bold text-xl">
         <div className="relative">
-          <span className="absolute top-0 start-100 transform -translate-y-1/2 translate-x-1/2  text-[10px] text-center leading-none bg-red-500 text-white rounded-full p-[2px]">
-            99+
-          </span>
+          
           <div onClick={() => setOpenModal(!openModal)} className="">
             <FaRegBell size={25} className="text-white" />
           </div>
@@ -81,9 +77,7 @@ const NavbarBottom = () => {
       </li>
       <li className="font-bold text-xl">
         <div className="relative">
-          <span className="absolute top-0 start-100 transform -translate-y-1/2 translate-x-1/2  text-[10px] text-center leading-none bg-red-500 text-white rounded-full p-[2px]">
-            99+
-          </span>
+         
           <div className="">
             <Link to="/msgApp">
               <FaEnvelopeOpenText size={25} className="text-white" />
@@ -232,4 +226,4 @@ const NavbarBottom = () => {
   );
 };
 
-export default NavbarBottom;
+export default Navbar;

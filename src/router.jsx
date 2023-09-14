@@ -25,6 +25,7 @@ import SettingPage from "./Components/Navber/SettingPage/SettingPage";
 import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
 
 import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
+import ManageUser from "./Components/Dashboard/Admin/ManageUser";
 import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
@@ -35,20 +36,21 @@ import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/Passwo
 import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
 import Security from "./Components/Navber/SettingPage/Security/Security";
 import SellerForm from "./Components/SellerForm/SellerForm";
-import PrivetRoute from "./PrivetRoute/PrivetRoute";
-import ManageUser from "./Components/Dashboard/Admin/ManageUser";
 import MsgApp from "./Pages/MsgApp/MsgApp/MsgApp";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
+import AllProduct from "./Components/AllProduct/AllProduct";
 import EventPage from "./Components/Event/EventPage";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
-import SpecificShop from "./Components/SpecificShop/SpecificShop";
-import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 import Edit from "./Components/Navber/SettingPage/Genarel/Edit";
 import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
-import VedioConference from "./Pages/VedioConference/VedioConference";
-import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
-import LiveStreaming from "./Pages/LiveStreaming/LiveStreaming";
+import SpecificShop from "./Components/SpecificShop/SpecificShop";
+import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+import EditProfile from "./Pages/EditProfile/EditProfile";
 import Live from "./Pages/LiveStreaming/Live/Live";
+import PaymentSuccess from "./Pages/Payment/PaymentSuccess";
+import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
+import VedioConference from "./Pages/VedioConference/VedioConference";
 
 const router = createBrowserRouter([
   {
@@ -59,13 +61,17 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      //mostafizur rahmaan
+      {
+        path: "/paymentSuccess/:id",
+        element: <PaymentSuccess />,
+      },
+
       {
         path: "/setting",
         element: (
-            <PrivetRoute>
+          <PrivetRoute>
             <SettingPage />
-           </PrivetRoute>
+          </PrivetRoute>
         ),
         children: [
           {
@@ -125,11 +131,7 @@ const router = createBrowserRouter([
       //Rabeya Akter
       {
         path: "/findFriend",
-        element: (
-          <PrivetRoute>
-            <FindFriend />
-          </PrivetRoute>
-        ),
+        element: <FindFriend />,
       },
       {
         path: "/myGroup",
@@ -141,44 +143,34 @@ const router = createBrowserRouter([
       },
       {
         path: "/friendRequest",
-        element: (
-          <PrivetRoute>
-            <FriendRequest></FriendRequest>
-          </PrivetRoute>
-        ),
+        element: <FriendRequest></FriendRequest>,
       },
       {
         path: "/addFriend",
-        element: (
-          <PrivetRoute>
-            <AddFriend></AddFriend>
-          </PrivetRoute>
-        ),
+        element: <AddFriend></AddFriend>,
       },
       {
         path: "/allFriend",
-        element: (
-          <PrivetRoute>
-            <AllFriend></AllFriend>
-          </PrivetRoute>
-        ),
+        element: <AllFriend></AllFriend>,
       },
       {
         path: "/createGroup",
-        element: (
-          <PrivetRoute>
-            <CreateGroup></CreateGroup>
-          </PrivetRoute>
-        ),
+        element: <CreateGroup></CreateGroup>,
       },
 
       {
         path: "/shop",
         element: <Shop />,
+        children: [
+          {
+            path: "/shop/:category",
+            element: <AllProduct></AllProduct>,
+          },
+        ],
       },
       {
-        path: "/liveStreaming",
-        element: <LiveStreaming />,
+        path: "/editProfile",
+        element: <EditProfile></EditProfile>,
       },
       {
         path: "/live/:roomId",
@@ -236,7 +228,6 @@ const router = createBrowserRouter([
       // </PrivetRoute>
     ),
     children: [
-    
       {
         path: "payed",
         element: <PayedProducts />,
@@ -271,6 +262,7 @@ const router = createBrowserRouter([
         path: "addProducts",
         element: <AddProducts />,
       },
+
       {
         path: "myShop",
         element: <MyShop />,
@@ -285,12 +277,13 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+
   {
     path: "/edit",
     element: <Edit></Edit>,
   },
   {
-  path: "/msgApp",
+    path: "/msgApp",
     element: (
       <PrivetRoute>
         <MsgApp />
@@ -301,7 +294,6 @@ const router = createBrowserRouter([
     path: "/conference",
     element: (
       <PrivetRoute>
-        {" "}
         <VedioConference />
       </PrivetRoute>
     ),

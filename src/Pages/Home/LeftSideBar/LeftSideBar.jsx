@@ -16,8 +16,8 @@ const LeftSideBar = () => {
   }, []);
 
   return (
-    <div className="left lg:overflow-y-auto lg:bg-none ">
-      <div className=" flex flex-col">
+    <div className="left lg:overflow-y-auto lg:bg-none p-5">
+      <div className=" flex flex-col ">
         <div className="bg-slate-200 md:bg-[#186DBE0F]  rounded-lg">
           <div className="grid mb-5 grid-cols-2 gap-6 py-3 px-2 m-3 md:m-0">
             {/* bookmark card */}
@@ -46,8 +46,10 @@ const LeftSideBar = () => {
             </div>
             {/* Activity Log */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <Link to="/shop" className="text-center hover:underline">
-                {" "}
+              <Link
+                to="/shop/allProduct"
+                className="text-center hover:underline"
+              >
                 <FaShoppingBasket className="text-[#7BB4FF] w-10 h-10 ms-2" />{" "}
                 All Shop
               </Link>
