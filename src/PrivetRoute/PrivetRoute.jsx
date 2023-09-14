@@ -15,17 +15,15 @@ const PrivetRoute = ({children}) => {
         
           if (user) {
             return children;
-          }else{
+          } else{
             Swal.fire({
                 title: 'error!',
                 text: 'You have to log in first to go this page',
                 icon: 'error',
                 confirmButtonText: 'Ok'
               })
+              return <Navigate to="/login" state={{ from: location }} replace></Navigate>
           }
-    
-        return <Navigate to="/login" state={{ from: location }} replace></Navigate>
-   
 };
 
 export default PrivetRoute;
