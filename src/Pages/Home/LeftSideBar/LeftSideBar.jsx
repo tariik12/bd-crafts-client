@@ -16,8 +16,8 @@ const LeftSideBar = () => {
   }, []);
 
   return (
-    <div className="left lg:overflow-y-auto lg:bg-none ">
-      <div className=" flex flex-col">
+    <div className="left lg:overflow-y-auto lg:bg-none p-5">
+      <div className=" flex flex-col ">
         <div className="bg-slate-200 md:bg-[#186DBE0F]  rounded-lg">
           <div className="grid mb-5 grid-cols-2 gap-6 py-3 px-2 m-3 md:m-0">
             {/* bookmark card */}

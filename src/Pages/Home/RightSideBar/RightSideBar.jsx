@@ -35,8 +35,8 @@ const RightSideBar = () => {
   };
 
   return (
-    <div className="p-2 Right">
-      <div className="grid grid-cols-1 mb-3 items-center bg-[#186DBE0F] py-2 px-3  rounded-lg shadow-md ">
+    <div className="px-7 py-4 Right ">
+      <div className="grid grid-cols-1 mb-3 items-center bg-[#186DBE0F] p-3  rounded-lg shadow-md ">
         <h1 className="text-[#000000] text-center text-2xl font-semibold">Populer Products</h1>
 
         <Slider {...settings} className="">
@@ -70,7 +70,7 @@ const RightSideBar = () => {
       </div>
 
 
-      <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24">
+      <div className="bg-[#186DBE0F] py-2 px-3  rounded-lg shadow-md mb-24">
         <h1 className="text-[#000000] text-center text-2xl font-semibold">All Friends</h1>
         {/* shop list */}
         {products?.map((product) => (
