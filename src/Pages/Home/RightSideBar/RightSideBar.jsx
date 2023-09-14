@@ -47,7 +47,7 @@ const RightSideBar = () => {
 
   return (
     <div className="p-2 Right">
-      <div className="grid grid-cols-1 mb-3 items-center">
+      <div className="grid grid-cols-1 mb-3 items-center bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md">
         <h1 className="text-xl font-bold flex justify-center items-center">Populer Products</h1>
 
         <Slider {...settings} className="mx-10">
