@@ -122,7 +122,7 @@ const Navbar = () => {
               </div>
               <Link to="/">
                 <span className="text-[#FFF] md:text-[33px] text-[20px] font-normal capitalize">
-                  bdcrafts
+                  bdCrafts
                 </span>
               </Link>
               <div className="relative ms-2 lg:inline-block hidden">

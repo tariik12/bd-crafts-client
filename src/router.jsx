@@ -5,8 +5,7 @@ import Register from "./Pages/Authentication/Register";
 import FindFriend from "./Pages/FindFriend/FindFriend";
 import Home from "./Pages/Home/Home";
 
-import ChatBox from "./Components/ChatBox/ChatBox";
-import MessageLayout from "./Layout/MessageLayout";
+
 import AddFriend from "./Pages/FindFriend/AddFriend";
 import AllFriend from "./Pages/FindFriend/AllFriend";
 import CreateGroup from "./Pages/FindFriend/CreateGroup";
@@ -203,20 +202,7 @@ const router = createBrowserRouter([
   },
 
   // Rayhan
-  {
-    path: "messages",
-    element: (
-      <PrivetRoute>
-        <MessageLayout />
-      </PrivetRoute>
-    ),
-    children: [
-      {
-        path: "/messages",
-        element: <ChatBox />,
-      },
-    ],
-  },
+
   {
     path: "dashboard",
     element: (
