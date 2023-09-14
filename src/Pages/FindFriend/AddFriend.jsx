@@ -63,10 +63,10 @@ const AddFriend = () => {
 
 
     return (
-        <div className="bg-slate-400 flex">
+        <div className="  flex">
 
 
-            <div className="grid-cols-3 w-[300px] px-5" >
+            <div className="  px-5" >
                 <Link to='/'>
                     <h3 className="text-4xl font-serif cursor-pointer my-2">Home</h3>
                 </Link>
@@ -88,17 +88,18 @@ const AddFriend = () => {
 
 
 
-            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {/* <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"> */}
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 ">
                 {
-                    users?.map(data => <div key={data._id} className="card w-96 bg-base-100 shadow-xl">
+                    users?.map(data => <div key={data._id} className="card w-64  shadow-xl">
                         <figure className="px-10 pt-10">
                             <img src={data.photo} alt="User Profile" className="rounded-xl h-52 w-60" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">{data.name}</h2>
-                            <div className="card-actions ">
-                                <button className="btn btn-primary" onClick={() => handleAddFriend(data._id)}>Add Friend</button>
-                                <button className="btn btn-primary" onClick={() => handleDelete(data._id)}>Delete</button>
+                            <div className="card-actions  flex-col">
+                                <button className="btn btn-primary w-48" onClick={() => handleAddFriend(data._id)}>Add Friend</button>
+                                <button className="btn btn-primary w-48" onClick={() => handleDelete(data._id)}>Delete</button>
                             </div>
                         </div>
                     </div>

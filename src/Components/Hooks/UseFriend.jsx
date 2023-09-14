@@ -5,6 +5,7 @@ import { useContext } from "react";
 const UseFriend = () => {
     const { user } = useContext(AuthContext)
 
+
     const { data: users = [], refetch } = useQuery({
         queryKey: ['allusers'],
       
