@@ -11,7 +11,7 @@ import { Money } from "phosphor-react";
 
 const RightSideBar = () => {
   const [products, setFriends] = useState([]);
-  console.log(products);
+  // console.log(products);
 
   useEffect(() => {
     fetch("https://bd-crafts-server.vercel.app/allproduct")
