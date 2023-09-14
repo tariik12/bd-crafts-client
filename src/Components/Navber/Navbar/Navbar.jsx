@@ -5,7 +5,6 @@ import {
   FaHouse,
   FaRegBell,
   FaSistrix,
- 
 } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSideBar from "../../../Pages/Home/LeftSideBar/LeftSideBar";
@@ -151,7 +150,7 @@ const Navbar = () => {
                       className="btn btn-ghost btn-circle avatar"
                     >
                       <div className="w-10 rounded-full">
-                        <img src={user.photoURL} />
+                        <img src={user?.photoURL} title={user?.displayName} />
                       </div>
                     </label>
                   </>

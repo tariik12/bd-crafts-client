@@ -15,6 +15,8 @@ const EditProfile = () => {
     const location = form.location.value;
     const relation = form.relation.value;
     const bio = form.bio.value;
+    const userName = form.userName.value;
+    const work = form.work.value;
 
     const userInfo = {
       name,
@@ -25,9 +27,11 @@ const EditProfile = () => {
       relation,
       bio,
       email: user?.email,
+      userName,
+      work,
     };
 
-    fetch(`http://localhost:5000/updateProfile`, {
+    fetch(`${import.meta.env.VITE_URL}/updateProfile`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -76,6 +80,28 @@ const EditProfile = () => {
               <input
                 type="url"
                 name="pictureURL"
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block mb-2 text-xl text-gray-700">
+                Username:
+              </label>
+              <input
+                type="text"
+                name="userName"
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block mb-2 text-xl text-gray-700">
+                Work At:
+              </label>
+              <input
+                type="text"
+                name="work"
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
