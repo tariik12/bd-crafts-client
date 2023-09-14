@@ -20,7 +20,7 @@ const StoryImage = ({refetch}) => {
      
          if(user && user.email){
      
-           fetch('http://localhost:3000/createStory',{
+           fetch('https://bd-crafts-server.vercel.app/createStory',{
              method: "POST",
              headers: { "Content-Type": "application/json" },
              body: JSON.stringify(info),
