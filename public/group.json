@@ -1,0 +1,17 @@
+[
+    {
+        "_id": "1",
+        "name": "Wood Craft",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0_EqM3188dtZjTIR_My4tg___64CDmIY2Qg&usqp=CAU"
+      },
+      {
+        "_id": "2",
+        "name": "Mud Craft",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0_EqM3188dtZjTIR_My4tg___64CDmIY2Qg&usqp=CAU"
+      },
+      {
+        "_id": "3",
+        "name": "Paper Craft",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0_EqM3188dtZjTIR_My4tg___64CDmIY2Qg&usqp=CAU"
+      }
+]

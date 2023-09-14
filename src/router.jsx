@@ -49,6 +49,7 @@ import VedioConference from "./Pages/VedioConference/VedioConference";
 import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
 import LiveStreaming from "./Pages/LiveStreaming/LiveStreaming";
 import Live from "./Pages/LiveStreaming/Live/Live";
+import PaymentSuccess from "./Pages/Payment/PaymentSuccess";
 
 
 const router = createBrowserRouter([
@@ -60,9 +61,11 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      
-    
-      //mostafizur rahmaan
+      {
+        path:"/paymentSuccess/:id",
+        element:<PaymentSuccess/>
+      },
+     
       {
         path: "/setting",
         element: (
@@ -129,9 +132,9 @@ const router = createBrowserRouter([
       {
         path: "/findFriend",
         element: (
-          <PrivetRoute>
+         
             <FindFriend />
-          </PrivetRoute>
+          
         ),
       },
       {
@@ -145,33 +148,33 @@ const router = createBrowserRouter([
       {
         path: "/friendRequest",
         element: (
-          <PrivetRoute>
+    
             <FriendRequest></FriendRequest>
-          </PrivetRoute>
+         
         ),
       },
       {
         path: "/addFriend",
         element: (
-          <PrivetRoute>
+        
             <AddFriend></AddFriend>
-          </PrivetRoute>
+     
         ),
       },
       {
         path: "/allFriend",
         element: (
-          <PrivetRoute>
+    
             <AllFriend></AllFriend>
-          </PrivetRoute>
+         
         ),
       },
       {
         path: "/createGroup",
         element: (
-          <PrivetRoute>
+        
             <CreateGroup></CreateGroup>
-          </PrivetRoute>
+         
         ),
       },
 
@@ -274,6 +277,7 @@ const router = createBrowserRouter([
         path: "addProducts",
         element: <AddProducts />,
       },
+     
       {
         path: "myShop",
         element: <MyShop />,
@@ -288,6 +292,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+
   {
     path: "/edit",
     element: <Edit></Edit>,
