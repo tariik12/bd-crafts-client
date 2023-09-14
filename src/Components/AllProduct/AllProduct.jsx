@@ -30,6 +30,7 @@ const AllProduct = () => {
       email: user?.email,
       img: item?.img,
       name: item?.name,
+      shopname: item?.shopname,
       price: item?.price,
       quantity: item?.quantity,
       sellerEmail: item?.sellerEmail,
