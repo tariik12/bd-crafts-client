@@ -21,7 +21,11 @@ const Navbar = () => {
   const [openModal, setOpenModal] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [posts, setPosts] = useState([]);
+<<<<<<< HEAD
 
+=======
+  // console.log(posts);
+>>>>>>> 09790da31d7db41726303a65f63b39e12db0e735
   useEffect(() => {
     setLoading(true);
     fetch(`${import.meta.env.VITE_URL}/allposts`)
@@ -37,7 +41,7 @@ const Navbar = () => {
     }
     setLoading(true);
 
-    fetch(`http://localhost:3000/search/${searchText}`)
+    fetch(`https://bd-crafts-server.vercel.appc/search/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

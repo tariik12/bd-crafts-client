@@ -20,9 +20,8 @@ const PrivetRoute = ({ children }) => {
       icon: "error",
       confirmButtonText: "Ok",
     });
+    return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
   }
-
-  return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
 export default PrivetRoute;

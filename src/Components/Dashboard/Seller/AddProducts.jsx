@@ -1,12 +1,21 @@
-import { useForm } from "react-hook-form";
-
-
+import { Controller, useForm } from "react-hook-form";
 import { ImSpinner9 } from "react-icons/im";
-
 import { toast } from "react-hot-toast";
 import useAuth from "../../../hooks/useAuth";
 
-
+const categories = [
+  "Select",
+  "Textile",
+  "Pottery",
+  "Woodworking",
+  "Jewelry",
+  "PaperCrafts",
+  "Glass",
+  "Metal",
+  "Leather",
+  "CandleMaking",
+  "BambooCrafts"
+];
 
 const AddProducts = () => {
   const { user, loader } = useAuth();
@@ -14,18 +23,19 @@ const AddProducts = () => {
   const {
     register,
     handleSubmit,
+    control,
     reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-   
     const price = Number(data.price);
     data.price = price;
-    
-    data = {...data,status:'pending'}
+
+    data = { ...data, status: "pending" };
+    console.log(data);
     // console.log(data);
- 
-    fetch(`${import.meta.env.VITE_URL}/addProducts`, {
+
+    fetch(`https://bd-crafts-server.vercel.app/addProducts`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -62,6 +72,47 @@ const AddProducts = () => {
               <span className="text-red-600"> Craft name is required</span>
             )}
           </div>
+          {/* ===================== */}
+          {/* <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Select Catagory <span className="text-warning">*</span>
+            </label>
+            <input
+              type="text"
+              {...register("name", { required: true })}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
+            />
+            {errors.name && (
+              <span className="text-red-600"> Craft name is required</span>
+            )}
+          </div> */}
+
+          <div className="mb-4">
+            <label
+              htmlFor="category"
+              className="block text-sm font-medium text-black my-3"
+            >
+              Select Category<span className="text-warning">*</span>
+            </label>
+            <Controller
+              name="category"
+              control={control}
+              render={({ field }) => (
+                <select {...field} className="input rounded-xl ">
+                  <option value="" className=" " disabled>
+                    Select a category
+                  </option>
+                  {categories.map((category, i) => (
+                    <option key={i} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
+              )}
+            />
+          </div>
+
+          {/* =============== */}
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Craft Image<span className="text-warning">*</span>
