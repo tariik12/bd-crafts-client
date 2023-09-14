@@ -29,7 +29,6 @@ const Profile = () => {
   };
 
   const {
-    coverPhoto,
     userName,
 
     profilePicture,

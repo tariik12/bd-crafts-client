@@ -21,11 +21,7 @@ const Navbar = () => {
   const [openModal, setOpenModal] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [posts, setPosts] = useState([]);
-<<<<<<< HEAD
-
-=======
-  // console.log(posts);
->>>>>>> 09790da31d7db41726303a65f63b39e12db0e735
+  console.log(posts);
   useEffect(() => {
     setLoading(true);
     fetch(`${import.meta.env.VITE_URL}/allposts`)
