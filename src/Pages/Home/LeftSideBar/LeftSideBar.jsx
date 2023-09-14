@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { BsCalendarCheckFill } from "react-icons/bs";
-import { CgProfile } from "react-icons/cg";
-import { FaComment, FaExternalLinkAlt, FaShoppingBasket } from "react-icons/fa";
+
+import { FaComment,  FaShoppingBasket } from "react-icons/fa";
 
 import { FaGear, FaShopware, FaUserGroup, FaVideo } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import "./LeftSideBar.css";
 const LeftSideBar = () => {
-  const [shop, setShop] = useState([]);
+  // const [ setShop] = useState([]);
 
-  useEffect(() => {
-    fetch("shopData.json")
-      .then((res) => res.json())
-      .then((data) => setShop(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("shopData.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setShop(data));
+  // }, []);
 
   return (
     <div className="left lg:overflow-y-auto lg:bg-none p-5">
@@ -21,12 +21,7 @@ const LeftSideBar = () => {
         <div className="bg-slate-200 md:bg-[#186DBE0F]  rounded-lg">
           <div className="grid mb-5 grid-cols-2 gap-6 py-3 px-2 m-3 md:m-0">
             {/* bookmark card */}
-            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg flex flex-col justify-center items-center p-2 gap-2">
-              <Link to="/profile" className="text-center hover:underline">
-                <CgProfile className="text-[#7BB4FF] w-10 h-10 ms-1" />
-                Profile
-              </Link>
-            </div>
+           
             {/* Connection Requests */}
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
               <Link
@@ -93,9 +88,9 @@ const LeftSideBar = () => {
           </div>
         </div>
         {/* left side bar bottom  */}
-        <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24 hidden lg:block md:m-0">
+        {/* <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24 hidden lg:block md:m-0">
           <h1 className="text-[#7BB4FF] text-2xl font-semibold">Shops</h1>
-          {/* shop list */}
+        
 
           {shop.map((singleShop) => (
             <div
@@ -113,7 +108,7 @@ const LeftSideBar = () => {
               </Link>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

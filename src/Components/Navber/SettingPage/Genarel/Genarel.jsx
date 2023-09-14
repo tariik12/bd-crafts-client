@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import  { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 
@@ -54,7 +54,7 @@ const General = () => {
                <br />
                <tr className="bg-white h-[47px] px-4">
                 <td className="pl-2">Email:</td>
-                <td>{userData?.[0].email}</td>
+                <td>{userData?.email}</td>
                 <td className="pl-2">
                   <Link to="/edit">Update</Link>
                 </td>
@@ -62,19 +62,13 @@ const General = () => {
               <br />
               <tr className="bg-white h-[47px] px-4">
                 <td className="pl-2">Username:</td>
-                <td>todo</td>
+                <td>{userData?.name}</td>
                 <td className="pl-2">
                   <Link to="#">Update</Link>
                 </td>
               </tr>
                <br />
-              <tr className="bg-white h-[47px] px-4">
-                <td className="pl-2">Contact:</td>
-                <td>+8801758614542</td>
-                <td className="pl-2">
-                  <Link to="#">Update</Link>
-                </td>
-              </tr>
+              
             </tbody>
             </table>
           ) : (
