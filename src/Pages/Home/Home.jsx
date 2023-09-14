@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import DisplayPost from "../../Components/DisplayPost/DisplayPost";
 // import CreatePost from "../../Components/Navber/CreatePosts/CreatePost";
-import CreateStory from "../../Components/CreateStory/CreateStory";
 import Post from "../../Components/Post/Post";
 import LeftSideBar from "./LeftSideBar/LeftSideBar";
 import RightSideBar from "./RightSideBar/RightSideBar";
+import CreateStorySlider from "../../Components/CreateStory/CreateStorySlider";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -25,8 +25,9 @@ const Home = () => {
           </div>
 
           <div className="grid-cols-12 md:col-span-6">
-            <div>
-              <CreateStory />
+      
+            <div >
+              <CreateStorySlider/>
             </div>
             <div>
               <Post></Post>

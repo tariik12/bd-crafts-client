@@ -39,7 +39,7 @@ const RightSideBar = () => {
       <div className="grid grid-cols-1 mb-3 items-center">
         <h1 className="text-xl font-bold flex justify-center items-center">Populer Products</h1>
 
-        <Slider {...settings} className="">
+        <Slider {...settings} className="m-10">
           {products?.map((product, index) => (
             <div
               key={index}
