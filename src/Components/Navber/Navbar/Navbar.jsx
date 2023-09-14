@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import {
   FaEnvelopeOpenText,
   FaHouse,
@@ -11,7 +12,6 @@ import LeftSideBar from "../../../Pages/Home/LeftSideBar/LeftSideBar";
 import { useSearchContext } from "../../../Provider/ApiContestProvider";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Container from "../../../Utilities/Container";
-import toast from "react-hot-toast";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Navbar = () => {
   const [openModal, setOpenModal] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [posts, setPosts] = useState([]);
-  console.log(posts);
+
   useEffect(() => {
     setLoading(true);
     fetch(`${import.meta.env.VITE_URL}/allposts`)
@@ -59,7 +59,6 @@ const Navbar = () => {
       </li>
       <li className="font-bold text-xl">
         <div className="relative">
-         
           <div className="">
             <Link to="/findFriend">
               <FaUserLarge size={25} className="text-white" />
@@ -69,7 +68,6 @@ const Navbar = () => {
       </li>
       <li className="font-bold text-xl">
         <div className="relative">
-          
           <div onClick={() => setOpenModal(!openModal)} className="">
             <FaRegBell size={25} className="text-white" />
           </div>
@@ -77,7 +75,6 @@ const Navbar = () => {
       </li>
       <li className="font-bold text-xl">
         <div className="relative">
-         
           <div className="">
             <Link to="/msgApp">
               <FaEnvelopeOpenText size={25} className="text-white" />

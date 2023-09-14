@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
-import { FaExternalLinkAlt} from "react-icons/fa";
-import "./RightSideBar.css";
-import { Link } from "react-router-dom";
 import { ProductionQuantityLimits } from "@mui/icons-material";
 import { Money } from "phosphor-react";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import "./RightSideBar.css";
 
 const RightSideBar = () => {
   const [products, setFriends] = useState([]);
-  console.log(products);
 
   useEffect(() => {
     fetch("https://bd-crafts-server.vercel.app/allproduct")
@@ -37,7 +36,9 @@ const RightSideBar = () => {
   return (
     <div className="px-7 py-4 Right ">
       <div className="grid grid-cols-1 mb-3 items-center bg-[#186DBE0F] p-3  rounded-lg shadow-md ">
-        <h1 className="text-[#000000] text-center text-2xl font-semibold">Populer Products</h1>
+        <h1 className="text-[#000000] text-center text-2xl font-semibold">
+          Populer Products
+        </h1>
 
         <Slider {...settings} className="">
           {products?.map((product, index) => (
@@ -51,27 +52,27 @@ const RightSideBar = () => {
                 </div>
               </div>
               <div className="flex justify-center items-center py-2">
-              <div>
-                <h2 className="font-bold"> Product: {product?.name}</h2>
-                <p className="flex items-center gap-3">
-                  <Money></Money>
-                  <h1>Price: {product?.price}</h1>
-                </p>
-                <p className="flex items-center gap-3">
-                 
-                  <ProductionQuantityLimits></ProductionQuantityLimits>
-                  <h1>Quantity: {product?.quantity}</h1>
-                </p>
-              </div>
+                <div>
+                  <h2 className="font-bold"> Product: {product?.name}</h2>
+                  <p className="flex items-center gap-3">
+                    <Money></Money>
+                    <h1>Price: {product?.price}</h1>
+                  </p>
+                  <p className="flex items-center gap-3">
+                    <ProductionQuantityLimits></ProductionQuantityLimits>
+                    <h1>Quantity: {product?.quantity}</h1>
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </Slider>
       </div>
 
-
       <div className="bg-[#186DBE0F] py-2 px-3  rounded-lg shadow-md mb-24">
-        <h1 className="text-[#000000] text-center text-2xl font-semibold">All Friends</h1>
+        <h1 className="text-[#000000] text-center text-2xl font-semibold">
+          All Friends
+        </h1>
         {/* shop list */}
         {products?.map((product) => (
           <div

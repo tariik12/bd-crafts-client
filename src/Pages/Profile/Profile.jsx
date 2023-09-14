@@ -31,20 +31,16 @@ const Profile = () => {
   const {
     coverPhoto,
     userName,
-    fullName,
-    birthDate,
-    location,
+
     profilePicture,
-    bio,
     friendsCount,
     followersCount,
   } = userProfile;
 
   const [posts, setPosts] = useState([]);
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState([]);
 
-  // const {} = userData;
-  // console.log(userData);
+  console.log(userData[0]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_URL}/allposts`)
@@ -66,9 +62,8 @@ const Profile = () => {
       <div>
         <Container>
           <ProfileBanner
-            coverPhoto={coverPhoto}
+            coverPhoto={userData[0]?.coverPhoto}
             profilePicture={profilePicture}
-            fullName={fullName}
             userName={userName}
             friendsCount={friendsCount}
             followersCount={followersCount}
@@ -76,10 +71,16 @@ const Profile = () => {
 
           <div className="grid grid-cols-12 gap-16">
             <div className="col-span-4 ">
-              <UserProfileName></UserProfileName>
+              <UserProfileName name={userData[0]?.name}></UserProfileName>
               <ProfileFunction></ProfileFunction>
-              <ProfileBio></ProfileBio>
-              <AboutCard birthDate={birthDate} location={location} bio={bio} />
+              <ProfileBio bio={userData[0]?.bio}></ProfileBio>
+              <AboutCard
+                birthDate={userData[0]?.birth}
+                location={userData[0]?.location}
+                bio={userData[0]?.bio}
+                relation={userData[0]?.relation}
+                religion={userData[0]?.religion}
+              />
               <PhotoGallery></PhotoGallery>
             </div>
             <div className="col-span-8 ">
