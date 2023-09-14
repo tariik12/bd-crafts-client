@@ -5,9 +5,11 @@ const handleEditProfile = (event) => {
   const form = event.target;
   const name = form.name.value;
   const coverPhoto = form.pictureURL.value;
+  const religion = form.religion.value;
   const userInfo = {
     name,
     coverPhoto,
+    religion,
   };
 
   fetch(``, {
@@ -71,7 +73,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="sellerName"
+                name="religion"
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
@@ -84,7 +86,7 @@ const EditProfile = () => {
               <input
                 type="email"
                 id="sellerEmail"
-                name="sellerEmail"
+                name="birth"
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />

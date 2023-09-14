@@ -39,6 +39,7 @@ import SellerForm from "./Components/SellerForm/SellerForm";
 import MsgApp from "./Pages/MsgApp/MsgApp/MsgApp";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
+import AllProduct from "./Components/AllProduct/AllProduct";
 import EventPage from "./Components/Event/EventPage";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
 import Edit from "./Components/Navber/SettingPage/Genarel/Edit";
@@ -176,6 +177,12 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: <Shop />,
+        children: [
+          {
+            path: "/shop/:category",
+            element: <AllProduct></AllProduct>,
+          },
+        ],
       },
       {
         path: "/editProfile",

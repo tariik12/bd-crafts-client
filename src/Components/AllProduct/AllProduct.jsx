@@ -1,24 +1,28 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import Heading from "../Heading/Heading";
 import Loader from "../Loader";
 import Card from "./Card";
 
-const AllProduct = ({ categoryName }) => {
+const AllProduct = () => {
+  const { category } = useParams();
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
+  console.log(category);
 
   const { data: data = [], refetch } = useQuery(["data"], async () => {
     setLoading(true);
-    const res = await fetch(
-      `${import.meta.env.VITE_URL}/product/${categoryName}`
-    );
+    const res = await fetch(`${import.meta.env.VITE_URL}/product/${category}`);
     setLoading(false);
     return res.json();
   });
+
+  useEffect(() => {
+    refetch();
+  }, [category, refetch]);
 
   const handleAddToCart = (item) => {
     const info = {
