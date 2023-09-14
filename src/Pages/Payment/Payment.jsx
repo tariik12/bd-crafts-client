@@ -26,7 +26,7 @@ const Payment = () => {
         console.log(data)
         data.price = parseInt(total)
         if(data){
-          fetch("http://localhost:3000/order",{
+          fetch("https://bd-crafts-server.vercel.app/order",{
             method:'POST',
             headers:{"content-type":"application/json"},
             body:JSON.stringify(data)
