@@ -28,7 +28,7 @@ const RightSideBar = () => {
     fetch("https://bd-crafts-server.vercel.app/allFakeFriend")
       .then((res) => res.json())
       .then((data) => {
-        setProduct(data);
+        setFriends(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
