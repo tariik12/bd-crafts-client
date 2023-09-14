@@ -1,4 +1,6 @@
-const Categories = ({ filterSearch }) => {
+import { Link } from "react-router-dom";
+
+const Categories = () => {
   const categories = [
     "allProduct",
     "Textile",
@@ -18,13 +20,13 @@ const Categories = ({ filterSearch }) => {
       <div className="flex flex-col items-start justify-center overflow-x-auto">
         <h1 className="text-xl font-semibold">Product Category</h1>
         {categories.map((item, i) => (
-          <p
+          <Link
             key={i}
-            onClick={() => filterSearch(item)}
+            to={`/shop/${item}`}
             className="hover:text-blue-600 my-2 cursor-pointer capitalize"
           >
             {item}
-          </p>
+          </Link>
         ))}
       </div>
     </>

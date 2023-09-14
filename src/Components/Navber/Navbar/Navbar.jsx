@@ -59,9 +59,7 @@ const Navbar = () => {
       </li>
       <li className="font-bold text-xl">
         <div className="relative">
-          <span className="absolute top-0 start-100 transform -translate-y-1/2 translate-x-1/2  text-[10px] text-center leading-none bg-red-500 text-white rounded-full p-[2px]">
-            99+
-          </span>
+         
           <div className="">
             <Link to="/findFriend">
               <FaUserLarge size={25} className="text-white" />
@@ -71,9 +69,7 @@ const Navbar = () => {
       </li>
       <li className="font-bold text-xl">
         <div className="relative">
-          <span className="absolute top-0 start-100 transform -translate-y-1/2 translate-x-1/2  text-[10px] text-center leading-none bg-red-500 text-white rounded-full p-[2px]">
-            99+
-          </span>
+          
           <div onClick={() => setOpenModal(!openModal)} className="">
             <FaRegBell size={25} className="text-white" />
           </div>
@@ -81,9 +77,7 @@ const Navbar = () => {
       </li>
       <li className="font-bold text-xl">
         <div className="relative">
-          <span className="absolute top-0 start-100 transform -translate-y-1/2 translate-x-1/2  text-[10px] text-center leading-none bg-red-500 text-white rounded-full p-[2px]">
-            99+
-          </span>
+         
           <div className="">
             <Link to="/msgApp">
               <FaEnvelopeOpenText size={25} className="text-white" />
