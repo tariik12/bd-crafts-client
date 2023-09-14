@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 import { Event } from "@mui/icons-material";
 import {
   Card,
@@ -49,16 +49,10 @@ const createEvent = (event) => {
 const EventPage = () => {
   const [eventsData, setEventsData] = useState([]);
   console.log(eventsData);
-  const [open, setOpen] = useState(true);
-  const [open1, setOpen1] = useState(true);
+  
   const modalRef = useRef(null);
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
-  const handleClick1 = () => {
-    setOpen1(!open1);
-  };
+  
 
   const closeModal = () => {
     if (modalRef.current) {
