@@ -50,6 +50,7 @@ import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
 import LiveStreaming from "./Pages/LiveStreaming/LiveStreaming";
 import Live from "./Pages/LiveStreaming/Live/Live";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +60,8 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      
+    
       //mostafizur rahmaan
       {
         path: "/setting",
