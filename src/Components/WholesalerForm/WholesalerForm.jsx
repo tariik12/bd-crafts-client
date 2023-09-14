@@ -67,7 +67,6 @@ const WholesalerForm = () => {
             Handicraft Category
           </label>
           <Controller
-          
             name="category"
             control={control}
             render={({ field }) => (
