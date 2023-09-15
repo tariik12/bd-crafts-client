@@ -67,13 +67,7 @@ const Navbar = () => {
           </div>
         </div>
       </li>
-      <li className="font-bold text-xl">
-        <div className="relative">
-          <div onClick={() => setOpenModal(!openModal)} className="">
-            <FaRegBell size={25} className="text-white" />
-          </div>
-        </div>
-      </li>
+
       <li className="font-bold text-xl">
         <div className="relative">
           <div className="">
@@ -119,7 +113,7 @@ const Navbar = () => {
                 </ul>
               </div>
               <Link to="/">
-                <span className="text-[#FFF] md:text-[33px] text-[20px] font-normal capitalize">
+                <span className="text-[#FFF] md:text-[33px] text-[20px] font-normal">
                   bdCrafts
                 </span>
               </Link>
