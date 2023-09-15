@@ -12,8 +12,6 @@ import { Money } from "phosphor-react";
 const RightSideBar = () => {
   const [products, setProducts] = useState([]);
 
-  console.log(products);
-
   useEffect(() => {
     fetch("https://bd-crafts-server.vercel.app/product/allProduct")
       .then((res) => res.json())
@@ -68,9 +66,6 @@ const RightSideBar = () => {
           ))}
         </Slider>
       </div>
-
-
-   
     </div>
   );
 };

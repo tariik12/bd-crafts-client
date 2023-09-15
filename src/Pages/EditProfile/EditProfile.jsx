@@ -1,9 +1,11 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleEditProfile = (event) => {
     event.preventDefault();
@@ -41,6 +43,7 @@ const EditProfile = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged == true) {
+          navigate("/");
           Swal.fire({
             position: "center",
             icon: "success",
