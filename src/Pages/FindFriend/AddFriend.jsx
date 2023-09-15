@@ -2,17 +2,17 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import UseFriend from "../../Components/Hooks/UseFriend";
+
 
 const AddFriend = () => {
     const [addFriends, SetAddFriends] = useState([]);
+    console.log(addFriends)
     const { user } = useContext(AuthContext);
     console.log(user);
-    const [users, refetch] = UseFriend();
-    console.log(users);
+
 
     useEffect(() => {
-        fetch('http://localhost:5000/allusers')
+        fetch(`${import.meta.env.VITE_URL}/allusers`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -38,14 +38,14 @@ const AddFriend = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/allFriend/${id}`, {
+                fetch(`${import.meta.env.VITE_URL}/allFriend/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
                         if (data.success) {
-                            refetch()
+                            
                             Swal.fire(
                                 'Deleted!',
                                 'The user has been deleted.',
@@ -91,7 +91,7 @@ const AddFriend = () => {
             {/* <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"> */}
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 ">
                 {
-                    users?.map(data => <div key={data._id} className="card w-64  shadow-xl">
+                    addFriends?.map(data => <div key={data._id} className="card w-64  shadow-xl">
                         <figure className="px-10 pt-10">
                             <img src={data.photo} alt="User Profile" className="rounded-xl h-52 w-60" />
                         </figure>

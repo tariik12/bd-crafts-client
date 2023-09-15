@@ -17,7 +17,7 @@ const Categories = () => {
 
   return (
     <>
-      <div className="flex flex-col items-start justify-center overflow-x-auto">
+      <div className="flex flex-col items-start justify-center overflow-x-auto md:fixed">
         <h1 className="text-xl font-semibold">Product Category</h1>
         {categories.map((item, i) => (
           <Link

@@ -5,6 +5,8 @@ import {
   FaHouse,
   FaRegBell,
   FaSistrix,
+  FaUserLarge,
+ 
 } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSideBar from "../../../Pages/Home/LeftSideBar/LeftSideBar";
@@ -36,7 +38,7 @@ const Navbar = () => {
     }
     setLoading(true);
 
-    fetch(`https://bd-crafts-server.vercel.appc/search/${searchText}`)
+    fetch(`https://bd-crafts-server.vercel.app/search/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -56,7 +58,7 @@ const Navbar = () => {
           <FaHouse size={25} className="text-white" />
         </Link>
       </li>
-      {/* <li className="font-bold text-xl">
+      <li className="font-bold text-xl">
         <div className="relative">
           <div className="">
             <Link to="/findFriend">
@@ -64,7 +66,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-      </li> */}
+      </li>
       <li className="font-bold text-xl">
         <div className="relative">
           <div onClick={() => setOpenModal(!openModal)} className="">
