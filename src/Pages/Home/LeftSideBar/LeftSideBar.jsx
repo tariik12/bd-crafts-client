@@ -91,19 +91,16 @@ const navigate = useNavigate()
               </Link>
             </div>
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
-              <Link to="/conference" className="text-center hover:underline">
-                <RiLogoutCircleRLine className="text-[#7BB4FF] w-10 h-10 ms-6 mt-2" /> 
-                <div
-                        onClick={() => {
+              <button onClick={() => {
                           logOut();
                           toast.success("logout successful");
                           navigate("/login");
-                        }}
-                        className="px-4  hover:bg-neutral-100 transition font-semibold cursor-pointer duration-1000 "
-                      >
+                        }} className="text-center hover:underline px-4  hover:bg-neutral-100 transition font-semibold cursor-pointer duration-1000 ">
+                <RiLogoutCircleRLine className="text-[#7BB4FF] w-10 h-10 ms-6 mt-2" /> 
+               
                         Logout
-                      </div>
-              </Link>
+                     
+              </button>
    
             </div>
           </div>
