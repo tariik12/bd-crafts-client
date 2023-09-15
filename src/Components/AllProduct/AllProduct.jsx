@@ -1,22 +1,27 @@
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import Heading from "../Heading/Heading";
 import Loader from "../Loader";
 import Card from "./Card";
-import Heading from "../Heading/Heading";
-import Swal from "sweetalert2";
-import { Navigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../hooks/useAuth";
 
 const AllProduct = () => {
+  const { category } = useParams();
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const { data: data = [], refetch } = useQuery(["data"], async () => {
     setLoading(true);
-    const res = await fetch(`${import.meta.env.VITE_URL}/allProduct`);
+    const res = await fetch(`${import.meta.env.VITE_URL}/product/${category}`);
     setLoading(false);
     return res.json();
   });
+
+  useEffect(() => {
+    refetch();
+  }, [category, refetch]);
 
   const handleAddToCart = (item) => {
     const info = {
@@ -24,6 +29,7 @@ const AllProduct = () => {
       email: user?.email,
       img: item?.img,
       name: item?.name,
+      shopname: item?.shopname,
       price: item?.price,
       quantity: item?.quantity,
       sellerEmail: item?.sellerEmail,

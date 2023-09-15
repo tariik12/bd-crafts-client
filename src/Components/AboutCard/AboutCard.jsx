@@ -1,6 +1,6 @@
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-const AboutCard = () => {
+const AboutCard = ({ birthDate, location, relation, religion, working }) => {
   return (
     <>
       <div className="bg-blue-100 rounded-xl p-4 my-5">
@@ -8,27 +8,27 @@ const AboutCard = () => {
         <div className="text-xl">
           <p className="text-[#417FF8] flex gap-2">
             <FaExternalLinkAlt /> Working at
-            <span>Mahadi Handy Crafts Limited</span>
+            <span>{working}</span>
           </p>
           <p className="text-[#417FF8] flex gap-2">
             <FaExternalLinkAlt /> From
-            <span> Savar, Dhaka</span>
-          </p>
-          <p className="text-[#417FF8] flex gap-2">
-            <FaExternalLinkAlt /> Joined
-            <span> 25 March,2025</span>
-          </p>
-          <p className="text-[#417FF8] flex gap-2">
-            <FaExternalLinkAlt /> Relationship
-            <span> Single</span>
+            <span>{location}</span>
           </p>
           <p className="text-[#417FF8] flex gap-2">
             <FaExternalLinkAlt /> Date of Birth
-            <span> 05 March 1998</span>
+            <span>{birthDate}</span>
           </p>
           <p className="text-[#417FF8] flex gap-2">
+            <FaExternalLinkAlt /> Relationship
+            <span> {relation}</span>
+          </p>
+          {/* <p className="text-[#417FF8] flex gap-2">
+            <FaExternalLinkAlt /> Joined
+            <span> 05 March 1998</span>
+          </p> */}
+          <p className="text-[#417FF8] flex gap-2">
             <FaExternalLinkAlt /> Religion
-            <span>Islam</span>
+            <span>{religion}</span>
           </p>
         </div>
       </div>

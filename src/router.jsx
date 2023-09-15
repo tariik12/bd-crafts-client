@@ -5,8 +5,7 @@ import Register from "./Pages/Authentication/Register";
 import FindFriend from "./Pages/FindFriend/FindFriend";
 import Home from "./Pages/Home/Home";
 
-import ChatBox from "./Components/ChatBox/ChatBox";
-import MessageLayout from "./Layout/MessageLayout";
+
 import AddFriend from "./Pages/FindFriend/AddFriend";
 import AllFriend from "./Pages/FindFriend/AllFriend";
 import CreateGroup from "./Pages/FindFriend/CreateGroup";
@@ -16,7 +15,6 @@ import Profile from "./Pages/Profile/Profile";
 import Shop from "./Pages/Shop/Shop";
 import "./index.css";
 
-import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
 import MyCart from "./Components/Dashboard/GeneralUser/MyCart";
 import PayedProducts from "./Components/Dashboard/GeneralUser/PayedProducts";
 import PaymentHistory from "./Components/Dashboard/GeneralUser/PaymentHistory";
@@ -26,6 +24,7 @@ import SettingPage from "./Components/Navber/SettingPage/SettingPage";
 import DashboardLayout from "./Layout/Dashboard/DashboardLayout";
 
 import ManageProducts from "./Components/Dashboard/Admin/ManageProducts";
+import ManageUser from "./Components/Dashboard/Admin/ManageUser";
 import PendingSeller from "./Components/Dashboard/Admin/PendingSeller";
 import AddProducts from "./Components/Dashboard/Seller/AddProducts";
 import MyShop from "./Components/Dashboard/Seller/MyShop";
@@ -36,13 +35,21 @@ import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/Passwo
 import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
 import Security from "./Components/Navber/SettingPage/Security/Security";
 import SellerForm from "./Components/SellerForm/SellerForm";
+import MsgApp from "./Pages/MsgApp/MsgApp/MsgApp";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
-import ManageUser from "./Components/Dashboard/Admin/ManageUser";
 
+import AllProduct from "./Components/AllProduct/AllProduct";
 import EventPage from "./Components/Event/EventPage";
 import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
+import Edit from "./Components/Navber/SettingPage/Genarel/Edit";
+import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
 import SpecificShop from "./Components/SpecificShop/SpecificShop";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
+import EditProfile from "./Pages/EditProfile/EditProfile";
+
+import PaymentSuccess from "./Pages/Payment/PaymentSuccess";
+import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
+import VedioConference from "./Pages/VedioConference/VedioConference";
 
 const router = createBrowserRouter([
   {
@@ -53,7 +60,11 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      //mostafizur rahmaan
+      {
+        path: "/paymentSuccess/:id",
+        element: <PaymentSuccess />,
+      },
+
       {
         path: "/setting",
         element: (
@@ -119,11 +130,7 @@ const router = createBrowserRouter([
       //Rabeya Akter
       {
         path: "/findFriend",
-        element: (
-          <PrivetRoute>
-            <FindFriend />
-          </PrivetRoute>
-        ),
+        element: <FindFriend />,
       },
       {
         path: "/myGroup",
@@ -135,51 +142,45 @@ const router = createBrowserRouter([
       },
       {
         path: "/friendRequest",
-        element: (
-          <PrivetRoute>
-            <FriendRequest></FriendRequest>
-          </PrivetRoute>
-        ),
+        element: <FriendRequest></FriendRequest>,
       },
       {
         path: "/addFriend",
-        element: (
-          <PrivetRoute>
-            <AddFriend></AddFriend>
-          </PrivetRoute>
-        ),
+        element: <AddFriend></AddFriend>,
       },
       {
         path: "/allFriend",
-        element: (
-          <PrivetRoute>
-            <AllFriend></AllFriend>
-          </PrivetRoute>
-        ),
+        element: <AllFriend></AllFriend>,
       },
       {
         path: "/createGroup",
-        element: (
-          <PrivetRoute>
-            <CreateGroup></CreateGroup>
-          </PrivetRoute>
-        ),
+        element: <CreateGroup></CreateGroup>,
       },
 
       {
         path: "/shop",
         element: <Shop />,
+        children: [
+          {
+            path: "/shop/:category",
+            element: <AllProduct></AllProduct>,
+          },
+        ],
       },
+      {
+        path: "/editProfile",
+        element: <EditProfile></EditProfile>,
+      },
+     
       {
         path: "specificShop/:id",
         element: <SpecificShop />,
         loader: ({ params }) => fetch(`shopData.json/${params.id}`),
       },
-      // {
-      //   path:'updateToy/:id',
-      //   element:<UpdateToy></UpdateToy>,
-
-      // },
+      {
+        path: "/searchData",
+        element: <ShowSearchData />,
+      },
 
       {
         path: "/selerForm",
@@ -201,32 +202,15 @@ const router = createBrowserRouter([
   },
 
   // Rayhan
-  {
-    path: "messages",
-    element: (
-      <PrivetRoute>
-        <MessageLayout />
-      </PrivetRoute>
-    ),
-    children: [
-      {
-        path: "/messages",
-        element: <ChatBox />,
-      },
-    ],
-  },
+
   {
     path: "dashboard",
     element: (
-      <PrivetRoute>
+      // <PrivetRoute>
         <DashboardLayout />
-      </PrivetRoute>
+      // </PrivetRoute>
     ),
     children: [
-      {
-        path: "/dashboard",
-        element: <Dashboard></Dashboard>,
-      },
       {
         path: "payed",
         element: <PayedProducts />,
@@ -255,12 +239,13 @@ const router = createBrowserRouter([
       },
       {
         path: "manageUser",
-        element: <ManageUser/>,
+        element: <ManageUser />,
       },
       {
         path: "addProducts",
         element: <AddProducts />,
       },
+
       {
         path: "myShop",
         element: <MyShop />,
@@ -274,6 +259,35 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+
+  {
+    path: "/edit",
+    element: <Edit></Edit>,
+  },
+  {
+    path: "/msgApp",
+    element: (
+      <PrivetRoute>
+        <MsgApp />
+      </PrivetRoute>
+    ),
+  },
+  {
+    path: "/conference",
+    element: (
+      <PrivetRoute>
+        <VedioConference />
+      </PrivetRoute>
+    ),
+  },
+  {
+    path: "/meetRoom/:roomCode",
+    element: (
+      <PrivetRoute>
+        <RoomPage />
+      </PrivetRoute>
+    ),
   },
 ]);
 
