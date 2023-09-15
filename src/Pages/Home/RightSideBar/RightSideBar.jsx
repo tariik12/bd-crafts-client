@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 // import { FaExternalLinkAlt } from "react-icons/fa";
 import "./RightSideBar.css";
 // import { Link } from "react-router-dom";
-import {  ProductionQuantityLimits } from "@mui/icons-material";
+import { ProductionQuantityLimits } from "@mui/icons-material";
 import { Money } from "phosphor-react";
 
 const RightSideBar = () => {
@@ -24,7 +24,6 @@ const RightSideBar = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
-
 
   const settings = {
     autoplay: true,
@@ -53,18 +52,17 @@ const RightSideBar = () => {
                 </div>
               </div>
               <div className="flex justify-center items-center py-2">
-              <div>
-                <h2 className="font-bold"> Product: {product?.name}</h2>
-                <p className="flex items-center gap-3">
-                  <Money></Money>
-                  <h1>Price: {product?.price}</h1>
-                </p>
-                <p className="flex items-center gap-3">
-                 
-                  <ProductionQuantityLimits></ProductionQuantityLimits>
-                  <h1>Quantity: {product?.quantity}</h1>
-                </p>
-              </div>
+                <div>
+                  <h2 className="font-bold"> Product: {product?.name}</h2>
+                  <p className="flex items-center gap-3">
+                    <Money></Money>
+                    <h1>Price: {product?.price}</h1>
+                  </p>
+                  <p className="flex items-center gap-3">
+                    <ProductionQuantityLimits></ProductionQuantityLimits>
+                    <h1>Quantity: {product?.quantity}</h1>
+                  </p>
+                </div>
               </div>
             </div>
           ))}
