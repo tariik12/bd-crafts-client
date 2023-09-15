@@ -119,7 +119,7 @@ const Navbar = () => {
                 </ul>
               </div>
               <Link to="/">
-                <span className="text-[#FFF] md:text-[33px] text-[20px] font-normal capitalize">
+                <span className="text-[#FFF] md:text-[33px] text-[20px] font-normal">
                   bdCrafts
                 </span>
               </Link>
