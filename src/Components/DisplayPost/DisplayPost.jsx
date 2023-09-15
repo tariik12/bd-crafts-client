@@ -1,5 +1,4 @@
 import { FaComment, FaShare } from "react-icons/fa6";
-import { BiLike } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 import { FacebookShareButton, WhatsappShareButton } from "react-share";
 import { FacebookIcon, WhatsappIcon } from "react-share";
@@ -8,7 +7,7 @@ import { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { Navigate } from "react-router-dom";
-import { ThumbDown, ThumbUp } from "@mui/icons-material";
+import {ThumbUp } from "@mui/icons-material";
 
 const DisplayPost = ({ post }) => {
   const { user } = useContext(AuthContext);
