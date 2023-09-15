@@ -33,7 +33,7 @@ const Edit = () => {
   const handleUpdateName = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/updateUserName/${user?.email}`,
+        `${import.meta.env.VITE_URL}/updateUserName/${user?.email}`,
         {
           method: "PUT",
           headers: {
