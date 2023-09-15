@@ -54,7 +54,8 @@ const Payment = () => {
                 defaultValue={user.displayName}
                 placeholder='Your Name'
                 readOnly
-                {...register('buyerName',{ required: 'Product Name is required' })}
+               
+                {...register('buyerName',{ required: true })}
                 className="mt-1 p-2 border rounded w-full"
               />
             
