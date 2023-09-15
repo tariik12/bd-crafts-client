@@ -206,9 +206,9 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: (
-      // <PrivetRoute>
+      <PrivetRoute>
         <DashboardLayout />
-      // </PrivetRoute>
+      </PrivetRoute>
     ),
     children: [
       {
