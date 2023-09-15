@@ -67,13 +67,7 @@ const Navbar = () => {
           </div>
         </div>
       </li>
-      <li className="font-bold text-xl">
-        <div className="relative">
-          <div onClick={() => setOpenModal(!openModal)} className="">
-            <FaRegBell size={25} className="text-white" />
-          </div>
-        </div>
-      </li>
+
       <li className="font-bold text-xl">
         <div className="relative">
           <div className="">
