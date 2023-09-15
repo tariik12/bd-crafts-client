@@ -1,14 +1,17 @@
-import { FaComment, FaShare } from "react-icons/fa6";
-import { BiLike } from "react-icons/bi";
-import { useForm } from "react-hook-form";
-import { FacebookShareButton, WhatsappShareButton } from "react-share";
-import { FacebookIcon, WhatsappIcon } from "react-share";
-import { AuthContext } from "../../Provider/AuthProvider";
-import { useContext, useState } from "react";
+import { ThumbUp } from "@mui/icons-material";
 import { useQuery } from "@tanstack/react-query";
-import Swal from "sweetalert2";
+import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import { FaComment, FaShare } from "react-icons/fa6";
 import { Navigate } from "react-router-dom";
-import { ThumbDown, ThumbUp } from "@mui/icons-material";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "react-share";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const DisplayPost = ({ post }) => {
   const { user } = useContext(AuthContext);
@@ -87,7 +90,6 @@ const DisplayPost = ({ post }) => {
         </div>
         <div className="flex flex-col">
           <h1 className="font-bold text-xl">{post?.name}</h1>
-          
         </div>
       </div>
       <div className="py-5 text-black mb-3">
@@ -110,15 +112,17 @@ const DisplayPost = ({ post }) => {
               </div>
               <div className="p-4 rounded-3xl  shadow-lg pb-5 bg-[#FFF]">
                 <div className="flex items-center justify-between ">
-                  <span className="flex items-center gap-2"
-                  onClick={onLikeButtonClick}
+                  <span
+                    className="flex items-center gap-2"
+                    onClick={onLikeButtonClick}
                   >
                     <ThumbUp
                       size={25}
                       style={{ color: islike ? "blue" : "black" }}
-                      
                     />
-                    <p style={{ color: islike ? "blue" : "black" }}>Like {like ? 1 : ""}</p>
+                    <p style={{ color: islike ? "blue" : "black" }}>
+                      Like {like ? 1 : ""}
+                    </p>
                   </span>
 
                   <button
@@ -126,9 +130,7 @@ const DisplayPost = ({ post }) => {
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaComment size={20}
-                    color="blue"
-                    ></FaComment>
+                    <FaComment size={20} color="blue"></FaComment>
                     {comments?.length} Comment
                   </button>
                   <button
@@ -145,10 +147,10 @@ const DisplayPost = ({ post }) => {
           {/* Comment section */}
           <div className="">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex gap-3   mb-3 p-3">
+              <div className="flex gap-2 md:gap-3 items-center  mb-3 md:p-3">
                 <div className="mt-5    ">
                   <div className="avatar ">
-                    <div className="w-12 rounded-full">
+                    <div className="w-10 md:w-12 rounded-full">
                       <img src={user?.photoURL} />
                     </div>
                   </div>
@@ -158,12 +160,12 @@ const DisplayPost = ({ post }) => {
                     type="text"
                     placeholder="Write a comment"
                     {...register("comment", { required: true })}
-                    className="input input-bordered p-4   rounded-3xl  shadow-lg  bg-[#FFF]"
+                    className="p-2 md:p-4   rounded-3xl  shadow-lg  bg-[#FFF]"
                   />
                 </div>
                 <div className="text-center mt-3">
                   <input
-                    className="btn btn-primary mt-2 hover:bg-[#186DBE0F]"
+                    className="p-2 border-[2px] border-black rounded-xl  mt-2 hover:bg-[#186DBE0F]"
                     type="submit"
                     value="Send"
                   />
@@ -177,17 +179,18 @@ const DisplayPost = ({ post }) => {
           <div className="flex justify-center ">
             <div className="w-full max-w-6xl  ">
               <div className="p-4 rounded-3xl  shadow-lg pb-5 bg-[#FFF]">
-
-              <div className="flex items-center justify-between ">
-                  <span className="flex items-center gap-2"
-                  onClick={onLikeButtonClick}
+                <div className="flex items-center justify-between ">
+                  <span
+                    className="flex items-center gap-2"
+                    onClick={onLikeButtonClick}
                   >
                     <ThumbUp
                       size={25}
                       style={{ color: islike ? "blue" : "black" }}
-                      
                     />
-                    <p style={{ color: islike ? "blue" : "black" }}>Like {like ? 1 : ""}</p>
+                    <p style={{ color: islike ? "blue" : "black" }}>
+                      Like {like ? 1 : ""}
+                    </p>
                   </span>
 
                   <button
@@ -195,9 +198,7 @@ const DisplayPost = ({ post }) => {
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaComment size={20}
-                    color="blue"
-                    ></FaComment>
+                    <FaComment size={20} color="blue"></FaComment>
                     {comments?.length} Comment
                   </button>
                   <button
@@ -208,17 +209,16 @@ const DisplayPost = ({ post }) => {
                     <FaShare size={20} color="blue"></FaShare> Share
                   </button>
                 </div>
-
               </div>
             </div>
           </div>
           {/* Comment section */}
           <div className="">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex gap-3   mb-3 p-3">
+              <div className="flex gap-2 md:gap-3 items-center     mb-3 p-3">
                 <div className="mt-5    ">
                   <div className="avatar online">
-                    <div className="w-12 rounded-full">
+                    <div className="w-10 md:w-12 rounded-full">
                       <img src={user?.photoURL} />
                     </div>
                   </div>
@@ -228,12 +228,12 @@ const DisplayPost = ({ post }) => {
                     type="text"
                     placeholder="Write a comment"
                     {...register("comment", { required: true })}
-                    className="input input-bordered p-4   rounded-3xl  shadow-lg  bg-[#FFF]"
+                    className="p-2 md:p-4  rounded-3xl  shadow-lg  bg-[#FFF]"
                   />
                 </div>
                 <div className="text-center mt-3">
                   <input
-                    className="btn btn-primary mt-2 hover:bg-[#186DBE0F]"
+                    className="p-2 border-[2px] border-black rounded-xl  mt-2 hover:bg-[#186DBE0F]"
                     type="submit"
                     value="Send"
                   />
@@ -248,29 +248,30 @@ const DisplayPost = ({ post }) => {
 
       {openModal && (
         <>
-          <div className=" rounded-xl shadow-md w-[40vw]  max-h-screen bg-white  overflow-hidden text-sm ">
-            <div className="flex flex-col cursor-pointer px-4 py-4">
-              <div>
-                <h2 className="text-2xl">Comments</h2>
-                <div className="flex mt-4"></div>
-                <div className="">
-                  <span className="">
+          <div className="flex justify-center">
+            <div className=" rounded-xl shadow-md md:w-[40vw]  max-h-screen bg-white  overflow-hidden text-sm ">
+              <div className="flex flex-col cursor-pointer px-4 py-4">
+                <div className="w-full">
+                  <h2 className="text-2xl mb-3">Comments</h2>
+                  <div>
                     {comments?.map((c, i) => (
                       <div key={i}>
                         <div className="flex items-center gap-3">
                           <img
-                            className="w-12 rounded-full"
+                            className="w-10 md:w-12 rounded-full"
                             src={c?.userImg}
                             alt=""
                           />
-                          <p className="text-black">{c?.name}</p>
+                          <p className="text-black font-semibold text-xl">
+                            {c?.name}
+                          </p>
                         </div>
-                        <div className="ml-16 bg-slate-400 max-w-max p-2 rounded-2xl">
+                        <div className="ml-12 bg-slate-50 max-w-max p-2 rounded-2xl">
                           <p className="text-black ">{c?.comment}</p>
                         </div>
                       </div>
                     ))}
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>

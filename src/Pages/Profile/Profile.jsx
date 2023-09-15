@@ -45,7 +45,7 @@ const Profile = () => {
             followersCount={userData[0]?.followersCount}
           />
 
-          <div className="grid grid-cols-12 gap-16">
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-16">
             <div className="col-span-4 ">
               <UserProfileName
                 name={userData[0]?.name}
