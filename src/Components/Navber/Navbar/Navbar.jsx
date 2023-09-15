@@ -36,7 +36,7 @@ const Navbar = () => {
     }
     setLoading(true);
 
-    fetch(`https://bd-crafts-server.vercel.appc/search/${searchText}`)
+    fetch(`https://bd-crafts-server.vercel.app/search/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
