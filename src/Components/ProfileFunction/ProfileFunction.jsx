@@ -11,10 +11,10 @@ const ProfileFunction = () => {
             <FaExternalLinkAlt /> Edit Profile
           </Link>
         </p>
-        <p className="text-[#417FF8] text-xl flex gap-2">
+        {/* <p className="text-[#417FF8] text-xl flex gap-2">
           <FaExternalLinkAlt />
           Manage Your Groups
-        </p>
+        </p> */}
       </div>
     </>
   );

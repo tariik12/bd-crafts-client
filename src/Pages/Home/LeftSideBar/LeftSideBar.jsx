@@ -1,29 +1,28 @@
 // import { useEffect, useState } from "react";
 import { BsCalendarCheckFill } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 import { FaComment,  FaShoppingBasket } from "react-icons/fa";
 
 import { FaGear, FaShopware, FaUserGroup, FaVideo } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LeftSideBar.css";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 const LeftSideBar = () => {
-  // const [ setShop] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("shopData.json")
-  //     .then((res) => res.json())
-  //     .then((data) => setShop(data));
-  // }, []);
-
+const { logOut} = useContext(AuthContext)
+const navigate = useNavigate()
   return (
-    <div className="left lg:overflow-y-auto lg:bg-none p-5">
+    <div className="left lg:overflow-y-auto lg:bg-none p-5 mb-5">
       <div className=" flex flex-col ">
         <div className="bg-slate-200 md:bg-[#186DBE0F]  rounded-lg">
-          <div className="grid mb-5 grid-cols-2 gap-6 py-3 px-2 m-3 md:m-0">
+          <div className="grid mb-5 grid-cols-2 gap-3 py-3 px-2 m-3 md:m-0">
             {/* bookmark card */}
            
             {/* Connection Requests */}
-            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-6">
               <Link
                 to="/wholeSealerForm"
                 className="text-center hover:underline"
@@ -81,34 +80,34 @@ const LeftSideBar = () => {
             </div>
             <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
               <Link to="/conference" className="text-center hover:underline">
-                <FaVideo className="text-[#7BB4FF] w-10 h-10 ms-4" /> Vedio
+                <FaVideo className="text-[#7BB4FF] w-10 h-10 ms-9" /> Vedio
                 Conference
               </Link>
             </div>
-          </div>
-        </div>
-        {/* left side bar bottom  */}
-        {/* <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24 hidden lg:block md:m-0">
-          <h1 className="text-[#7BB4FF] text-2xl font-semibold">Shops</h1>
-        
-
-          {shop.map((singleShop) => (
-            <div
-              key={singleShop._id}
-              className="flex justify-between items-center my-1"
-            >
-              <img
-                src={singleShop?.Profile_image}
-                alt=""
-                className="w-10 h-10 rounded-full"
-              />
-              <p className="text-[#082B59]">{singleShop?.Name}</p>
-              <Link to={`/specificShop/${singleShop._id}`}>
-                <FaExternalLinkAlt />
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              <Link to="/profile" className="text-center hover:underline">
+                <CgProfile className="text-[#7BB4FF] w-10 h-10 ms-4" /> 
+              Profile
               </Link>
             </div>
-          ))}
-        </div> */}
+            <div className="bg-[#186DBE0F] rounded-lg shadow-md hover:shadow-lg  flex flex-col justify-center items-center p-2 gap-2">
+              <Link to="/conference" className="text-center hover:underline">
+                <RiLogoutCircleRLine className="text-[#7BB4FF] w-10 h-10 ms-6 mt-2" /> 
+                <div
+                        onClick={() => {
+                          logOut();
+                          toast.success("logout successful");
+                          navigate("/login");
+                        }}
+                        className="px-4  hover:bg-neutral-100 transition font-semibold cursor-pointer duration-1000 "
+                      >
+                        Logout
+                      </div>
+              </Link>
+   
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

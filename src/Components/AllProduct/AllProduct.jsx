@@ -11,7 +11,6 @@ const AllProduct = () => {
   const { category } = useParams();
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
-  console.log(category);
 
   const { data: data = [], refetch } = useQuery(["data"], async () => {
     setLoading(true);
