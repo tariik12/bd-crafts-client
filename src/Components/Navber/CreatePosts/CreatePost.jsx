@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 
 import { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import Swal from "sweetalert2";
 import { Navigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../Provider/AuthProvider";
 const CreatePost = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data) => {
     const name = user?.displayName;
     const img = user?.photoURL;
@@ -23,7 +24,7 @@ const CreatePost = () => {
         .then((data) => {
           if (data.insertedId) {
             Swal.fire({
-              position: "top-end",
+              position: "center",
               icon: "success",
               title: "Post Sucess",
               showConfirmButton: false,

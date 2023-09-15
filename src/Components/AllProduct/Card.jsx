@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Card = ({ d, handleAddToCart }) => {
   return (
-    <div>
-      <Link className="col-span-1 cursor-pointer group">
-        <div className="flex flex-col gap-1 w-full">
+    <div className="">
+      <Link className="col-span-1 cursor-pointer group ">
+        <div className="flex flex-col overflow-hidden gap-1 w-full justify-between h-[450px]">
           <div
             className="
             w-full 

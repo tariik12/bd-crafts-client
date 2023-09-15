@@ -1,7 +1,7 @@
-import { useState } from "react";
 
-const CategoryBox = ({ subCategory, name }) => {
-  const [isDropdownOpen] = useState(false);
+
+const CategoryBox = ({  name }) => {
+
 
   const selected = false;
   return (
