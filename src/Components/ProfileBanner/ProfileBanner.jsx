@@ -4,11 +4,19 @@ const ProfileBanner = ({ coverPhoto, profilePicture }) => {
       <section className="">
         <div className="mt-3">
           <div>
-            <img
-              src={coverPhoto}
-              alt="cover photo"
-              className="w-full h-96 rounded-xl"
-            />
+            {coverPhoto ? (
+              <img
+                src={coverPhoto}
+                alt="cover photo"
+                className="w-full h-96 rounded-xl"
+              />
+            ) : (
+              <img
+                src={"https://i.ibb.co/YdR6FSk/header-bg-12.jpg"}
+                alt="cover photo"
+                className="w-full h-96 rounded-xl"
+              />
+            )}
           </div>
         </div>
         <div className="w-4/5 mb-7 -my-10 mx-auto flex justify-between items-center">
