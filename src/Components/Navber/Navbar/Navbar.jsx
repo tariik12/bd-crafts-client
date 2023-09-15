@@ -3,10 +3,8 @@ import toast from "react-hot-toast";
 import {
   FaEnvelopeOpenText,
   FaHouse,
-  FaRegBell,
   FaSistrix,
   FaUserLarge,
- 
 } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSideBar from "../../../Pages/Home/LeftSideBar/LeftSideBar";
@@ -22,7 +20,6 @@ const Navbar = () => {
   const [openModal, setOpenModal] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [posts, setPosts] = useState([]);
-  console.log(posts);
   useEffect(() => {
     setLoading(true);
     fetch(`${import.meta.env.VITE_URL}/allposts`)
