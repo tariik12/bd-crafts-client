@@ -11,7 +11,7 @@ import { Money } from "phosphor-react";
 
 const RightSideBar = () => {
   const [products, setProducts] = useState([]);
-  const [friends, setFriends] = useState([]);
+
   console.log(products);
 
   useEffect(() => {
@@ -24,21 +24,12 @@ const RightSideBar = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
-  useEffect(() => {
-    fetch("https://bd-crafts-server.vercel.app/allFakeFriend")
-      .then((res) => res.json())
-      .then((data) => {
-        setProduct(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+
 
   const settings = {
     autoplay: true,
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
@@ -81,28 +72,7 @@ const RightSideBar = () => {
       </div>
 
 
-      <div className="bg-[#186DBE0F] py-2 px-3 mx-3 rounded-lg shadow-md mb-24">
-        <h1 className="text-xl font-bold text-center">All Friends</h1>
-        {/* shop list */}
-        {friends?.map((f) => (
-          <div
-            key={f?._id}
-            className="flex justify-between items-center my-1 p-3"
-          >
-            <div className="flex gap-5">
-            <img
-              src={f?.photo}
-              alt={f?.name}
-              className="w-10 h-10 rounded-full"
-            />
-            <p className="text-[#082B59]">{f?.name}</p>
-            </div>
-            {/* <Link>
-              <FaExternalLinkAlt />
-            </Link> */}
-          </div>
-        ))}
-      </div>
+   
     </div>
   );
 };
