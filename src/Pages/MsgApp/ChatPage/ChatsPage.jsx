@@ -51,7 +51,7 @@ useEffect(()=>{
           <div  className="logo-tab">
           <Link to="/">bdCrafts</Link>
           </div>
-          <div className="logout-tab">Logout</div>
+          
           <ChatEngine
             height="calc(100vh-66px)"
             projectID={import.meta.env.VITE_CHAT_ENGINE_PROJECT_ID}
