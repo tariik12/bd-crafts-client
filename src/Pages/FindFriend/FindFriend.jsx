@@ -12,7 +12,7 @@ const FindFriend = () => {
     useEffect(() => {
 
         // here will show all friends
-        fetch('http://localhost:5000/allFriend')
+        fetch(`${import.meta.env.VITE_URL}/allFriend`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

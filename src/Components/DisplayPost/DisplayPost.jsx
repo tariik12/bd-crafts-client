@@ -118,9 +118,9 @@ const DisplayPost = ({ post }) => {
                   >
                     <ThumbUp
                       size={25}
-                      style={{ color: islike ? "blue" : "black" }}
+                      style={{ color: islike ? "#327ee0" : "black" }}
                     />
-                    <p style={{ color: islike ? "blue" : "black" }}>
+                    <p style={{ color: islike ? "#327ee0" : "black" }}>
                       Like {like ? 1 : ""}
                     </p>
                   </span>
@@ -130,7 +130,7 @@ const DisplayPost = ({ post }) => {
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaComment size={20} color="blue"></FaComment>
+                    <FaComment size={20} className="text-[#327ee0]"></FaComment>
                     {comments?.length} Comment
                   </button>
                   <button
@@ -138,7 +138,7 @@ const DisplayPost = ({ post }) => {
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    <FaShare size={20} color="blue"></FaShare> Share
+                    <FaShare size={20} className="text-[#327ee0]"></FaShare> Share
                   </button>
                 </div>
               </div>
