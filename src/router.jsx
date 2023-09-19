@@ -2,14 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "./Layout/Main";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
-import FindFriend from "./Pages/FindFriend/FindFriend";
+
 import Home from "./Pages/Home/Home";
 
 
-import AddFriend from "./Pages/FindFriend/AddFriend";
-import AllFriend from "./Pages/FindFriend/AllFriend";
-import CreateGroup from "./Pages/FindFriend/CreateGroup";
-import FriendRequest from "./Pages/FindFriend/FriendRequest";
+
 import Payment from "./Pages/Payment/Payment";
 import Profile from "./Pages/Profile/Profile";
 import Shop from "./Pages/Shop/Shop";
@@ -40,10 +37,9 @@ import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 import AllProduct from "./Components/AllProduct/AllProduct";
 import EventPage from "./Components/Event/EventPage";
-import MyGroupPage from "./Components/MyGroupPage/MyGroupPage";
+
 import Edit from "./Components/Navber/SettingPage/Genarel/Edit";
 import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
-import SpecificShop from "./Components/SpecificShop/SpecificShop";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 
@@ -128,34 +124,12 @@ const router = createBrowserRouter([
         ),
       },
       //Rabeya Akter
-      {
-        path: "/findFriend",
-        element: <FindFriend />,
-      },
-      {
-        path: "/myGroup",
-        element: <MyGroupPage />,
-      },
+     
       {
         path: "/eventPage",
         element: <EventPage />,
       },
-      {
-        path: "/friendRequest",
-        element: <FriendRequest></FriendRequest>,
-      },
-      {
-        path: "/addFriend",
-        element: <AddFriend></AddFriend>,
-      },
-      {
-        path: "/allFriend",
-        element: <AllFriend></AllFriend>,
-      },
-      {
-        path: "/createGroup",
-        element: <CreateGroup></CreateGroup>,
-      },
+
 
       {
         path: "/shop",
@@ -172,11 +146,7 @@ const router = createBrowserRouter([
         element: <EditProfile></EditProfile>,
       },
      
-      {
-        path: "specificShop/:id",
-        element: <SpecificShop />,
-        loader: ({ params }) => fetch(`shopData.json/${params.id}`),
-      },
+    
       {
         path: "/searchData",
         element: <ShowSearchData />,

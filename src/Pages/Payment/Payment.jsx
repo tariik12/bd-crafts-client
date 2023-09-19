@@ -1,6 +1,3 @@
-import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./CheckoutForm";
-import { Elements } from "@stripe/react-stripe-js";
 
 
 
@@ -10,7 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import moment from "moment/moment";
 // TODO: PROVIDE PUBLISH KEY
-const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_pk);
+
 const Payment = () => {
     const {user} = useContext(AuthContext)
     const { register, handleSubmit,} = useForm();
@@ -105,14 +102,9 @@ const Payment = () => {
                Confirm Order
             </button>
             </div>
-       
           </form>
         </div>
-            {/* <button  className="btn mx-a w-32">payment ssl</button> */}
-            <Elements stripe={stripePromise}> 
-
-            <CheckoutForm cart={cart} price={productData.price}/>
-            </Elements>
+        
         </div>
     );
 };
