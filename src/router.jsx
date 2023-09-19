@@ -40,6 +40,7 @@ import ShowSearchData from "./Components/ShowSearchData/ShowSearchData";
 import WholesalerForm from "./Components/WholesalerForm/WholesalerForm";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 
+import MsgApp from "./Pages/MsgApp/MsgApp/MsgApp";
 import PaymentSuccess from "./Pages/Payment/PaymentSuccess";
 import RoomPage from "./Pages/VedioConference/RoomPage/RoomPage";
 import VedioConference from "./Pages/VedioConference/VedioConference";
@@ -230,14 +231,14 @@ const router = createBrowserRouter([
     path: "/edit",
     element: <Edit></Edit>,
   },
-  // {
-  //   path: "/msgApp",
-  //   element: (
-  //     <PrivetRoute>
-  //       <MsgApp />
-  //     </PrivetRoute>
-  //   ),
-  // },
+  {
+    path: "/msgApp",
+    element: (
+      <PrivetRoute>
+        <MsgApp />
+      </PrivetRoute>
+    ),
+  },
   {
     path: "/conference",
     element: (
