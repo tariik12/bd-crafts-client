@@ -4,7 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import Login from "../../Authentication/Login";
 import ChatsPage from "../ChatPage/ChatsPage";
 
-function App() {
+const MsgApp = () => {
   const { user } = useAuth();
 
   if (!user) {
@@ -12,6 +12,6 @@ function App() {
   } else {
     return <ChatsPage />;
   }
-}
+};
 
-export default App;
+export default MsgApp;
