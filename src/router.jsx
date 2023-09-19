@@ -5,8 +5,6 @@ import Register from "./Pages/Authentication/Register";
 
 import Home from "./Pages/Home/Home";
 
-
-
 import Payment from "./Pages/Payment/Payment";
 import Profile from "./Pages/Profile/Profile";
 import Shop from "./Pages/Shop/Shop";
@@ -32,7 +30,6 @@ import PasswordAndSecurity from "./Components/Navber/SettingPage/Security/Passwo
 import PersonalDetails from "./Components/Navber/SettingPage/Security/PersonalDetails/PersonalDetails";
 import Security from "./Components/Navber/SettingPage/Security/Security";
 import SellerForm from "./Components/SellerForm/SellerForm";
-import MsgApp from "./Pages/MsgApp/MsgApp/MsgApp";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 import AllProduct from "./Components/AllProduct/AllProduct";
@@ -124,12 +121,11 @@ const router = createBrowserRouter([
         ),
       },
       //Rabeya Akter
-     
+
       {
         path: "/eventPage",
         element: <EventPage />,
       },
-
 
       {
         path: "/shop",
@@ -145,8 +141,7 @@ const router = createBrowserRouter([
         path: "/editProfile",
         element: <EditProfile></EditProfile>,
       },
-     
-    
+
       {
         path: "/searchData",
         element: <ShowSearchData />,
@@ -235,14 +230,14 @@ const router = createBrowserRouter([
     path: "/edit",
     element: <Edit></Edit>,
   },
-  {
-    path: "/msgApp",
-    element: (
-      <PrivetRoute>
-        <MsgApp />
-      </PrivetRoute>
-    ),
-  },
+  // {
+  //   path: "/msgApp",
+  //   element: (
+  //     <PrivetRoute>
+  //       <MsgApp />
+  //     </PrivetRoute>
+  //   ),
+  // },
   {
     path: "/conference",
     element: (
