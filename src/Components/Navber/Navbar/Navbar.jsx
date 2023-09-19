@@ -55,7 +55,7 @@ const Navbar = () => {
           <FaHouse size={25} className="text-white" />
         </Link>
       </li>
-      <li className="font-bold text-xl">
+      {/* <li className="font-bold text-xl">
         <div className="relative">
           <div className="">
             <Link to="/findFriend">
@@ -63,7 +63,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-      </li>
+      </li> */}
 
       <li className="font-bold text-xl">
         <div className="relative">
