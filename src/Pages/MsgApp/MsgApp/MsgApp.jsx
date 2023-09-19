@@ -1,20 +1,16 @@
-
-
 import "./MsgApp.css";
 
-import ChatsPage from "../ChatPage/ChatsPage";
 import useAuth from "../../../hooks/useAuth";
 import Login from "../../Authentication/Login";
-
+import ChatsPage from "../ChatPage/ChatsPage";
 
 function App() {
-
-const {user} =useAuth()
+  const { user } = useAuth();
 
   if (!user) {
-    return <Login/>;
+    return <Login />;
   } else {
-    return <ChatsPage  />;
+    return <ChatsPage />;
   }
 }
 
