@@ -1,8 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../../Provider/AuthProvider";
 
 const Account = () => {
   const { user } = useContext(AuthContext);
+  const [userData, setUserData] = useState(null);
+  // console.log(userData);
+
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`https://bd-crafts-server.vercel.app/singleUser/${user?.email}`)
+        .then((response) => response.json())
+        .then((data) => setUserData(data))
+        .catch((error) => console.error("Error fetching user data:", error));
+    }
+  }, [user?.email]);
   return (
     <div className="grid grid-col-1  gap-2 h-screen bg-gray-400 bg-opacity-30 px-20">
       <div className="flex mt-40 justify-center">
@@ -20,7 +31,7 @@ const Account = () => {
           <div className="mt-4 bg-[#FFF] px-4 rounded-lg">
             <div className="flex justify-between items-center py-2">
               <div>
-                <h2 className="font-semibold">{user?.displayName}</h2>
+                <h2 className="font-semibold">{userData?.[0].name}</h2>
                 <span className="text-black text-opacity-70">Facebook</span>
               </div>
               <button className="rounded-2xl border-[1px] px-4 py-1">
@@ -34,7 +45,7 @@ const Account = () => {
                 className="w-12 h-12 rounded-full"
                 alt="profile"
               />
-              <h2>{user?.displayName}</h2>
+              <h2>{userData?.[0].name}</h2>
             </div>
           </div>
         </div>

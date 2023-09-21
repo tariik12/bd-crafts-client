@@ -4,6 +4,7 @@ import { FaAngleRight } from "react-icons/fa6";
 
 const PersonalDetails = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
 
   return (
     <div>

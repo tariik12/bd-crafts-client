@@ -39,31 +39,31 @@ const General = () => {
             <tr className="bg-white h-[47px] px-4 ">
                 <td className="pl-2">Name :</td>
                 <td>{userData?.[0].name}</td>
-                <td className="pl-2 bg-slate-600 text-white rounded">
+                <td className="pl-2 bg-slate-500 text-white rounded">
                   <Link to="/edit">Update</Link>
                 </td>
               </tr>
               <br />
               <tr className="bg-white h-[47px] px-4">
                 <td className="pl-2">Status</td>
-                <td>todo</td>
-                <td className="pl-2">
+                <td>Todo</td>
+                <td className="pl-2 text-white">
                   <Link to="#">Update</Link>
                 </td>
               </tr>
                <br />
                <tr className="bg-white h-[47px] px-4">
                 <td className="pl-2">Email:</td>
-                <td>{userData?.email}</td>
-                <td className="pl-2">
+                <td>{userData?.[0].email}</td>
+                 <td className="pl-2 text-white">
                   <Link to="/edit">Update</Link>
-                </td>
+                </td> 
               </tr>
               <br />
               <tr className="bg-white h-[47px] px-4">
-                <td className="pl-2">Username:</td>
-                <td>{userData?.name}</td>
-                <td className="pl-2">
+                <td className="pl-2">Role:</td>
+                <td>{userData?.[0].role}</td>
+                <td className="pl-2 text-white">
                   <Link to="#">Update</Link>
                 </td>
               </tr>

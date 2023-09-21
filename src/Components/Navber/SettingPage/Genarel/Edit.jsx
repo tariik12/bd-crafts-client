@@ -31,9 +31,10 @@ const Edit = () => {
   }, [user]);
 
   const handleUpdateName = async () => {
+    console.log("clicked");
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_URL}/updateUserName/${user?.email}`,
+        `https://bd-crafts-server.vercel.app/updateUserName/${user?.email}`,
         {
           method: "PUT",
           headers: {
