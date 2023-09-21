@@ -3,7 +3,6 @@ import toast from "react-hot-toast";
 import {
   FaEnvelopeOpenText,
   FaHouse,
-  FaRegBell,
   FaSistrix,
   FaUserLarge,
  
